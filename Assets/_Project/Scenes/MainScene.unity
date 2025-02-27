@@ -166,13 +166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf58dded1cc7054aa6549f7a9925476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableConstantAcceleration: 1
-  enablePush: 1
   maxSpeed: 10
   defaultAcceleration: 200
-  pushForce: 100
+  pushForce: 10
   pushDelay: 2
-  forceMode: 2
 --- !u!1 &128002381
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class GondolaMovementManager : MonoBehaviour
 {
-
-
-    [SerializeField] bool enableConstantAcceleration = true;
-    [SerializeField] bool enablePush = true;
     [SerializeField] float maxSpeed = 100;
     [SerializeField] float defaultAcceleration = 10;
     [SerializeField] float pushForce = 10;
     [SerializeField] float pushDelay = 1.5f;
-    [SerializeField] ForceMode forceMode;
+
 
     Rigidbody rb;
+
     float lastPushTime;
 
     void Awake()
@@ -33,12 +30,12 @@ public class GondolaMovementManager : MonoBehaviour
         if (movement.magnitude <= 0)
             return;
 
-        if (enableConstantAcceleration && rb.velocity.magnitude < maxSpeed)
+        if (rb.velocity.magnitude < maxSpeed)
         {
             AddDefaultAcceleration(movement);
         }
 
-        if (enablePush && Time.time - lastPushTime > pushDelay)
+        if (Time.time - lastPushTime > pushDelay)
         {
             Push(movement);
         }
@@ -51,7 +48,7 @@ public class GondolaMovementManager : MonoBehaviour
 
     private void Push(Vector3 movement)
     {
-        rb.AddForce(movement * 10, forceMode);
+        rb.AddForce(movement * pushForce, ForceMode.Impulse);
         lastPushTime = Time.time;
     }
 }
