@@ -77,11 +77,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea394bdb334e2c24baa7bc8382533774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockXRotation: 1
-  lockYRotation: 0
-  lookZRotation: 1
   target: {fileID: 2727787613350019760}
   rotationSpeed: 1
+  freeRotations: {x: 0, y: 1, z: 0}
 --- !u!1 &5678853773456058462
 GameObject:
   m_ObjectHideFlags: 0
