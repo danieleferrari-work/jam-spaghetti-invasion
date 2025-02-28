@@ -2,20 +2,15 @@ using UnityEngine;
 
 public class FollowCameraRotation : MonoBehaviour
 {
-    [SerializeField] bool lockXRotation;
-    [SerializeField] bool lockYRotation;
-    [SerializeField] bool lookZRotation;
     [SerializeField] Transform target;
     [SerializeField] float rotationSpeed = 1;
-
-    Vector3 lockVector = Vector3.zero;
+    [Tooltip("Array that allow to lock axis rotation. 0 means lock, 1 means free.")]
+    [SerializeField] Vector3 freeRotations;
 
     void Awake()
     {
         if (target == null)
             target = transform;
-
-        lockVector = CalculateLockVector();
     }
 
     void FixedUpdate()
@@ -26,22 +21,7 @@ public class FollowCameraRotation : MonoBehaviour
     private void RotateTransform()
     {
         var cameraRotation = Camera.main.transform.rotation;
-        var targetRotation = Vector3.Scale(cameraRotation.eulerAngles, lockVector);
+        var targetRotation = Vector3.Scale(cameraRotation.eulerAngles, freeRotations);
         target.transform.rotation = Quaternion.Slerp(target.transform.rotation, Quaternion.Euler(targetRotation), rotationSpeed * Time.fixedDeltaTime);
-    }
-
-    private Vector3 CalculateLockVector()
-    {
-        var result = Vector3.zero;
-        if (!lockXRotation)
-            result += new Vector3(1, 0, 0);
-
-        if (!lockYRotation)
-            result += new Vector3(0, 1, 0);
-
-        if (!lookZRotation)
-            result += new Vector3(0, 0, 1);
-
-        return result;
     }
 }
