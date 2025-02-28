@@ -27,7 +27,7 @@ public class FollowCameraRotation : MonoBehaviour
     {
         var cameraRotation = Camera.main.transform.rotation;
         var targetRotation = Vector3.Scale(cameraRotation.eulerAngles, lockVector);
-        target.transform.rotation = Quaternion.Euler(targetRotation);
+        target.transform.rotation = Quaternion.Slerp(target.transform.rotation, Quaternion.Euler(targetRotation), rotationSpeed * Time.fixedDeltaTime);
     }
 
     private Vector3 CalculateLockVector()

@@ -2392,16 +2392,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1388026205919450347, guid: ef222eb67b79b2847a5b826462c45983,
-        type: 3}
-      propertyPath: lockXRotation
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1388026205919450347, guid: ef222eb67b79b2847a5b826462c45983,
-        type: 3}
-      propertyPath: lookZRotation
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2727787613350019760, guid: ef222eb67b79b2847a5b826462c45983,
         type: 3}
       propertyPath: m_LocalPosition.x
