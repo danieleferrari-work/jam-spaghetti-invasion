@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
-using static UnityEngine.InputSystem.InputAction;
 
 public class GondolaMovementManager : MonoBehaviour
 {
@@ -12,65 +10,63 @@ public class GondolaMovementManager : MonoBehaviour
 
 
     Rigidbody rb;
-    PlayerInput playerInput;
+    PlayerInputActions inputActions;
 
     float lastPushTime;
-    Vector3 inputMovement;
-    Vector3 movement;
 
 
     void Awake()
     {
         rb = GetComponentInParent<Rigidbody>();
-        playerInput = FindObjectOfType<PlayerInput>();
+        inputActions = new PlayerInputActions();
 
         lastPushTime = Time.time + pushDelay * 2;
-        playerInput.actions["Move"].started += OnMoveStarted;
-        playerInput.actions["Move"].canceled += OnMoveCanceled;
+    }
+
+    void OnEnable()
+    {
+        inputActions.Player.Move.Enable();
+    }
+
+    void OnDisable()
+    {
+        inputActions.Player.Move.Disable();
     }
 
     void FixedUpdate()
     {
-        if (inputMovement.magnitude <= 0)
+        var inputValue = inputActions.Player.Move.ReadValue<Vector2>();
+
+        if (inputValue.magnitude <= 0)
             return;
 
-        CalculateMovement();
+        var movement = CalculateMovement(inputValue);
 
         if (rb.velocity.magnitude < maxSpeed)
         {
-            AddDefaultAcceleration();
+            AddDefaultAcceleration(movement);
         }
 
         if (Time.time - lastPushTime > pushDelay)
         {
-            Push();
+            Push(movement);
         }
     }
 
-    public void OnMoveStarted(CallbackContext context)
+    private Vector3 CalculateMovement(Vector2 inputValue)
     {
-        inputMovement = context.ReadValue<Vector2>();
+        var forwardMovement = rb.transform.forward * inputValue.y;
+        var lateralMovement = rb.transform.right * inputValue.x * lateralDegradation;
+
+        return forwardMovement + lateralMovement;
     }
 
-    public void OnMoveCanceled(CallbackContext context)
-    {
-        inputMovement = Vector2.zero;
-    }
-
-    private void CalculateMovement()
-    {
-        var forwardMovement = rb.transform.forward * inputMovement.y;
-        var lateralMovement = rb.transform.right * inputMovement.x * lateralDegradation;
-
-        movement = forwardMovement + lateralMovement;
-    }
-
-    private void AddDefaultAcceleration()
+    private void AddDefaultAcceleration(Vector3 movement)
     {
         rb.AddForce(movement * defaultAcceleration, ForceMode.Acceleration);
     }
 
-    private void Push()
+    private void Push(Vector3 movement)
     {
         rb.AddForce(movement * pushForce, ForceMode.Impulse);
         lastPushTime = Time.time;
