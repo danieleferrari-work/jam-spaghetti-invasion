@@ -5,6 +5,7 @@ using static UnityEngine.InputSystem.InputAction;
 public class GondolaMovementManager : MonoBehaviour
 {
     [SerializeField] float maxSpeed = 100;
+    [SerializeField] float lateralDegradation = .5f;
     [SerializeField] float defaultAcceleration = 10;
     [SerializeField] float pushForce = 10;
     [SerializeField] float pushDelay = 1.5f;
@@ -14,8 +15,9 @@ public class GondolaMovementManager : MonoBehaviour
     PlayerInput playerInput;
 
     float lastPushTime;
-    bool isMoving = false;
+    Vector3 inputMovement;
     Vector3 movement;
+
 
     void Awake()
     {
@@ -29,41 +31,46 @@ public class GondolaMovementManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isMoving)
+        if (inputMovement.magnitude <= 0)
+            return;
+
+        CalculateMovement();
+
+        if (rb.velocity.magnitude < maxSpeed)
         {
-            if (movement.magnitude <= 0)
-                return;
+            AddDefaultAcceleration();
+        }
 
-            if (rb.velocity.magnitude < maxSpeed)
-            {
-                AddDefaultAcceleration(movement);
-            }
-
-            if (Time.time - lastPushTime > pushDelay)
-            {
-                Push(movement);
-            }
+        if (Time.time - lastPushTime > pushDelay)
+        {
+            Push();
         }
     }
 
     public void OnMoveStarted(CallbackContext context)
     {
-        isMoving = true;
-        var inputValue = context.ReadValue<Vector2>();
-        movement = new Vector3(inputValue.x, 0, inputValue.y);
+        inputMovement = context.ReadValue<Vector2>();
     }
 
     public void OnMoveCanceled(CallbackContext context)
     {
-        isMoving = false;
+        inputMovement = Vector2.zero;
     }
 
-    private void AddDefaultAcceleration(Vector3 movement)
+    private void CalculateMovement()
+    {
+        var forwardMovement = rb.transform.forward * inputMovement.y;
+        var lateralMovement = rb.transform.right * inputMovement.x * lateralDegradation;
+
+        movement = forwardMovement + lateralMovement;
+    }
+
+    private void AddDefaultAcceleration()
     {
         rb.AddForce(movement * defaultAcceleration, ForceMode.Acceleration);
     }
 
-    private void Push(Vector3 movement)
+    private void Push()
     {
         rb.AddForce(movement * pushForce, ForceMode.Impulse);
         lastPushTime = Time.time;
