@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5291068024447023394}
-  - component: {fileID: 2615162908342267487}
+  - component: {fileID: 4470150323111342037}
   m_Layer: 0
   m_Name: Rotation Manager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1161043690333919677}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2615162908342267487
+--- !u!114 &4470150323111342037
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,11 +41,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 658190317095717136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a5f249da05479a468682c645e7f7b4a, type: 3}
+  m_Script: {fileID: 11500000, guid: ed7ac07ffa2acfe47bced3992aa086d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 100
-  movementRange: 30
+  target: {fileID: 1161043690333919677}
+  rotationSpeed: 1
 --- !u!1 &1835744824374280233
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 10
+  lateralDegradation: 0.5
   defaultAcceleration: 200
   pushForce: 10
   pushDelay: 2
