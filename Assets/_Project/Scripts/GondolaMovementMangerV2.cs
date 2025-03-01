@@ -11,6 +11,7 @@ public class GondolaMovementManagerV2 : MonoBehaviour
 
     Rigidbody rb;
     PlayerInputActions inputActions;
+    GondolaOscillator gondolaOscillator;
 
     float lastPushTime;
 
@@ -19,6 +20,7 @@ public class GondolaMovementManagerV2 : MonoBehaviour
     {
         rb = GetComponentInParent<Rigidbody>();
         inputActions = new PlayerInputActions();
+        gondolaOscillator = rb.GetComponentInChildren<GondolaOscillator>();
 
         lastPushTime = Time.time + pushDelay * 2;
     }
@@ -37,20 +39,34 @@ public class GondolaMovementManagerV2 : MonoBehaviour
     {
         var inputValue = inputActions.Player.Move.ReadValue<Vector2>();
 
-        if (inputValue.magnitude <= 0)
-            return;
-
-        if (rb.velocity.magnitude < maxSpeed)
+        if (inputValue.magnitude > 0)
         {
-            AddDefaultAcceleration(inputValue.y);
-
-            if (Time.time - lastPushTime > pushDelay)
+            if (rb.velocity.magnitude < maxSpeed)
             {
-                Push(inputValue.y);
+                AddDefaultAcceleration(inputValue.y);
+
+                if (Time.time - lastPushTime > pushDelay)
+                {
+                    Push(inputValue.y);
+                }
             }
+            ApplyRotation(inputValue.x);
         }
 
-        ApplyRotation(inputValue.x);
+        ApplyOscillationBobbing();
+        ApplyOscillationRoll();
+    }
+
+    private void ApplyOscillationRoll()
+    {
+        var roll = gondolaOscillator.CalculateOscillationRoll();
+        rb.MoveRotation(Quaternion.Euler(new Vector3(rb.rotation.eulerAngles.x, rb.rotation.eulerAngles.y, roll)));
+    }
+
+    private void ApplyOscillationBobbing()
+    {
+        var bobbing = gondolaOscillator.CalculateOscillationBobbing();
+        rb.MovePosition(new Vector3(rb.transform.position.x, bobbing, rb.transform.position.z));
     }
 
     private void ApplyRotation(float rotation)
