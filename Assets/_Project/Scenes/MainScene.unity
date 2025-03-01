@@ -4662,7 +4662,7 @@ Transform:
   m_GameObject: {fileID: 1364493680}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.25, z: 1.9700012}
+  m_LocalPosition: {x: 0, y: 4.9700003, z: 1.9700012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -5518,7 +5518,7 @@ Transform:
   m_GameObject: {fileID: 1823688464}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.25, z: 1.9700012}
+  m_LocalPosition: {x: 0, y: 4.9700003, z: 1.9700012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -6414,7 +6414,7 @@ PrefabInstance:
     - target: {fileID: 1161043690333919677, guid: 50611c472cfe3e04da05b0d28fad0766,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.72
       objectReference: {fileID: 0}
     - target: {fileID: 1161043690333919677, guid: 50611c472cfe3e04da05b0d28fad0766,
         type: 3}
@@ -6456,6 +6456,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2383147616442595774, guid: 50611c472cfe3e04da05b0d28fad0766,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2615162908342267487, guid: 50611c472cfe3e04da05b0d28fad0766,
         type: 3}
       propertyPath: rotationSpeed
@@ -6464,7 +6469,7 @@ PrefabInstance:
     - target: {fileID: 4470150323111342037, guid: 50611c472cfe3e04da05b0d28fad0766,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4470150323111342037, guid: 50611c472cfe3e04da05b0d28fad0766,
         type: 3}
@@ -6486,10 +6491,30 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4586525690157021440, guid: 50611c472cfe3e04da05b0d28fad0766,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5002353015082170003, guid: 50611c472cfe3e04da05b0d28fad0766,
         type: 3}
       propertyPath: m_Name
       value: Gondola
+      objectReference: {fileID: 0}
+    - target: {fileID: 7803630129569707460, guid: 50611c472cfe3e04da05b0d28fad0766,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7803630129569707460, guid: 50611c472cfe3e04da05b0d28fad0766,
+        type: 3}
+      propertyPath: pushForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7803630129569707460, guid: 50611c472cfe3e04da05b0d28fad0766,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
