@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GondolaOscillator : MonoBehaviour
+public class GondolaFloatingManager : MonoBehaviour
 {
     [Header("Bobbing Settings")]
     [SerializeField] private float bobFrequency = 1.0f;

@@ -11,7 +11,7 @@ public class GondolaMovementManagerV2 : MonoBehaviour
 
     Rigidbody rb;
     PlayerInputActions inputActions;
-    GondolaOscillator gondolaOscillator;
+    GondolaFloatingManager gondolaFloatingManager;
 
     float lastPushTime;
 
@@ -20,7 +20,7 @@ public class GondolaMovementManagerV2 : MonoBehaviour
     {
         rb = GetComponentInParent<Rigidbody>();
         inputActions = new PlayerInputActions();
-        gondolaOscillator = rb.GetComponentInChildren<GondolaOscillator>();
+        gondolaFloatingManager = rb.GetComponentInChildren<GondolaFloatingManager>();
 
         lastPushTime = Time.time + pushDelay * 2;
     }
@@ -59,13 +59,13 @@ public class GondolaMovementManagerV2 : MonoBehaviour
 
     private void ApplyOscillationRoll()
     {
-        var roll = gondolaOscillator.CalculateOscillationRoll();
+        var roll = gondolaFloatingManager.CalculateOscillationRoll();
         rb.MoveRotation(Quaternion.Euler(new Vector3(rb.rotation.eulerAngles.x, rb.rotation.eulerAngles.y, roll)));
     }
 
     private void ApplyOscillationBobbing()
     {
-        var bobbing = gondolaOscillator.CalculateOscillationBobbing();
+        var bobbing = gondolaFloatingManager.CalculateOscillationBobbing();
         rb.MovePosition(new Vector3(rb.transform.position.x, bobbing, rb.transform.position.z));
     }
 
