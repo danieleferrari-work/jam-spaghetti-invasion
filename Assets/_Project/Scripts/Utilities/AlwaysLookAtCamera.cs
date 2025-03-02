@@ -21,7 +21,6 @@ public class AlwaysLookAtCamera : MonoBehaviour
     {
         Vector3 dir = mainCamera.transform.position - transform.position;
         Quaternion rotation = Quaternion.LookRotation(dir, Vector3.up) * startRotation;
-        // Quaternion finalRotation =  Quaternion.AngleAxis(rotation.eulerAngles.y, Vector3.up) * startRotation;
         transform.rotation = rotation;
     }
 }
