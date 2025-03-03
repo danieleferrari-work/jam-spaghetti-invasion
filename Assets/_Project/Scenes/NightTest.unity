@@ -2241,111 +2241,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &304965841
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 304965842}
-  - component: {fileID: 304965845}
-  - component: {fileID: 304965844}
-  - component: {fileID: 304965846}
-  m_Layer: 4
-  m_Name: Plane
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &304965842
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 304965841}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 1756825014}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &304965844
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 304965841}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 257
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 465a3e82f6f5b434fae45928a817feb8, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &304965845
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 304965841}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &304965846
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 304965841}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 10, y: 0.0001, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &325779777
 GameObject:
   m_ObjectHideFlags: 0
@@ -3369,8 +3264,8 @@ MonoBehaviour:
     volumeMask: {fileID: 0}
     textureScrollingSpeed: {x: 1, y: 0, z: 0}
     textureTiling: {x: 1, y: 1, z: 1}
-    positiveFade: {x: 0.01, y: 0.01, z: 0.00125}
-    negativeFade: {x: 0.01, y: 0.01, z: 0.00125}
+    positiveFade: {x: 0.04, y: 0.4, z: 0.005}
+    negativeFade: {x: 0.04, y: 0.4, z: 0.005}
     m_EditorUniformFade: 0.5
     m_EditorPositiveFade: {x: 0.0019999999, y: 0.0019999999, z: 0.00024999998}
     m_EditorNegativeFade: {x: 0.0019999999, y: 0.0019999999, z: 0.00024999998}
@@ -3604,12 +3499,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5641957013015738592, guid: 2bcff549a1e33cb4aa834a7420fe4d5e,
     type: 3}
   m_PrefabInstance: {fileID: 794501218}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &883260293 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7419888907073761026, guid: 50611c472cfe3e04da05b0d28fad0766,
-    type: 3}
-  m_PrefabInstance: {fileID: 5567155671930511379}
   m_PrefabAsset: {fileID: 0}
 --- !u!43 &977937152
 Mesh:
@@ -4081,9 +3970,9 @@ MonoBehaviour:
   mesh: {fileID: 0}
   cpuSimulation: 1
   cpuFullResolution: 0
-  cpuEvaluateRipples: 0
+  cpuEvaluateRipples: 1
   timeMultiplier: 1
-  repetitionSize: 150
+  repetitionSize: 29
   largeWindSpeed: 10
   largeWindOrientationValue: 0
   largeCurrentSpeedValue: 1.5
@@ -4110,14 +3999,14 @@ MonoBehaviour:
   ripplesFadeDistance: 200
   customMaterial: {fileID: 0}
   startSmoothness: 0.928
-  endSmoothness: 0
+  endSmoothness: 0.077
   smoothnessFadeStart: 100
   smoothnessFadeDistance: 500
   refractionColor: {r: 0.1, g: 0.5, b: 0.5, a: 1}
-  maxRefractionDistance: 0.5
-  absorptionDistance: 1.5
+  maxRefractionDistance: 0.21
+  absorptionDistance: 15.3
   scatteringColor: {r: 0.016820932, g: 0.16981131, b: 0.16981131, a: 1}
-  ambientScattering: 0.35
+  ambientScattering: 0.381
   heightScattering: 0.2
   displacementScattering: 0.1
   directLightTipScattering: 0.6
@@ -4129,9 +4018,9 @@ MonoBehaviour:
   causticsBand: 0
   virtualPlaneDistance: 4
   foam: 0
-  simulationFoamAmount: 0.3
+  simulationFoamAmount: 0.6
   simulationFoamDrag: 0
-  simulationFoamSmoothness: 1
+  simulationFoamSmoothness: 0.5
   foamMask: {fileID: 0}
   foamMaskExtent: {x: 100, y: 100}
   foamMaskOffset: {x: 0, y: 0}
@@ -4148,28 +4037,10 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.2
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.3
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -4178,7 +4049,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   foamTexture: {fileID: 0}
-  foamTextureTiling: 0.2
+  foamTextureTiling: 1024
   waterMask: {fileID: 0}
   waterMaskExtent: {x: 100, y: 100}
   waterMaskOffset: {x: 0, y: 0}
@@ -5542,7 +5413,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 304965842}
   - {fileID: 1002215316}
   - {fileID: 1774064633}
   m_Father: {fileID: 0}
@@ -6863,7 +6733,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 883260293}
+      objectReference: {fileID: 0}
     - target: {fileID: 1866164862109735122, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
         type: 3}
       propertyPath: m_LocalPosition.x
