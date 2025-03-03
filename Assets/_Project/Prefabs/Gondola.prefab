@@ -131,7 +131,7 @@ MonoBehaviour:
   bobAmplitude: 0.2
   rollFrequency: 0.5
   rollAmplitude: 3
-  heightOffset: 0.1
+  heightOffset: 1.5
 --- !u!1 &5002353015082170003
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +178,7 @@ Rigidbody:
   m_GameObject: {fileID: 5002353015082170003}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0.2
+  m_Drag: 1
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 100
-  rotationSpeed: 0
+  rotationSpeed: 0.5
   defaultAcceleration: 10
   pushForce: 10
   pushDelay: 1.5
@@ -364,12 +364,12 @@ PrefabInstance:
     - target: {fileID: 6620856494036503108, guid: ef222eb67b79b2847a5b826462c45983,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.599
+      value: 1.1489999
       objectReference: {fileID: 0}
     - target: {fileID: 6620856494036503108, guid: ef222eb67b79b2847a5b826462c45983,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.084
+      value: 0.36899996
       objectReference: {fileID: 0}
     - target: {fileID: 7589325221538078256, guid: ef222eb67b79b2847a5b826462c45983,
         type: 3}

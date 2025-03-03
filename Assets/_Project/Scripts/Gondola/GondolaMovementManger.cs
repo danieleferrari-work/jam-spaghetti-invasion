@@ -53,8 +53,8 @@ public class GondolaMovementManager : MonoBehaviour
             ApplyRotation(inputValue.x);
         }
 
-      //  ApplyOscillationBobbing();
-       // ApplyOscillationRoll();
+       ApplyOscillationBobbing();
+       ApplyOscillationRoll();
     }
 
     private void ApplyOscillationRoll()
