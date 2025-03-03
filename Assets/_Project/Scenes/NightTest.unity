@@ -1674,7 +1674,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.6
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1751,7 +1751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 0.5
+  m_Intensity: 0.6
   m_EnableSpotReflector: 0
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -4239,7 +4239,7 @@ MonoBehaviour:
   refractionColor: {r: 0.1, g: 0.5, b: 0.5, a: 1}
   maxRefractionDistance: 0.5
   absorptionDistance: 1.5
-  scatteringColor: {r: 0.33891064, g: 0.5738325, b: 0.6037736, a: 1}
+  scatteringColor: {r: 0.016820932, g: 0.16981131, b: 0.16981131, a: 1}
   ambientScattering: 0.35
   heightScattering: 0.2
   displacementScattering: 0.1
@@ -4322,7 +4322,7 @@ Transform:
   m_GameObject: {fileID: 1191455484}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0.5, z: 39.8}
+  m_LocalPosition: {x: 0.4, y: 0.5, z: 39.8}
   m_LocalScale: {x: 400, y: 1, z: 31}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7162,12 +7162,12 @@ PrefabInstance:
     - target: {fileID: 547180067975871031, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.4
+      value: 7.0889997
       objectReference: {fileID: 0}
     - target: {fileID: 547180067975871031, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.39
+      value: -25.321001
       objectReference: {fileID: 0}
     - target: {fileID: 1283507865034202461, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
         type: 3}
@@ -7237,12 +7237,12 @@ PrefabInstance:
     - target: {fileID: 5809180205937663745, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.4
+      value: 7.0889997
       objectReference: {fileID: 0}
     - target: {fileID: 5809180205937663745, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.39
+      value: -25.321001
       objectReference: {fileID: 0}
     - target: {fileID: 6894807802087593925, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
         type: 3}
