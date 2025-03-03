@@ -6,7 +6,8 @@ public class GondolaMovementManager : MonoBehaviour
     [SerializeField] float rotationSpeed;
     [SerializeField] float defaultAcceleration = 10;
     [SerializeField] float pushForce = 10;
-    [SerializeField] float pushDelay = 1.5f;
+    [SerializeField] float pushDelay = 6f;
+    [SerializeField] float pushDuration = 3f;
 
 
     Rigidbody rb;
@@ -14,6 +15,9 @@ public class GondolaMovementManager : MonoBehaviour
     GondolaFloatingManager gondolaFloatingManager;
 
     float lastPushTime;
+
+    bool IsTimerElapsed => Time.time - lastPushTime > pushDelay;
+    bool IsPushComplete => Time.time - lastPushTime > pushDelay + pushDuration;
 
 
     void Awake()
@@ -45,16 +49,19 @@ public class GondolaMovementManager : MonoBehaviour
             {
                 AddDefaultAcceleration(inputValue.y);
 
-                if (Time.time - lastPushTime > pushDelay)
+                if (IsTimerElapsed)
                 {
                     Push(inputValue.y);
+                    
+                    if (IsPushComplete)
+                        lastPushTime = Time.time;
                 }
             }
             ApplyRotation(inputValue.x);
         }
 
-       ApplyOscillationBobbing();
-       ApplyOscillationRoll();
+        ApplyOscillationBobbing();
+        ApplyOscillationRoll();
     }
 
     private void ApplyOscillationRoll()
@@ -82,7 +89,6 @@ public class GondolaMovementManager : MonoBehaviour
 
     private void Push(float value)
     {
-        rb.AddForce(rb.transform.forward * value * pushForce, ForceMode.Impulse);
-        lastPushTime = Time.time;
+        rb.AddForce(rb.transform.forward * value * pushForce, ForceMode.Force);
     }
 }
