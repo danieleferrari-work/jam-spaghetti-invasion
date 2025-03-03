@@ -1680,7 +1680,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.6
+  m_Intensity: 0.8
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1757,7 +1757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 0.6
+  m_Intensity: 0.8
   m_EnableSpotReflector: 0
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -2204,7 +2204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
     albedo: {r: 0.08904414, g: 0.21698111, b: 0.14964588, a: 1}
-    meanFreePath: 0.5
+    meanFreePath: 0.8
     blendingMode: 1
     priority: 3
     anisotropy: 0
@@ -3226,74 +3226,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &688335012
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 688335014}
-  - component: {fileID: 688335013}
-  m_Layer: 0
-  m_Name: Local Volumetric Fog
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &688335013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 688335012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1fbb15bf92b84f40a1eb030765b5afe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parameters:
-    albedo: {r: 0.5377358, g: 0.5199804, b: 0.5199804, a: 1}
-    meanFreePath: 60
-    blendingMode: 1
-    priority: 2
-    anisotropy: 0
-    volumeMask: {fileID: 0}
-    textureScrollingSpeed: {x: 1, y: 0, z: 0}
-    textureTiling: {x: 1, y: 1, z: 1}
-    positiveFade: {x: 0.04, y: 0.4, z: 0.005}
-    negativeFade: {x: 0.04, y: 0.4, z: 0.005}
-    m_EditorUniformFade: 0.5
-    m_EditorPositiveFade: {x: 0.0019999999, y: 0.0019999999, z: 0.00024999998}
-    m_EditorNegativeFade: {x: 0.0019999999, y: 0.0019999999, z: 0.00024999998}
-    m_EditorAdvancedFade: 0
-    size: {x: 50, y: 50, z: 400}
-    invertFade: 0
-    distanceFadeStart: 150417.7
-    distanceFadeEnd: 151251
-    textureOffset: {x: 0, y: 0, z: 0}
-    falloffMode: 0
-    maskMode: 0
-    materialMask: {fileID: 0}
-  m_Version: 2
---- !u!4 &688335014
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 688335012}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.9, y: 3.4, z: 118.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &713849151
 GameObject:
   m_ObjectHideFlags: 0
@@ -3709,6 +3641,12 @@ Transform:
   - {fileID: 263150208}
   m_Father: {fileID: 1756825014}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1002789928 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6053935381414417027, guid: 50611c472cfe3e04da05b0d28fad0766,
+    type: 3}
+  m_PrefabInstance: {fileID: 5567155671930511379}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1085128314
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3965,14 +3903,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f6fd535518f5540b4bcc3099582f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  surfaceType: 0
-  geometryType: 2
+  surfaceType: 1
+  geometryType: 0
   mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   cpuSimulation: 1
   cpuFullResolution: 1
   cpuEvaluateRipples: 1
   timeMultiplier: 1
-  repetitionSize: 250
+  repetitionSize: 150
   largeWindSpeed: 10
   largeWindOrientationValue: 0
   largeCurrentSpeedValue: 1.5
@@ -6733,7 +6671,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1002789928}
     - target: {fileID: 1866164862109735122, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6838,5 +6776,4 @@ SceneRoots:
   - {fileID: 1860287432}
   - {fileID: 1191455486}
   - {fileID: 713849152}
-  - {fileID: 688335014}
   - {fileID: 280371252}
