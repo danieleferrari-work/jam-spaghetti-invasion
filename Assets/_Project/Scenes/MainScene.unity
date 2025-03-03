@@ -4523,26 +4523,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1555409839}
-    - target: {fileID: 547180067975871031, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.826
-      objectReference: {fileID: 0}
-    - target: {fileID: 547180067975871031, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.5289993
-      objectReference: {fileID: 0}
     - target: {fileID: 1283507865034202461, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
         type: 3}
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 512490158}
-    - target: {fileID: 1283507865034202461, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1866164862109735122, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4598,26 +4583,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1555409839}
-    - target: {fileID: 5809180205937663745, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.826
-      objectReference: {fileID: 0}
-    - target: {fileID: 5809180205937663745, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.5289993
-      objectReference: {fileID: 0}
-    - target: {fileID: 6894807802087593925, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8083951443555558205, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1555409839}
+    - target: {fileID: 8083951443555558205, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
+        type: 3}
+      propertyPath: m_VersionIndex
+      value: 1328
+      objectReference: {fileID: 0}
     - target: {fileID: 8245509816401532703, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
         type: 3}
       propertyPath: m_Name
