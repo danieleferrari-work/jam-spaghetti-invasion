@@ -2189,7 +2189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &280371251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3910,13 +3910,13 @@ MonoBehaviour:
   cpuFullResolution: 1
   cpuEvaluateRipples: 1
   timeMultiplier: 1
-  repetitionSize: 150
+  repetitionSize: 50
   largeWindSpeed: 10
   largeWindOrientationValue: 0
-  largeCurrentSpeedValue: 1.5
+  largeCurrentSpeedValue: 1
   largeCurrentOrientationValue: 0
   largeChaos: 0.9
-  largeBand0Multiplier: 1
+  largeBand0Multiplier: 0.958
   largeBand0FadeToggle: 1
   largeBand0FadeStart: 150
   largeBand0FadeDistance: 300
@@ -3925,7 +3925,7 @@ MonoBehaviour:
   largeBand1FadeStart: 300
   largeBand1FadeDistance: 800
   ripples: 1
-  ripplesWindSpeed: 3
+  ripplesWindSpeed: 1.3
   ripplesWindOrientationMode: 0
   ripplesWindOrientationValue: 90
   ripplesCurrentMode: 0
@@ -3933,7 +3933,7 @@ MonoBehaviour:
   ripplesCurrentOrientationValue: 0
   ripplesChaos: 0.2
   ripplesFadeToggle: 1
-  ripplesFadeStart: 50
+  ripplesFadeStart: 0
   ripplesFadeDistance: 200
   customMaterial: {fileID: 0}
   startSmoothness: 0.928
@@ -3942,7 +3942,7 @@ MonoBehaviour:
   smoothnessFadeDistance: 500
   refractionColor: {r: 0.1, g: 0.5, b: 0.5, a: 1}
   maxRefractionDistance: 0.21
-  absorptionDistance: 15.3
+  absorptionDistance: 8
   scatteringColor: {r: 0.016820932, g: 0.16981131, b: 0.16981131, a: 1}
   ambientScattering: 0.381
   heightScattering: 0.2
@@ -6530,6 +6530,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -4.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 3516180566795337336, guid: 50611c472cfe3e04da05b0d28fad0766,
+        type: 3}
+      propertyPath: pushForce
+      value: 20.17
       objectReference: {fileID: 0}
     - target: {fileID: 5002353015082170003, guid: 50611c472cfe3e04da05b0d28fad0766,
         type: 3}
