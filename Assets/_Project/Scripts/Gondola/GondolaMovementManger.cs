@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GondolaMovementManagerV2 : MonoBehaviour
+public class GondolaMovementManager : MonoBehaviour
 {
     [SerializeField] float maxSpeed = 100;
     [SerializeField] float rotationSpeed;
