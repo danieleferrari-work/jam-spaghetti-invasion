@@ -207,10 +207,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bobFrequency: 1
-  bobAmplitude: 0.4
+  bobAmplitude: 0.2
   rollFrequency: 0.5
-  rollAmplitude: 2
-  heightOffset: 2
+  rollAmplitude: 3
+  heightOffset: 0.1
 --- !u!1 &5002353015082170003
 GameObject:
   m_ObjectHideFlags: 0
