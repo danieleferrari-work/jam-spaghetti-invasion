@@ -1,23 +1,34 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Watchable : MonoBehaviour
 {
-    [SerializeField] TMPro.TMP_Text textWatchtime;
+    [SerializeField] TMPro.TMP_Text textCurrentWatchtime;
+    [SerializeField] TMPro.TMP_Text textOverallWatchtime;
     [SerializeField] Color defaultColor;
     [SerializeField] Color watchingColor;
 
-    float watchtime = 0;
+    float currentWatchtime = 0;
+    float overallWatchtime = 0;
+
+    public float CurrentWatchtime => currentWatchtime;
+    public float OverallWatchtime => overallWatchtime;
+    public UnityAction OnBeginWatch;
+
 
     void Awake()
     {
-        textWatchtime.color = defaultColor;
+        textCurrentWatchtime.color = defaultColor;
+        textOverallWatchtime.color = defaultColor;
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<PlayerVisionManager>())
         {
-            textWatchtime.color = watchingColor;
+            textCurrentWatchtime.color = watchingColor;
+            textOverallWatchtime.color = watchingColor;
+            OnBeginWatch?.Invoke();
         }
     }
 
@@ -25,7 +36,8 @@ public class Watchable : MonoBehaviour
     {
         if (other.GetComponent<PlayerVisionManager>())
         {
-            watchtime += Time.deltaTime;
+            currentWatchtime += Time.deltaTime;
+            overallWatchtime += Time.deltaTime;
         }
     }
 
@@ -33,13 +45,15 @@ public class Watchable : MonoBehaviour
     {
         if (other.GetComponent<PlayerVisionManager>())
         {
-            watchtime = 0;
-            textWatchtime.color = defaultColor;
+            currentWatchtime = 0;
+            textCurrentWatchtime.color = defaultColor;
+            textOverallWatchtime.color = defaultColor;
         }
     }
 
     void Update()
     {
-        textWatchtime.text = watchtime.ToString("0.00");
+        textCurrentWatchtime.text = currentWatchtime.ToString("0.00");
+        textOverallWatchtime.text = overallWatchtime.ToString("0.00");
     }
 }
