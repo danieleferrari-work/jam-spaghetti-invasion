@@ -8,6 +8,11 @@ public class Watchable : MonoBehaviour
 
     float watchtime = 0;
 
+    void Awake()
+    {
+        textWatchtime.color = defaultColor;
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<PlayerVisionManager>())
@@ -15,6 +20,7 @@ public class Watchable : MonoBehaviour
             textWatchtime.color = watchingColor;
         }
     }
+
     void OnTriggerStay(Collider other)
     {
         if (other.GetComponent<PlayerVisionManager>())
