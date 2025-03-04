@@ -558,7 +558,7 @@ MonoBehaviour:
     m_Value: 1
   shadows:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   shadowResolution:
     m_OverrideState: 1
     m_Value: 256
@@ -569,8 +569,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 8000
   shadowOpacity:
-    m_OverrideState: 0
-    m_Value: 1
+    m_OverrideState: 1
+    m_Value: 0.2
   shadowOpacityFallback:
     m_OverrideState: 0
     m_Value: 0
