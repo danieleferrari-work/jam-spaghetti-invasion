@@ -1,15 +1,20 @@
 using UnityEngine;
 
-public class Loop1 : MonoBehaviour
+public class Loop1 : MonoBehaviour, ILoop
 {
-    [Tooltip("Quanti secondi devono passare dal caricamento della scena al primo miagolio del gatto")]
+    [Tooltip("How many seconds need to pass from the start before the cat starts to meows")]
     public float catMeowStartDelay;
 
-    [Tooltip("Secondi tra un miagolio e l'altro")]
+    [Tooltip("Delay between meows")]
     public float catMeowDelay;
 
-    [Tooltip("Quante volte il gatto miagola")]
+    [Tooltip("How many times the cat meows")]
     public float catMeowsCount;
 
     public string catMeowClipName;
+
+    public bool IsComplete()
+    {
+        return true;
+    }
 }

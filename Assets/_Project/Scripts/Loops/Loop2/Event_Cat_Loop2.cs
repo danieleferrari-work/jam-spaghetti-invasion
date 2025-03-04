@@ -15,9 +15,11 @@ public class Event_Cat_Loop2 : MonoBehaviour
     Vector3 startPosition;
     Coroutine jumpCatCoroutine;
     Sequence jumpCatSequence;
+    Loop2 loop;
 
     void Awake()
     {
+        loop = GetComponentInParent<Loop2>();
         startPosition = cat.transform.position;
 
         Cat.OnCatJumpedOnBoat += OnCatJumpedOnBoat;
@@ -29,6 +31,8 @@ public class Event_Cat_Loop2 : MonoBehaviour
         jumpCatSequence.Kill();
         Destroy(cat);
         FindFirstObjectByType<Gondola>().catOnBoat.SetActive(true);
+
+        loop.catEventCompleted = true;
     }
 
     void Start()

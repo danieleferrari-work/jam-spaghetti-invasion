@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using BaseTemplate;
 using DevLocker.Utils;
 using UnityEngine;
@@ -10,32 +11,48 @@ public class LoopsManager : Singleton<LoopsManager>
     [SerializeField] List<SceneReference> loops;
     [SerializeField] int startingLoop;
 
-    int currentLoop;
+    int currentLoopIndex;
     int previousLoop;
+    ILoop currentLoop;
 
     protected override bool isDontDestroyOnLoad => false;
 
     void Start()
     {
-        currentLoop = startingLoop - 1;
+        currentLoopIndex = startingLoop - 1;
         NextLoop();
+    }
+
+    public void OnLoopExit()
+    {
+        if (currentLoop != null && !currentLoop.IsComplete())
+            LoadCurrentLoop();
+        else
+            NextLoop();
+    }
+
+    public void LoadCurrentLoop()
+    {
+        Debug.Log($"Start loading loop {currentLoopIndex} at {Time.time}");
+
+        var loadScene = SceneManager.LoadSceneAsync(loops[currentLoopIndex].SceneName, LoadSceneMode.Additive);
+        loadScene.completed += OnLoadingLoopCompleted;
     }
 
     public void NextLoop()
     {
-        previousLoop = currentLoop;
-        currentLoop++;
+        previousLoop = currentLoopIndex;
+        currentLoopIndex++;
 
-        Debug.Log($"Start loading loop {currentLoop} at {Time.time}");
-
-        var loadScene = SceneManager.LoadSceneAsync(loops[currentLoop].SceneName, LoadSceneMode.Additive);
-        loadScene.completed += OnLoadingLoopCompleted;
+        LoadCurrentLoop();
     }
 
     private void OnLoadingLoopCompleted(AsyncOperation operation)
     {
-        Debug.Log($"Finish loading loop {currentLoop} at {Time.time}");
+        Debug.Log($"Finish loading loop {currentLoopIndex} at {Time.time}");
         Debug.Log($"Start unloading loop {previousLoop} at {Time.time}");
+
+        currentLoop = FindObjectsOfType<MonoBehaviour>().OfType<ILoop>().First();
 
         gondola.OnLoopReset();
 
@@ -48,6 +65,6 @@ public class LoopsManager : Singleton<LoopsManager>
 
     private void OnUnloadingPreviousLoopCompleted(AsyncOperation operation)
     {
-        Debug.Log($"Finish loading loop {currentLoop} at {Time.time}");
+        Debug.Log($"Finish loading loop {currentLoopIndex} at {Time.time}");
     }
 }

@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Loop2 : MonoBehaviour
+public class Loop2 : MonoBehaviour, ILoop
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool catEventCompleted = false;
 
-    // Update is called once per frame
-    void Update()
+    public bool IsComplete()
     {
-        
+        return catEventCompleted;
     }
 }
