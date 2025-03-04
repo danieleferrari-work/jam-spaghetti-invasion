@@ -5,6 +5,8 @@ public class Gondola : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera playerVirtualCamera;
     Rigidbody rb;
+    public GameObject catOnBoat;
+
 
     void Awake()
     {

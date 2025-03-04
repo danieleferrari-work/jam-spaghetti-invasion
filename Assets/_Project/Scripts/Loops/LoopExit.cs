@@ -4,9 +4,9 @@ public class LoopExit : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        var looper = other.GetComponentInChildren<Looper>();
+        var gondola = other.GetComponent<Gondola>();
 
-        if (looper)
+        if (gondola)
         {
             LoopsManager.instance.NextLoop();
         }

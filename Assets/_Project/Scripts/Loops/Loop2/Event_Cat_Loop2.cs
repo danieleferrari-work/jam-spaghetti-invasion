@@ -9,29 +9,46 @@ public class Event_Cat_Loop2 : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float jumpDuration;
     [SerializeField] float jumpDelay = 5;
+    [SerializeField] float jumpPause = 2;
+    [SerializeField] float jumpsReplay = 3;
 
     Vector3 startPosition;
+    Coroutine jumpCatCoroutine;
+    Sequence jumpCatSequence;
 
     void Awake()
     {
         startPosition = cat.transform.position;
+
+        Cat.OnCatJumpedOnBoat += OnCatJumpedOnBoat;
+    }
+
+    private void OnCatJumpedOnBoat()
+    {
+        StopCoroutine(jumpCatCoroutine);
+        jumpCatSequence.Kill();
+        Destroy(cat);
+        FindFirstObjectByType<Gondola>().catOnBoat.SetActive(true);
     }
 
     void Start()
     {
-        StartCoroutine(PlayCatAnimation());
+        jumpCatCoroutine = StartCoroutine(PlayCatAnimation());
     }
 
     private IEnumerator PlayCatAnimation()
     {
-        while (true)
+        for (int i = 0; i < jumpsReplay; i++)
         {
-            cat.gameObject.SetActive(true);
             cat.transform.position = startPosition;
-            cat.transform.DOJump(catJumpEndPosition.transform.position, jumpForce, 1, jumpDuration);
+
+            yield return new WaitForSeconds(jumpPause);
+
+            jumpCatSequence = cat.transform.DOJump(catJumpEndPosition.transform.position, jumpForce, 1, jumpDuration);
+
             yield return new WaitForSeconds(jumpDuration);
-            cat.gameObject.SetActive(false);
-            yield return new WaitForSeconds(jumpDelay);
         }
+
+        Destroy(gameObject);
     }
 }

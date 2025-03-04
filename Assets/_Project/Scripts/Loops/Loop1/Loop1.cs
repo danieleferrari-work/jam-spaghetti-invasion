@@ -1,7 +1,6 @@
-using BaseTemplate;
 using UnityEngine;
 
-public class Loop1 : Singleton<Loop1>
+public class Loop1 : MonoBehaviour
 {
     [Tooltip("Quanti secondi devono passare dal caricamento della scena al primo miagolio del gatto")]
     public float catMeowStartDelay;

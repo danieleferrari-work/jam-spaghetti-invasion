@@ -172,6 +172,9 @@ MonoBehaviour:
   catJumpEndPosition: {fileID: 1838098176}
   jumpForce: 2
   jumpDuration: 1
+  jumpDelay: 5
+  jumpPause: 2
+  jumpsReplay: 6
 --- !u!1 &548656750 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4740170954744064140, guid: 3521af0ce43af6d41874e570736c5359,
@@ -391,13 +394,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2362491293651875208, guid: 33889eed3e6449f4eb05eb7238fd56f6, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8453030284479625540, guid: 33889eed3e6449f4eb05eb7238fd56f6,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 505407617}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 877261593650640380, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2083740897}
     - targetCorrespondingSourceObject: {fileID: 5262154763121760598, guid: 33889eed3e6449f4eb05eb7238fd56f6,
         type: 3}
       insertIndex: -1
@@ -450,10 +458,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2362491293651875208, guid: 33889eed3e6449f4eb05eb7238fd56f6,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2083740897}
   m_SourcePrefab: {fileID: 100100000, guid: 33889eed3e6449f4eb05eb7238fd56f6, type: 3}
 --- !u!4 &2083740895 stripped
 Transform:
@@ -463,7 +467,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2083740896 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2362491293651875208, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+  m_CorrespondingSourceObject: {fileID: 877261593650640380, guid: 33889eed3e6449f4eb05eb7238fd56f6,
     type: 3}
   m_PrefabInstance: {fileID: 2083740894}
   m_PrefabAsset: {fileID: 0}
@@ -542,13 +546,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cat
       objectReference: {fileID: 0}
-    - target: {fileID: 7422647826983251515, guid: 3521af0ce43af6d41874e570736c5359,
-        type: 3}
-      propertyPath: cat
-      value: 
-      objectReference: {fileID: 548656750}
-    m_RemovedComponents:
-    - {fileID: 7422647826983251515, guid: 3521af0ce43af6d41874e570736c5359, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
