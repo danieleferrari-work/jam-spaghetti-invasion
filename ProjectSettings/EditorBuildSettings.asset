@@ -9,8 +9,20 @@ EditorBuildSettings:
     path: Assets/_Project/Scenes/MainScene 2.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
   - enabled: 1
-    path: Assets/_Project/Scenes/NightTest.unity
+    path: Assets/_Project/Scenes/Test Scenes/NightTest.unity
     guid: da29e90f5a3a3d141adb176a7a42750a
+  - enabled: 1
+    path: Assets/_Project/Scenes/MainScene 1.unity
+    guid: 2d155c151af112d459b4042f7bdf4b17
+  - enabled: 1
+    path: Assets/_Project/Scenes/Loops/Loop 1.unity
+    guid: 99865b95ab25dca4da004b8df45cddfa
+  - enabled: 1
+    path: Assets/_Project/Scenes/MainScene.unity
+    guid: 436989c96202b8445a5541d4be327807
+  - enabled: 1
+    path: Assets/_Project/Scenes/Loops/Loop 0.unity
+    guid: 9803409b1ae7529418549efbbb88fe7e
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 75a3cc4e65ed0264fa286b4641bc6523,
       type: 2}
