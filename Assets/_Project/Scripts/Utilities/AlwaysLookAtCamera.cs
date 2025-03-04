@@ -15,6 +15,9 @@ public class AlwaysLookAtCamera : MonoBehaviour
     {
         mainCamera = Camera.main;
         startRotation = transform.rotation;
+
+        if (mainCamera == null)
+            this.enabled = false;
     }
 
     void FixedUpdate()

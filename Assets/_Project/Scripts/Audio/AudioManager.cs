@@ -17,10 +17,11 @@ public class AudioManager : Singleton<AudioManager>
 		foreach (Sound s in sounds)
 		{
 			s.source = gameObject.AddComponent<AudioSource>();
+			s.source.pitch = s.pitch;
+			s.source.volume = s.volume;
 			s.source.clip = s.clip;
 			s.source.loop = s.loop;
 			s.source.playOnAwake = s.playOnAwake;
-
 			s.source.outputAudioMixerGroup = s.mixerGroup;
 		}
 	}
@@ -39,7 +40,7 @@ public class AudioManager : Singleton<AudioManager>
 
 	public void Play(string sound)
 	{
-		Sound s = Array.Find(sounds, item => item.name == sound);
+		Sound s = GetSoundByName(sound);
 		if (s == null)
 		{
 			Debug.LogWarning("Sound: " + name + " not found!");
@@ -49,12 +50,12 @@ public class AudioManager : Singleton<AudioManager>
 		s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
 		s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
 
-		s.source.Play();
+		s.source.Play();	
 	}
 
 	public void StopPlaying(string sound)
 	{
-		Sound s = Array.Find(sounds, item => item.name == sound);
+		Sound s = GetSoundByName(sound);
 		if (s == null)
 		{
 			Debug.LogWarning("Sound: " + name + " not found!");
@@ -69,7 +70,7 @@ public class AudioManager : Singleton<AudioManager>
 
 	public void StopFadeOut(string sound, float FadeTime)
 	{
-		Sound s = Array.Find(sounds, item => item.name == sound);
+		Sound s = GetSoundByName(sound);
 		if (s == null)
 		{
 			Debug.LogWarning("Sound: " + name + " not found!");
@@ -98,7 +99,7 @@ public class AudioManager : Singleton<AudioManager>
 
 	public void PlayFadeIn(string sound, float FadeTime)
 	{
-		Sound s = Array.Find(sounds, item => item.name == sound);
+		Sound s = GetSoundByName(sound);
 		if (s == null)
 		{
 			Debug.LogWarning("Sound: " + name + " not found!");
@@ -125,7 +126,7 @@ public class AudioManager : Singleton<AudioManager>
 
 	public void Pause(string sound)
 	{
-		Sound s = Array.Find(sounds, item => item.name == sound);
+		Sound s = GetSoundByName(sound);
 		if (s == null)
 		{
 			Debug.LogWarning("Sound: " + name + " not found!");
@@ -140,13 +141,12 @@ public class AudioManager : Singleton<AudioManager>
 
 	public void waitPlaying(string sound)
 	{
-		Sound s = Array.Find(sounds, item => item.name == sound);
+		Sound s = GetSoundByName(sound);
 		if (s == null)
 		{
 			Debug.LogWarning("Sound: " + name + " not found!");
 			return;
 		}
-
 
 		if (!s.source.isPlaying)
 		{
@@ -162,7 +162,7 @@ public class AudioManager : Singleton<AudioManager>
 		{
 			if (s.name != "OnClickMenu" && s.name != "OnQuitGame" && s.name != "OnBackMenu" && s.source.isPlaying)
 			{
-				s.source.volume = (s.source.volume / 100) * 30;
+				s.source.volume = s.source.volume / 100 * 30;
 			}
 		}
 	}
@@ -176,7 +176,7 @@ public class AudioManager : Singleton<AudioManager>
 		}
 	}
 
-	public Sound getSoundByName(string sound)
+	private Sound GetSoundByName(string sound)
 	{
 		Sound s = Array.Find(sounds, item => item.name == sound);
 		return s;
