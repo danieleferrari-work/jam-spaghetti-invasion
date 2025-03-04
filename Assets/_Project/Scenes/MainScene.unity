@@ -799,12 +799,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gondola: {fileID: 85956088}
   loops:
-  - m_SceneAsset: {fileID: 102900000, guid: 9803409b1ae7529418549efbbb88fe7e, type: 3}
-    m_IsDirty: 0
-    m_ScenePath: Assets/_Project/Scenes/Loops/Loop 0.unity
   - m_SceneAsset: {fileID: 102900000, guid: 99865b95ab25dca4da004b8df45cddfa, type: 3}
     m_IsDirty: 0
     m_ScenePath: Assets/_Project/Scenes/Loops/Loop 1.unity
+  - m_SceneAsset: {fileID: 102900000, guid: e0572b7ef02687148836661f98994f98, type: 3}
+    m_IsDirty: 0
+    m_ScenePath: Assets/_Project/Scenes/Loops/Loop 2.unity
   startingLoop: 0
 --- !u!4 &1478769955
 Transform:
