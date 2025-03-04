@@ -2,7 +2,7 @@ using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
-public class Event_Cat_Loop2 : MonoBehaviour
+public class Loop2_Event_Cat : MonoBehaviour
 {
     [SerializeField] GameObject cat;
     [SerializeField] GameObject catJumpEndPosition;

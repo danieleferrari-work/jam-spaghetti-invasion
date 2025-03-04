@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Event_Cat_Loop1 : MonoBehaviour
+public class Loop1_Event_Cat : MonoBehaviour
 {
     Loop1 loop;
 
