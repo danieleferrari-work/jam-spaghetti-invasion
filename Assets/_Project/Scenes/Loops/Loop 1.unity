@@ -194,15 +194,105 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 470661776923509823, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.2
+      objectReference: {fileID: 0}
     - target: {fileID: 877261593650640380, guid: 33889eed3e6449f4eb05eb7238fd56f6,
         type: 3}
       propertyPath: m_Name
       value: Loop
       objectReference: {fileID: 0}
+    - target: {fileID: 1981410814215846408, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4538988181675934623, guid: 33889eed3e6449f4eb05eb7238fd56f6,
         type: 3}
       propertyPath: m_text
       value: LOOP 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341382723358268601, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      propertyPath: parameters.size.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341382723358268601, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      propertyPath: parameters.size.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341382723358268601, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      propertyPath: parameters.size.z
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341382723358268601, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      propertyPath: parameters.negativeFade.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341382723358268601, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      propertyPath: parameters.negativeFade.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341382723358268601, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      propertyPath: parameters.negativeFade.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341382723358268601, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      propertyPath: parameters.positiveFade.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341382723358268601, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      propertyPath: parameters.positiveFade.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341382723358268601, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      propertyPath: parameters.positiveFade.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341382723358268601, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      propertyPath: parameters.m_EditorUniformFade
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341382723358268601, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341382723358268601, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.y
+      value: 0.0020000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341382723358268601, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.z
+      value: 0.0019999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341382723358268601, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341382723358268601, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.y
+      value: 0.0020000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341382723358268601, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.z
+      value: 0.0019999999
       objectReference: {fileID: 0}
     - target: {fileID: 8831283550937765354, guid: 33889eed3e6449f4eb05eb7238fd56f6,
         type: 3}

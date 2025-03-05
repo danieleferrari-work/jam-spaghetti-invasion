@@ -32,6 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8353647522168572429}
+  - {fileID: 867485104496020877}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &7279610699261108180
@@ -135,3 +136,152 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &4602404438155841272
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1296667104254047162}
+    m_Modifications:
+    - target: {fileID: 3735431775235097461, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735431775235097461, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735431775235097461, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735431775235097461, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735431775235097461, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735431775235097461, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735431775235097461, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735431775235097461, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735431775235097461, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735431775235097461, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747074170776476964, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: m_Name
+      value: Foggy Orb and Light Sample
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186969704388140019, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: parameters.size.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186969704388140019, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: parameters.size.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186969704388140019, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: parameters.size.z
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186969704388140019, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: parameters.negativeFade.x
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186969704388140019, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: parameters.negativeFade.y
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186969704388140019, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: parameters.negativeFade.z
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186969704388140019, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: parameters.positiveFade.x
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186969704388140019, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: parameters.positiveFade.y
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186969704388140019, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: parameters.positiveFade.z
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186969704388140019, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.x
+      value: 0.0019999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186969704388140019, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.y
+      value: 0.0010000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186969704388140019, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.z
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186969704388140019, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.x
+      value: 0.0019999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186969704388140019, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.y
+      value: 0.0010000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186969704388140019, guid: 113c376e28f1454428a2c1491793b7c9,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.z
+      value: 0.002
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 113c376e28f1454428a2c1491793b7c9, type: 3}
+--- !u!4 &867485104496020877 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3735431775235097461, guid: 113c376e28f1454428a2c1491793b7c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 4602404438155841272}
+  m_PrefabAsset: {fileID: 0}
