@@ -73,6 +73,7 @@ public class GondolaMovementManager : MonoBehaviour
     public void EnableAutoPilot(GondolaAutoPilotTrigger trigger)
     {
         Debug.Log("Enable autopiloting");
+        rb.isKinematic = true;
         autoPilotEnabled = true;
         autoPilot.GoTo(trigger);
     }
@@ -81,6 +82,7 @@ public class GondolaMovementManager : MonoBehaviour
     {
         Debug.Log("Disable autopiloting");
 
+        rb.isKinematic = false;
         rb.MovePosition(transform.position);
         rb.MoveRotation(transform.rotation);
         rb.velocity = Vector3.zero;
