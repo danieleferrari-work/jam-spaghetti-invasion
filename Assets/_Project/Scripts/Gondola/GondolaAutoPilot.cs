@@ -23,17 +23,17 @@ public class GondolaAutoPilot : MonoBehaviour
 
     private IEnumerator DoMovement()
     {
-        float movementDuration = CalculateMovementDuration();
+        float movementDuration = CalculateMovementDuration(trigger.FinalPosition);
         gondola.transform.DOMove(trigger.FinalPosition, movementDuration);
         gondola.transform.DORotate(trigger.FinalRotation, movementDuration);
 
-        yield return new WaitForSeconds(trigger.WaitingTime);
+        yield return new WaitForSeconds(movementDuration + trigger.WaitingTime);
 
         gondolaMovementManager.DisableAutoPilot();
     }
 
-    private float CalculateMovementDuration()
+    private float CalculateMovementDuration(Vector3 targetPosition)
     {
-        return 3;
+        return Mathf.Abs(Vector3.Distance(gondola.transform.position, targetPosition)) * .5f;
     }
 }

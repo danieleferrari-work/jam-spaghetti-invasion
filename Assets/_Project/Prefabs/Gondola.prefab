@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb115e0dde5f2ee489c552f217e43bc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  model: {fileID: 8238197339299487720}
   bobFrequency: 2
   bobAmplitude: 0.3
   rollFrequency: 0.5
@@ -273,10 +274,9 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1282662145617647412}
-  - {fileID: 6837193614564119905}
   - {fileID: 5564209979366213962}
+  - {fileID: 6837193614564119905}
   - {fileID: 6451789211861405273}
-  - {fileID: 3043003577949887095}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2383147616442595774
@@ -455,6 +455,7 @@ MonoBehaviour:
   pushForce: 10
   pushDelay: 1
   pushDuration: 2
+  model: {fileID: 8238197339299487720}
 --- !u!1 &8238197339299487720
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +489,7 @@ Transform:
   - {fileID: 3501205281955522581}
   - {fileID: 7083817034149266908}
   - {fileID: 3253547186521738993}
+  - {fileID: 3043003577949887095}
   m_Father: {fileID: 1161043690333919677}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9062220292503189414
@@ -601,7 +603,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1161043690333919677}
+    m_TransformParent: {fileID: 1282662145617647412}
     m_Modifications:
     - target: {fileID: 1721075172376438, guid: ef222eb67b79b2847a5b826462c45983, type: 3}
       propertyPath: m_Name
@@ -615,12 +617,12 @@ PrefabInstance:
     - target: {fileID: 2727787613350019760, guid: ef222eb67b79b2847a5b826462c45983,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.303
+      value: -0.30299997
       objectReference: {fileID: 0}
     - target: {fileID: 2727787613350019760, guid: ef222eb67b79b2847a5b826462c45983,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.64
+      value: -2.6400003
       objectReference: {fileID: 0}
     - target: {fileID: 2727787613350019760, guid: ef222eb67b79b2847a5b826462c45983,
         type: 3}

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Video;
 
 public class GondolaMovementManager : MonoBehaviour
 {
@@ -9,11 +8,11 @@ public class GondolaMovementManager : MonoBehaviour
     [SerializeField] float pushForce = 10;
     [SerializeField] float pushDelay = 6f;
     [SerializeField] float pushDuration = 3f;
+    [SerializeField] GameObject model;
 
 
     Rigidbody rb;
     PlayerInputActions inputActions;
-    GondolaFloatingManager gondolaFloatingManager;
     GondolaAutoPilot autoPilot;
 
     float lastPushTime;
@@ -22,11 +21,12 @@ public class GondolaMovementManager : MonoBehaviour
     bool IsTimerElapsed => Time.time - lastPushTime > pushDelay;
     bool IsPushComplete => Time.time - lastPushTime > pushDelay + pushDuration;
 
+    public Vector3 Velocity => rb.velocity;
+
 
     void Awake()
     {
         rb = GetComponentInParent<Rigidbody>();
-        gondolaFloatingManager = rb.GetComponentInChildren<GondolaFloatingManager>();
         autoPilot = rb.GetComponentInChildren<GondolaAutoPilot>();
 
         inputActions = new PlayerInputActions();
@@ -48,7 +48,7 @@ public class GondolaMovementManager : MonoBehaviour
     {
         if (autoPilotEnabled)
             return;
-            
+
         var inputValue = inputActions.Player.Move.ReadValue<Vector2>();
 
         if (inputValue.magnitude > 0)
@@ -68,8 +68,6 @@ public class GondolaMovementManager : MonoBehaviour
             ApplyRotation(inputValue.x);
         }
 
-        ApplyOscillationBobbing();
-        ApplyOscillationRoll();
     }
 
     public void EnableAutoPilot(GondolaAutoPilotTrigger trigger)
@@ -88,18 +86,6 @@ public class GondolaMovementManager : MonoBehaviour
         rb.velocity = Vector3.zero;
 
         autoPilotEnabled = false;
-    }
-
-    private void ApplyOscillationRoll()
-    {
-        var roll = gondolaFloatingManager.CalculateOscillationRoll();
-        rb.MoveRotation(Quaternion.Euler(new Vector3(rb.rotation.eulerAngles.x, rb.rotation.eulerAngles.y, roll)));
-    }
-
-    private void ApplyOscillationBobbing()
-    {
-        var bobbing = gondolaFloatingManager.CalculateOscillationBobbing();
-        rb.MovePosition(new Vector3(rb.transform.position.x, bobbing, rb.transform.position.z));
     }
 
     private void ApplyRotation(float rotation)
