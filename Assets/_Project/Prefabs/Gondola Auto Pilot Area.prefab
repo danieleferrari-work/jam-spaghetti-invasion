@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 327681717244153440}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.9, y: 0, z: 12.3}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 8883245729371645094}
   - component: {fileID: 179057761549492191}
   m_Layer: 0
-  m_Name: Gondola Auto Pilot Trigger
+  m_Name: Gondola Auto Pilot Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,6 +161,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finalGondolaPosition: {fileID: 327681717244153440}
   waitingTime: 10
+  resetTime: 30
+  OnFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &5818049704841114518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -173,6 +177,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gizmos Placeholder
+      objectReference: {fileID: 0}
+    - target: {fileID: 4098450246931943807, guid: b13455315588df34c9a8a50efd18233e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8196538789883320864, guid: b13455315588df34c9a8a50efd18233e,
         type: 3}

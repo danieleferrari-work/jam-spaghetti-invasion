@@ -15,6 +15,7 @@ public class Loop1 : MonoBehaviour, ILoop
 
     public bool IsComplete()
     {
+        Debug.Log("loop1 completed");
         return true;
     }
 }

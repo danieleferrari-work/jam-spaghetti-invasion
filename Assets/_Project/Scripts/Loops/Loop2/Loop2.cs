@@ -9,6 +9,7 @@ public class Loop2 : MonoBehaviour, ILoop
 
     public bool IsComplete()
     {
+        Debug.Log($"Loop2 is completed? {catEventCompleted}");
         return catEventCompleted;
     }
 }

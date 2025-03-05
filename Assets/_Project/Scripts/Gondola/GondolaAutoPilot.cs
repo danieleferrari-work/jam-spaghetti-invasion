@@ -6,7 +6,7 @@ public class GondolaAutoPilot : MonoBehaviour
 {
     Gondola gondola;
     GondolaMovementManager gondolaMovementManager;
-    GondolaAutoPilotTrigger trigger;
+    GondolaAutoPilotArea area;
 
     void Awake()
     {
@@ -14,22 +14,24 @@ public class GondolaAutoPilot : MonoBehaviour
         gondolaMovementManager = gondola.gameObject.GetComponentInChildren<GondolaMovementManager>();
     }
 
-    public void GoTo(GondolaAutoPilotTrigger trigger)
+    public void GoTo(GondolaAutoPilotArea area)
     {
-        this.trigger = trigger;
+        this.area = area;
 
         StartCoroutine(DoMovement());
     }
 
     private IEnumerator DoMovement()
     {
-        float movementDuration = CalculateMovementDuration(trigger.FinalPosition);
-        gondola.transform.DOMove(trigger.FinalPosition, movementDuration);
-        gondola.transform.DORotate(trigger.FinalRotation, movementDuration);
+        float movementDuration = CalculateMovementDuration(area.FinalPosition);
+        gondola.transform.DOMove(area.FinalPosition, movementDuration);
+        gondola.transform.DORotate(area.FinalRotation, movementDuration);
 
-        yield return new WaitForSeconds(movementDuration + trigger.WaitingTime);
+        yield return new WaitForSeconds(movementDuration + area.WaitingTime);
 
         gondolaMovementManager.DisableAutoPilot();
+
+        area.OnFinish?.Invoke();
     }
 
     private float CalculateMovementDuration(Vector3 targetPosition)

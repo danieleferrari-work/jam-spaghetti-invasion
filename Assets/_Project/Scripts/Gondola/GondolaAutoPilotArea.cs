@@ -1,7 +1,8 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class GondolaAutoPilotTrigger : MonoBehaviour
+public class GondolaAutoPilotArea : MonoBehaviour
 {
     [SerializeField] GameObject finalGondolaPosition;
     
@@ -14,6 +15,7 @@ public class GondolaAutoPilotTrigger : MonoBehaviour
     public Vector3 FinalPosition => new Vector3(finalGondolaPosition.transform.position.x, Gondola.BaseHeight, finalGondolaPosition.transform.position.z);
     public Vector3 FinalRotation => finalGondolaPosition.transform.rotation.eulerAngles;
     public float WaitingTime => waitingTime;
+    public UnityEvent OnFinish;
 
     bool disabled = false;
 

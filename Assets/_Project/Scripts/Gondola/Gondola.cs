@@ -4,10 +4,10 @@ using UnityEngine;
 public class Gondola : MonoBehaviour
 {
     public static float BaseHeight = 1;
+    public GameObject catOnBoat;
 
     [SerializeField] CinemachineVirtualCamera playerVirtualCamera;
     Rigidbody rb;
-    public GameObject catOnBoat;
 
     Vector3 BasePosition => new Vector3(0, BaseHeight, 0);
 

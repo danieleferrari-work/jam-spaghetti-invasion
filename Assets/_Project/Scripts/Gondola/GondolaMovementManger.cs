@@ -70,7 +70,7 @@ public class GondolaMovementManager : MonoBehaviour
 
     }
 
-    public void EnableAutoPilot(GondolaAutoPilotTrigger trigger)
+    public void EnableAutoPilot(GondolaAutoPilotArea trigger)
     {
         Debug.Log("Enable autopiloting");
         rb.isKinematic = true;

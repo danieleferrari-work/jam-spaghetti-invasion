@@ -1,11 +1,50 @@
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
-public class Loop3_Event_Cat : MonoBehaviour, ILoop
+public class Loop3_Event_Cat : MonoBehaviour
 {
-    public bool catEventCompleted = false;
+    [Header("Parameters")]
+    [SerializeField] float jumpForce;
+    [SerializeField] float jumpDuration;
 
-    public bool IsComplete()
+    [Header("References")]
+    [SerializeField] GameObject catOnGround;
+    [SerializeField] GameObject catShadowOnGround;
+    [SerializeField] GondolaAutoPilotArea autoPilotArea;
+
+    // References
+    Loop3 loop;
+    GameObject catOnBoat;
+
+
+    void Awake()
     {
-        return catEventCompleted;
+        loop = GetComponentInParent<Loop3>();
+        catOnBoat = FindObjectOfType<Gondola>().catOnBoat;
+    }
+
+    void Start()
+    {
+        autoPilotArea.OnFinish.AddListener(OnAutoPilotFinish);
+    }
+
+    private void OnAutoPilotFinish()
+    {
+        StartCoroutine(PlayCatAnimation());
+    }
+
+    IEnumerator PlayCatAnimation()
+    {
+        yield return new WaitForSeconds(2);
+
+        catShadowOnGround.gameObject.SetActive(false);
+        catOnBoat.transform.DOJump(catOnGround.transform.position, jumpForce, 1, jumpDuration);
+
+        yield return new WaitForSeconds(jumpDuration);
+        
+        Destroy(catOnBoat.gameObject);
+        catOnGround.gameObject.SetActive(true);
+        loop.catEventCompleted = true;
     }
 }

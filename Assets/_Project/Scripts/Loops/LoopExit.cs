@@ -8,7 +8,7 @@ public class LoopExit : MonoBehaviour
 
         if (gondola)
         {
-            LoopsManager.instance.NextLoop();
+            LoopsManager.instance.OnLoopExit();
         }
     }
 }
