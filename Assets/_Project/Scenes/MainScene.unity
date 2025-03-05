@@ -2253,6 +2253,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gondola: {fileID: 85956088}
   loops:
+  - m_SceneAsset: {fileID: 102900000, guid: 247906b5c381c6b43bb69fb847a88b6d, type: 3}
+    m_IsDirty: 0
+    m_ScenePath: Assets/_Project/Scenes/Loops/Loop 0.unity
   - m_SceneAsset: {fileID: 102900000, guid: 99865b95ab25dca4da004b8df45cddfa, type: 3}
     m_IsDirty: 0
     m_ScenePath: Assets/_Project/Scenes/Loops/Loop 1.unity

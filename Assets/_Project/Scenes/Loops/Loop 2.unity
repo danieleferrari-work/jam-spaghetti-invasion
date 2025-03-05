@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c5b3c7b5f2f2e43b8fd631cf0c83e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  watchEvent: {fileID: 0}
   cat: {fileID: 548656750}
   catJumpEndPosition: {fileID: 1838098176}
   jumpForce: 3

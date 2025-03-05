@@ -3,12 +3,16 @@ using UnityEngine.Events;
 
 public class Watchable : MonoBehaviour
 {
+    [Tooltip("How far the player needs to be to start watching")]
+    [SerializeField] float minDistance = float.MaxValue;
+
+    [Header("Debug")]
     [SerializeField] TMPro.TMP_Text textCurrentWatchtime;
     [SerializeField] TMPro.TMP_Text textOverallWatchtime;
     [SerializeField] Color defaultColor;
     [SerializeField] Color tooFarColor;
     [SerializeField] Color watchingColor;
-    [SerializeField] float minDistance = float.MaxValue;
+
 
     float currentWatchtime = 0;
     float overallWatchtime = 0;
@@ -21,6 +25,10 @@ public class Watchable : MonoBehaviour
 
     void Awake()
     {
+#if !UNITY_EDITOR
+        textCurrentWatchtime.gameObject.SetActive(false);
+        textOverallWatchtime.gameObject.SetActive(false);
+#endif
         ChangeTextsColor(defaultColor);
     }
 
@@ -37,13 +45,6 @@ public class Watchable : MonoBehaviour
                 ChangeTextsColor(tooFarColor);
             }
         }
-    }
-
-    private void BeginWatch()
-    {
-        alreadyBegin = true;
-        ChangeTextsColor(watchingColor);
-        OnBeginWatch?.Invoke();
     }
 
     void OnTriggerStay(Collider other)
@@ -70,15 +71,26 @@ public class Watchable : MonoBehaviour
         }
     }
 
+    void BeginWatch()
+    {
+        alreadyBegin = true;
+        ChangeTextsColor(watchingColor);
+        OnBeginWatch?.Invoke();
+    }
+
     void Update()
     {
+#if UNITY_EDITOR
         textCurrentWatchtime.text = currentWatchtime.ToString("0.00");
         textOverallWatchtime.text = overallWatchtime.ToString("0.00");
+#endif
     }
 
     void ChangeTextsColor(Color color)
     {
+#if UNITY_EDITOR
         textCurrentWatchtime.color = color;
         textOverallWatchtime.color = color;
+#endif
     }
 }
