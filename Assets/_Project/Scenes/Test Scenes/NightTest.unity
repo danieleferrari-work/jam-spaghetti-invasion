@@ -3834,17 +3834,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f6fd535518f5540b4bcc3099582f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  surfaceType: 1
-  geometryType: 0
+  surfaceType: 0
+  geometryType: 2
   mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   cpuSimulation: 1
   cpuFullResolution: 1
   cpuEvaluateRipples: 1
   timeMultiplier: 1
-  repetitionSize: 50
-  largeWindSpeed: 10
-  largeWindOrientationValue: 0
-  largeCurrentSpeedValue: 1
+  repetitionSize: 5000
+  largeWindSpeed: 7
+  largeWindOrientationValue: 90
+  largeCurrentSpeedValue: 0.5
   largeCurrentOrientationValue: 0
   largeChaos: 0.9
   largeBand0Multiplier: 0.958
