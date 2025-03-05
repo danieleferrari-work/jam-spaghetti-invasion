@@ -4,7 +4,10 @@ using UnityEngine;
 public class GondolaAutoPilotTrigger : MonoBehaviour
 {
     [SerializeField] GameObject finalGondolaPosition;
+    
+    [Tooltip("How many seconds need to pass after the gondola reached finalGondolaPosition")]
     [SerializeField] float waitingTime;
+
     [Tooltip("How many seconds need to pass after a collision to re-enable collision detection")]
     [SerializeField] float resetTime = 30;
 
