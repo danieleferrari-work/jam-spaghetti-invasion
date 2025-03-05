@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class Loop2_Event_Cat : MonoBehaviour
 {
+    [SerializeField] WatchEvent watchEvent;
     [SerializeField] GameObject cat;
     [SerializeField] GameObject catJumpEndPosition;
     [SerializeField] float jumpForce;
     [SerializeField] float jumpDuration;
-    [SerializeField] float jumpDelay = 5;
-    [SerializeField] float jumpPause = 2;
-    [SerializeField] float jumpsReplay = 3;
 
     Vector3 startPosition;
     Coroutine jumpCatCoroutine;
@@ -42,11 +40,11 @@ public class Loop2_Event_Cat : MonoBehaviour
 
     private IEnumerator PlayCatAnimation()
     {
-        for (int i = 0; i < jumpsReplay; i++)
+        for (int i = 0; i < loop.catJumpRepetitions; i++)
         {
             cat.transform.position = startPosition;
 
-            yield return new WaitForSeconds(jumpPause);
+            yield return new WaitForSeconds(loop.catJumpPause);
 
             jumpCatSequence = cat.transform.DOJump(catJumpEndPosition.transform.position, jumpForce, 1, jumpDuration);
 
