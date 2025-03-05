@@ -250,7 +250,9 @@ MonoBehaviour:
   textCurrentWatchtime: {fileID: 3808569555539578002}
   textOverallWatchtime: {fileID: 7899731516820239010}
   defaultColor: {r: 1, g: 0.06511359, b: 0, a: 1}
+  tooFarColor: {r: 1, g: 0.4490608, b: 0, a: 1}
   watchingColor: {r: 0.1595366, g: 1, b: 0, a: 1}
+  minDistance: 3.4028235e+38
 --- !u!114 &5428672100243493544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,9 +265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d24033f8ccb6f8429ec3e774536d349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateXAxis: 0
-  rotateYAxis: 0
-  rotateZAxis: 0
 --- !u!1 &3371968520065846355
 GameObject:
   m_ObjectHideFlags: 0
