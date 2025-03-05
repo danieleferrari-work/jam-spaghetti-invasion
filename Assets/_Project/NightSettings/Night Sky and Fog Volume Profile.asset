@@ -643,11 +643,11 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   albedo:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {r: 0.4811321, g: 0.47432363, b: 0.47432363, a: 1}
   globalLightProbeDimmer:
-    m_OverrideState: 0
-    m_Value: 1
+    m_OverrideState: 1
+    m_Value: 0.5
   depthExtent:
     m_OverrideState: 1
     m_Value: 200
