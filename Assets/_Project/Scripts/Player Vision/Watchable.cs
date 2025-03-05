@@ -28,6 +28,7 @@ public class Watchable : MonoBehaviour
 #if !UNITY_EDITOR
         textCurrentWatchtime.gameObject.SetActive(false);
         textOverallWatchtime.gameObject.SetActive(false);
+        Destroy(GetComponent<AlwaysLookAtCamera>());
 #endif
         ChangeTextsColor(defaultColor);
     }

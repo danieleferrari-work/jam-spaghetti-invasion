@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Cat : MonoBehaviour
+public class Loop2_Cat : MonoBehaviour
 {
     public static UnityAction OnCatJumpedOnBoat;
 

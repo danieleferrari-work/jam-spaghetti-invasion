@@ -3,11 +3,11 @@ using System.Linq;
 using BaseTemplate;
 using DevLocker.Utils;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class LoopsManager : Singleton<LoopsManager>
 {
-    [SerializeField] Gondola gondola;
     [SerializeField] List<SceneReference> loops;
     [SerializeField] int startingLoop;
 
@@ -16,6 +16,8 @@ public class LoopsManager : Singleton<LoopsManager>
     ILoop currentLoop;
 
     protected override bool isDontDestroyOnLoad => false;
+
+    public static UnityAction OnStartLoop;
 
     void Start()
     {
@@ -54,7 +56,7 @@ public class LoopsManager : Singleton<LoopsManager>
 
         currentLoop = FindObjectsOfType<MonoBehaviour>().OfType<ILoop>().First();
 
-        gondola.OnLoopReset();
+        OnStartLoop?.Invoke();
 
         if (previousLoop != -1)
         {

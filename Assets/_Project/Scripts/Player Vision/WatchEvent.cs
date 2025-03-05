@@ -11,7 +11,7 @@ public class WatchEvent : MonoBehaviour
     [SerializeField] float timeToWatch = 10;
 
     [Tooltip("Seconds before the event fails")]
-    [SerializeField] float duration = 60;
+    [SerializeField] float duration = 600;
 
     [Tooltip("Used only if startType is Delayed")]
     [SerializeField] float startDelay = 2;

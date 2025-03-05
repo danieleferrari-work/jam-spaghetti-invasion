@@ -17,9 +17,11 @@ public class Gondola : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         ResetTransform();
         ResetRigidbody();
+
+        LoopsManager.OnStartLoop += OnStartLoop;
     }
 
-    public void OnLoopReset()
+    private void OnStartLoop()
     {
         ResetTransform();
         ResetRigidbody();

@@ -4,41 +4,50 @@ using UnityEngine;
 
 public class Loop2_Event_Cat : MonoBehaviour
 {
-    [SerializeField] WatchEvent watchEvent;
-    [SerializeField] GameObject cat;
-    [SerializeField] GameObject catJumpEndPosition;
+    [Header("Parameters")]
     [SerializeField] float jumpForce;
     [SerializeField] float jumpDuration;
 
+    [Header("References")]
+    [SerializeField] WatchEvent watchEvent;
+    [SerializeField] GameObject cat;
+    [SerializeField] GameObject catJumpEndPosition;
+
+    // References
+    Loop2 loop;
+
+    // Local Variables
     Vector3 startPosition;
     Coroutine jumpCatCoroutine;
     Sequence jumpCatSequence;
-    Loop2 loop;
+
 
     void Awake()
     {
         loop = GetComponentInParent<Loop2>();
         startPosition = cat.transform.position;
 
-        Cat.OnCatJumpedOnBoat += OnCatJumpedOnBoat;
+        watchEvent.OnEventSuccessed += StartJumping;
     }
 
-    private void OnCatJumpedOnBoat()
+    void StartJumping()
     {
-        StopCoroutine(jumpCatCoroutine);
-        jumpCatSequence.Kill();
-        Destroy(cat);
-        FindFirstObjectByType<Gondola>().catOnBoat.SetActive(true);
-
-        loop.catEventCompleted = true;
-    }
-
-    void Start()
-    {
+        Loop2_Cat.OnCatJumpedOnBoat += OnCatJumpedOnBoat;
         jumpCatCoroutine = StartCoroutine(PlayCatAnimation());
     }
 
-    private IEnumerator PlayCatAnimation()
+    void OnCatJumpedOnBoat()
+    {
+        StopCoroutine(jumpCatCoroutine);
+
+        loop.catEventCompleted = true;
+
+        jumpCatSequence.Kill();
+        Destroy(gameObject);
+    }
+
+
+    IEnumerator PlayCatAnimation()
     {
         for (int i = 0; i < loop.catJumpRepetitions; i++)
         {
