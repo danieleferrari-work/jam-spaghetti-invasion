@@ -27,11 +27,13 @@ public class GondolaAutoPilot : MonoBehaviour
         gondola.transform.DOMove(area.FinalPosition, movementDuration);
         gondola.transform.DORotate(area.FinalRotation, movementDuration);
 
-        yield return new WaitForSeconds(movementDuration + area.WaitingTime);
+        yield return new WaitForSeconds(movementDuration);
+        
+        area.OnEndMoving?.Invoke();
+
+        yield return new WaitForSeconds(area.WaitingTime);
 
         gondolaMovementManager.DisableAutoPilot();
-
-        area.OnFinish?.Invoke();
     }
 
     private float CalculateMovementDuration(Vector3 targetPosition)

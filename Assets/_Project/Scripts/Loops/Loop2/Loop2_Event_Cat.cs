@@ -1,65 +1,68 @@
 using System.Collections;
-using DG.Tweening;
 using UnityEngine;
 
 public class Loop2_Event_Cat : MonoBehaviour
 {
-    [Header("Parameters")]
-    [SerializeField] float jumpForce;
-    [SerializeField] float jumpDuration;
-
     [Header("References")]
+    [SerializeField] GondolaAutoPilotArea autoPilotArea;
     [SerializeField] WatchEvent watchEvent;
-    [SerializeField] GameObject cat;
-    [SerializeField] GameObject catJumpEndPosition;
+    [SerializeField] Animator catAnimator;
+    [SerializeField] CatJumpStateMachine catJumpStateMachine;
 
     // References
     Loop2 loop;
 
     // Local Variables
-    Vector3 startPosition;
     Coroutine jumpCatCoroutine;
-    Sequence jumpCatSequence;
-
+    bool isLastJump;
 
     void Awake()
     {
         loop = GetComponentInParent<Loop2>();
-        startPosition = cat.transform.position;
 
-        watchEvent.OnEventSuccessed += StartJumping;
+        if (loop.catEventCompleted)
+        {
+            Destroy(gameObject);
+        }
+
+        watchEvent.OnEventStarted += StartJumping;
+        autoPilotArea.OnStartMoving += OnStartAutoPilotMoving;
+        autoPilotArea.OnEndMoving += OnEndAutoPilotMoving;
     }
 
     void StartJumping()
     {
-        Loop2_Cat.OnCatJumpedOnBoat += OnCatJumpedOnBoat;
         jumpCatCoroutine = StartCoroutine(PlayCatAnimation());
     }
 
-    void OnCatJumpedOnBoat()
+    void OnEndAutoPilotMoving()
     {
-        StopCoroutine(jumpCatCoroutine);
-
-        loop.catEventCompleted = true;
-
-        jumpCatSequence.Kill();
-        Destroy(gameObject);
+        catAnimator.SetTrigger("DoJump");
+        isLastJump = true;
     }
 
+    void OnStartAutoPilotMoving()
+    {
+        if (jumpCatCoroutine != null)
+            StopCoroutine(jumpCatCoroutine);
+    }
+
+    public void CatJumpFinished()
+    {
+        if (isLastJump)
+        {
+            loop.catEventCompleted = true;
+            Destroy(gameObject);
+        }
+    }
 
     IEnumerator PlayCatAnimation()
     {
         for (int i = 0; i < loop.catJumpRepetitions; i++)
         {
-            cat.transform.position = startPosition;
-
             yield return new WaitForSeconds(loop.catJumpPause);
 
-            jumpCatSequence = cat.transform.DOJump(catJumpEndPosition.transform.position, jumpForce, 1, jumpDuration);
-
-            yield return new WaitForSeconds(jumpDuration);
+            catAnimator.SetTrigger("DoJump");
         }
-
-        Destroy(gameObject);
     }
 }

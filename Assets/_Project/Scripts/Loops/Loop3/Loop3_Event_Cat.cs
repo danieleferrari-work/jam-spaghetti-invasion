@@ -26,7 +26,7 @@ public class Loop3_Event_Cat : MonoBehaviour
 
     void Start()
     {
-        autoPilotArea.OnFinish.AddListener(OnAutoPilotFinish);
+        autoPilotArea.OnEndMoving += OnAutoPilotFinish;
     }
 
     private void OnAutoPilotFinish()
@@ -42,7 +42,7 @@ public class Loop3_Event_Cat : MonoBehaviour
         catOnBoat.transform.DOJump(catOnGround.transform.position, jumpForce, 1, jumpDuration);
 
         yield return new WaitForSeconds(jumpDuration);
-        
+
         Destroy(catOnBoat.gameObject);
         catOnGround.gameObject.SetActive(true);
         loop.catEventCompleted = true;

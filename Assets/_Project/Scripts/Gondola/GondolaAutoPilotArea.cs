@@ -15,7 +15,8 @@ public class GondolaAutoPilotArea : MonoBehaviour
     public Vector3 FinalPosition => new Vector3(finalGondolaPosition.transform.position.x, Gondola.BaseHeight, finalGondolaPosition.transform.position.z);
     public Vector3 FinalRotation => finalGondolaPosition.transform.rotation.eulerAngles;
     public float WaitingTime => waitingTime;
-    public UnityEvent OnFinish;
+    public UnityAction OnEndMoving;
+    public UnityAction OnStartMoving;
 
     bool disabled = false;
 
@@ -29,6 +30,8 @@ public class GondolaAutoPilotArea : MonoBehaviour
 
         if (gondola)
         {
+            OnStartMoving?.Invoke();
+            
             disabled = true;
             var gondolaMovementManager = gondola.GetComponentInChildren<GondolaMovementManager>();
             gondolaMovementManager.EnableAutoPilot(this);
