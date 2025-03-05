@@ -9,64 +9,72 @@ using UnityEngine.SceneManagement;
 public class LoopsManager : Singleton<LoopsManager>
 {
     [SerializeField] List<SceneReference> loops;
-    [SerializeField] int startingLoop;
 
     int currentLoopIndex;
-    int previousLoop;
-    ILoop currentLoop;
 
-    protected override bool isDontDestroyOnLoad => false;
+    ILoop currentLoop;
 
     public static UnityAction OnStartLoop;
 
+    protected override bool isDontDestroyOnLoad => true;
+
+
     void Start()
     {
-        currentLoopIndex = startingLoop - 1;
-        NextLoop();
+        currentLoopIndex = 0;
+
+        LoadLoop(currentLoopIndex);
     }
 
     public void OnLoopExit()
     {
-        if (currentLoop != null && !currentLoop.IsComplete())
-            LoadCurrentLoop();
+        if (!currentLoop.IsComplete())
+            RestartLoop();
         else
             NextLoop();
     }
 
-    public void LoadCurrentLoop()
+    void RestartLoop()
     {
-        Debug.Log($"Start loading loop {currentLoopIndex} at {Time.time}");
-
-        var loadScene = SceneManager.LoadSceneAsync(loops[currentLoopIndex].SceneName, LoadSceneMode.Additive);
-        loadScene.completed += OnLoadingLoopCompleted;
+        UnloadLoop(currentLoopIndex);
+        LoadLoop(currentLoopIndex);
     }
 
-    public void NextLoop()
+    void NextLoop()
     {
-        previousLoop = currentLoopIndex;
+        UnloadLoop(currentLoopIndex);
         currentLoopIndex++;
 
-        LoadCurrentLoop();
-    }
-
-    private void OnLoadingLoopCompleted(AsyncOperation operation)
-    {
-        Debug.Log($"Finish loading loop {currentLoopIndex} at {Time.time}");
-        Debug.Log($"Start unloading loop {previousLoop} at {Time.time}");
-
-        currentLoop = FindObjectsOfType<MonoBehaviour>().OfType<ILoop>().First();
-
-        OnStartLoop?.Invoke();
-
-        if (previousLoop != -1)
+        if (currentLoopIndex >= loops.Count)
         {
-            var unloadScene = SceneManager.UnloadSceneAsync(loops[previousLoop].SceneName);
-            unloadScene.completed += OnUnloadingPreviousLoopCompleted;
+            Debug.Log("NO MORE LOOPS");
+            currentLoopIndex = 0;
         }
+
+        LoadLoop(currentLoopIndex);
     }
 
-    private void OnUnloadingPreviousLoopCompleted(AsyncOperation operation)
+    void UnloadLoop(int index)
     {
-        Debug.Log($"Finish loading loop {currentLoopIndex} at {Time.time}");
+        var unload = SceneManager.UnloadSceneAsync(loops[index].SceneName);
+        unload.completed += OnUnloadComplete;
+    }
+
+    void OnUnloadComplete(AsyncOperation operation)
+    {
+        Debug.Log($"Unload scene completed");
+    }
+
+    void LoadLoop(int index)
+    {
+        var load = SceneManager.LoadSceneAsync(loops[index].SceneName, LoadSceneMode.Additive);
+        load.completed += OnLoadComplete;
+    }
+
+    void OnLoadComplete(AsyncOperation operation)
+    {
+        OnStartLoop?.Invoke();
+        currentLoop = FindObjectsOfType<MonoBehaviour>().OfType<ILoop>().First();
+        Debug.Log($"Load scene completed");
     }
 }
