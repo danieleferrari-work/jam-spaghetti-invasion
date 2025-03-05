@@ -8,23 +8,28 @@ public class GondolaMovementManager : MonoBehaviour
     [SerializeField] float pushForce = 10;
     [SerializeField] float pushDelay = 6f;
     [SerializeField] float pushDuration = 3f;
+    [SerializeField] GameObject model;
 
 
     Rigidbody rb;
     PlayerInputActions inputActions;
-    GondolaFloatingManager gondolaFloatingManager;
+    GondolaAutoPilot autoPilot;
 
     float lastPushTime;
+    bool autoPilotEnabled;
 
     bool IsTimerElapsed => Time.time - lastPushTime > pushDelay;
     bool IsPushComplete => Time.time - lastPushTime > pushDelay + pushDuration;
+
+    public Vector3 Velocity => rb.velocity;
 
 
     void Awake()
     {
         rb = GetComponentInParent<Rigidbody>();
+        autoPilot = rb.GetComponentInChildren<GondolaAutoPilot>();
+
         inputActions = new PlayerInputActions();
-        gondolaFloatingManager = rb.GetComponentInChildren<GondolaFloatingManager>();
 
         lastPushTime = Time.time + pushDelay * 2;
     }
@@ -41,6 +46,9 @@ public class GondolaMovementManager : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (autoPilotEnabled)
+            return;
+
         var inputValue = inputActions.Player.Move.ReadValue<Vector2>();
 
         if (inputValue.magnitude > 0)
@@ -52,7 +60,7 @@ public class GondolaMovementManager : MonoBehaviour
                 if (IsTimerElapsed)
                 {
                     Push(inputValue.y);
-                    
+
                     if (IsPushComplete)
                         lastPushTime = Time.time;
                 }
@@ -60,20 +68,26 @@ public class GondolaMovementManager : MonoBehaviour
             ApplyRotation(inputValue.x);
         }
 
-        ApplyOscillationBobbing();
-        ApplyOscillationRoll();
     }
 
-    private void ApplyOscillationRoll()
+    public void EnableAutoPilot(GondolaAutoPilotArea trigger)
     {
-        var roll = gondolaFloatingManager.CalculateOscillationRoll();
-        rb.MoveRotation(Quaternion.Euler(new Vector3(rb.rotation.eulerAngles.x, rb.rotation.eulerAngles.y, roll)));
+        Debug.Log("Enable autopiloting");
+        rb.isKinematic = true;
+        autoPilotEnabled = true;
+        autoPilot.GoTo(trigger);
     }
 
-    private void ApplyOscillationBobbing()
+    public void DisableAutoPilot()
     {
-        var bobbing = gondolaFloatingManager.CalculateOscillationBobbing();
-        rb.MovePosition(new Vector3(rb.transform.position.x, bobbing, rb.transform.position.z));
+        Debug.Log("Disable autopiloting");
+
+        rb.isKinematic = false;
+        rb.MovePosition(transform.position);
+        rb.MoveRotation(transform.rotation);
+        rb.velocity = Vector3.zero;
+
+        autoPilotEnabled = false;
     }
 
     private void ApplyRotation(float rotation)

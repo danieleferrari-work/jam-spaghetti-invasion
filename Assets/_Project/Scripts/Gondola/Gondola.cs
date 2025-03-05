@@ -3,15 +3,25 @@ using UnityEngine;
 
 public class Gondola : MonoBehaviour
 {
+    public static float BaseHeight = 1;
+    public GameObject catOnBoat;
+
     [SerializeField] CinemachineVirtualCamera playerVirtualCamera;
     Rigidbody rb;
+
+    Vector3 BasePosition => new Vector3(0, BaseHeight, 0);
+
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        ResetTransform();
+        ResetRigidbody();
+
+        LoopsManager.OnStartLoop += OnStartLoop;
     }
 
-    public void OnLoopReset()
+    private void OnStartLoop()
     {
         ResetTransform();
         ResetRigidbody();
@@ -20,12 +30,12 @@ public class Gondola : MonoBehaviour
 
     private void ResetTransform()
     {
-        gameObject.transform.position = Vector3.zero;
+        gameObject.transform.position = BasePosition;
     }
 
     private void ResetRigidbody()
     {
-        rb.transform.position = Vector3.zero;
+        rb.transform.position = BasePosition;
         rb.transform.rotation = Quaternion.identity;
         rb.velocity = Vector3.zero;
     }

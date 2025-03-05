@@ -6,12 +6,18 @@ public class WatchEvent : MonoBehaviour
 {
     [SerializeField] Watchable watchable;
     [SerializeField] EventStartTypes startType;
-    [SerializeField] float timeToWatch;
-    [SerializeField] float duration;
+
+    [Tooltip("Seconds needed to complete the event")]
+    [SerializeField] float timeToWatch = 10;
+
+    [Tooltip("Seconds before the event fails")]
+    [SerializeField] float duration = 600;
+
     [Tooltip("Used only if startType is Delayed")]
-    [SerializeField] float startDelay;
-    [SerializeField] bool destroyGameObjectOnSuccess;
-    [SerializeField] bool destroyGameObjectOnFailure;
+    [SerializeField] float startDelay = 2;
+
+    [SerializeField] bool destroyGameObjectOnSuccess = true;
+    [SerializeField] bool destroyGameObjectOnFailure = true;
 
 
     public UnityAction OnEventStarted;
