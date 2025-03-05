@@ -8,12 +8,12 @@ public class GondolaAutoPilotTrigger : MonoBehaviour
     [Tooltip("How many seconds need to pass after a collision to re-enable collision detection")]
     [SerializeField] float resetTime = 30;
 
-    public Vector3 FinalPosition => finalGondolaPosition.transform.position;
+    public Vector3 FinalPosition => new Vector3(finalGondolaPosition.transform.position.x, Gondola.BaseHeight, finalGondolaPosition.transform.position.z);
     public Vector3 FinalRotation => finalGondolaPosition.transform.rotation.eulerAngles;
     public float WaitingTime => waitingTime;
 
     bool disabled = false;
-    
+
 
     void OnTriggerEnter(Collider other)
     {

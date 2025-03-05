@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Gondola : MonoBehaviour
 {
+    public static float BaseHeight = 1;
+    
     [SerializeField] CinemachineVirtualCamera playerVirtualCamera;
     Rigidbody rb;
     public GameObject catOnBoat;
