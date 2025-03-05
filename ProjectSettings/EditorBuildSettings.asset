@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/_Project/Scenes/Loops/Loop 0.unity
     guid: 247906b5c381c6b43bb69fb847a88b6d
   - enabled: 1
-    path: Assets/_Project/Scenes/Loops/Loop 3.unity
+    path: Assets/_Project/Scenes/Loops/Loop1_Event_Gondolier.unity
     guid: d039bc4c3dea8204ba98ed8b100d0523
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 75a3cc4e65ed0264fa286b4641bc6523,
