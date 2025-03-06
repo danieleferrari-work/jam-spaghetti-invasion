@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Loop6 : MonoBehaviour, ILoop
 {
+    public bool catEventCompleted;
+
     public bool IsComplete()
     {
-        return true;
+        return catEventCompleted;
     }
 }

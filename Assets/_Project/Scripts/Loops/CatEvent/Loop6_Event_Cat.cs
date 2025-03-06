@@ -2,7 +2,7 @@ using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
-public class Loop3_Event_Cat : MonoBehaviour
+public class Loop6_Event_Cat : MonoBehaviour
 {
     [Header("Parameters")]
     [SerializeField] float jumpForce;
@@ -14,13 +14,13 @@ public class Loop3_Event_Cat : MonoBehaviour
     [SerializeField] GondolaAutoPilotArea autoPilotArea;
 
     // References
-    Loop3 loop;
+    Loop6 loop;
     GameObject catOnBoat;
 
 
     void Awake()
     {
-        loop = GetComponentInParent<Loop3>();
+        loop = GetComponentInParent<Loop6>();
         catOnBoat = FindObjectOfType<Gondola>().catOnBoat;
     }
 
