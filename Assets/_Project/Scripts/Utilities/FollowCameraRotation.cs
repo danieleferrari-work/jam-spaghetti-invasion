@@ -15,7 +15,8 @@ public class FollowCameraRotation : MonoBehaviour
 
     void FixedUpdate()
     {
-        RotateTransform();
+        if (Camera.main!=null)
+            RotateTransform();
     }
 
     private void RotateTransform()
