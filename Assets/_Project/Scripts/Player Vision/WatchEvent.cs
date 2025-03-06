@@ -4,7 +4,6 @@ using UnityEngine.Events;
 
 public class WatchEvent : MonoBehaviour
 {
-    [SerializeField] Watchable watchable;
     [SerializeField] EventStartTypes startType;
 
     [Tooltip("Seconds needed to complete the event")]
@@ -26,6 +25,12 @@ public class WatchEvent : MonoBehaviour
 
 
     Coroutine timer;
+    Watchable watchable;
+
+    void Awake()
+    {
+        watchable = GetComponentInChildren<Watchable>();
+    }
 
     void Start()
     {
