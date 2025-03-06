@@ -18,7 +18,7 @@ public class PauseManager : Singleton<PauseManager>
     protected override void InitializeInstance()
     {
         base.InitializeInstance();
-        PlayerInputManager.instance.Pause += TogglePause;
+        //PlayerInputManager.instance.Pause += TogglePause;
 
         pausableObjects = FindObjectsOfType<MonoBehaviour>().OfType<IPausable>().ToList();
     }
