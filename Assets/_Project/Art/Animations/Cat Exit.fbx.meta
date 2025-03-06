@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9e5c9e4e8a407b949b2ccb171aa25dfd
+guid: b5be6c4a893872c45abd49363606542c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Cat Points
-      takeName: Cat Points
-      internalID: -4998142358048717401
+      name: Cat exit
+      takeName: Cat exit
+      internalID: -6763107597267066600
       firstFrame: 0
-      lastFrame: 220
+      lastFrame: 300
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -62,11 +62,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Cat Points
-      takeName: Armature|Cat Points
-      internalID: 1851965287561884698
+      name: Anim Gatoo|Cat exit
+      takeName: Anim Gatoo|Cat exit
+      internalID: 1093591391164274825
       firstFrame: 0
-      lastFrame: 220
+      lastFrame: 300
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
