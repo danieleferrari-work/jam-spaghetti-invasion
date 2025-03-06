@@ -37,7 +37,7 @@ public class Loop3_Event_Cat : MonoBehaviour
 
     void OnEndAutoPilotMoving()
     {
-        catAnimator.SetTrigger("DoJump");
+        catAnimator.SetTrigger("DoJumpOnBoat");
         isLastJump = true;
     }
 
