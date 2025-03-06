@@ -13,6 +13,16 @@ public class Loop1 : MonoBehaviour, ILoop
 
     public string catMeowClipName;
 
+    [Tooltip("How many seconds need to pass from the start before the gondolier starts to sing")]
+    public float gondolierSingStartDelay;
+
+    [Tooltip("Delay between singing")]
+    public float gondolierSingDelay;
+
+    [Tooltip("How many times the gondolier sing")]
+    public float gondolierSingCount;
+
+    public string gondolierSingClipName;
     public int GetLoopNumber() => 1;
 
     public bool IsComplete()

@@ -2205,6 +2205,52 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8516802925899196396, guid: fc4f99936a6284945ae99b975ebb47a7,
+        type: 3}
+      propertyPath: sounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516802925899196396, guid: fc4f99936a6284945ae99b975ebb47a7,
+        type: 3}
+      propertyPath: sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 32e32bfdcd922d34c8b1c81548fdcab6, type: 3}
+    - target: {fileID: 8516802925899196396, guid: fc4f99936a6284945ae99b975ebb47a7,
+        type: 3}
+      propertyPath: sounds.Array.data[1].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516802925899196396, guid: fc4f99936a6284945ae99b975ebb47a7,
+        type: 3}
+      propertyPath: sounds.Array.data[1].name
+      value: Gondolier-Sing
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516802925899196396, guid: fc4f99936a6284945ae99b975ebb47a7,
+        type: 3}
+      propertyPath: sounds.Array.data[1].pitch
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516802925899196396, guid: fc4f99936a6284945ae99b975ebb47a7,
+        type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516802925899196396, guid: fc4f99936a6284945ae99b975ebb47a7,
+        type: 3}
+      propertyPath: sounds.Array.data[1].mixerGroup
+      value: 
+      objectReference: {fileID: -6589904579366246563, guid: e00214ac03fc6dd4e8debc27bcac3cd4,
+        type: 2}
+    - target: {fileID: 8516802925899196396, guid: fc4f99936a6284945ae99b975ebb47a7,
+        type: 3}
+      propertyPath: sounds.Array.data[1].playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516802925899196396, guid: fc4f99936a6284945ae99b975ebb47a7,
+        type: 3}
+      propertyPath: sounds.Array.data[1].pitchVariance
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -87,8 +87,6 @@ public class WatchEvent : MonoBehaviour
             StopCoroutine(timer);
 
         if (destroyGameObjectOnSuccess)
-            if (GameObject.FindGameObjectWithTag("Gondolier"))
-                Destroy(GameObject.FindGameObjectWithTag("Gondolier"));
             Destroy(gameObject);
 
         this.enabled = false;
