@@ -621,6 +621,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loop
       objectReference: {fileID: 0}
+    - target: {fileID: 4378916358046635869, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      propertyPath: m_text
+      value: LOOP 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4538988181675934623, guid: 33889eed3e6449f4eb05eb7238fd56f6,
         type: 3}
       propertyPath: m_text
@@ -689,10 +694,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2083740897}
-    - targetCorrespondingSourceObject: {fileID: 7878958981016795516, guid: 33889eed3e6449f4eb05eb7238fd56f6,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 33889eed3e6449f4eb05eb7238fd56f6, type: 3}
 --- !u!4 &2083740895 stripped
 Transform:
