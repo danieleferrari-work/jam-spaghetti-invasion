@@ -122,6 +122,127 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &489218549 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5964558698966833310, guid: a645e24009a7cbf44acbc6ee0573418f,
+    type: 3}
+  m_PrefabInstance: {fileID: 689085797}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &689085797
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2083740895}
+    m_Modifications:
+    - target: {fileID: 291802498873810777, guid: a645e24009a7cbf44acbc6ee0573418f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635881541880046547, guid: a645e24009a7cbf44acbc6ee0573418f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635881541880046547, guid: a645e24009a7cbf44acbc6ee0573418f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635881541880046547, guid: a645e24009a7cbf44acbc6ee0573418f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635881541880046547, guid: a645e24009a7cbf44acbc6ee0573418f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635881541880046547, guid: a645e24009a7cbf44acbc6ee0573418f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635881541880046547, guid: a645e24009a7cbf44acbc6ee0573418f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635881541880046547, guid: a645e24009a7cbf44acbc6ee0573418f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635881541880046547, guid: a645e24009a7cbf44acbc6ee0573418f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635881541880046547, guid: a645e24009a7cbf44acbc6ee0573418f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635881541880046547, guid: a645e24009a7cbf44acbc6ee0573418f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333031577024752414, guid: a645e24009a7cbf44acbc6ee0573418f,
+        type: 3}
+      propertyPath: m_Name
+      value: Gondolier Event Loop 9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8665119435992740923, guid: a645e24009a7cbf44acbc6ee0573418f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 689085801}
+    - targetCorrespondingSourceObject: {fileID: 1386791444732414461, guid: a645e24009a7cbf44acbc6ee0573418f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4618472996149671120, guid: a645e24009a7cbf44acbc6ee0573418f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: a645e24009a7cbf44acbc6ee0573418f, type: 3}
+--- !u!4 &689085798 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4635881541880046547, guid: a645e24009a7cbf44acbc6ee0573418f,
+    type: 3}
+  m_PrefabInstance: {fileID: 689085797}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &689085800 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8665119435992740923, guid: a645e24009a7cbf44acbc6ee0573418f,
+    type: 3}
+  m_PrefabInstance: {fileID: 689085797}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &689085801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689085800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb115e0dde5f2ee489c552f217e43bc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 489218549}
+  bobFrequency: 2
+  bobAmplitude: 0.3
+  rollFrequency: 0.5
+  rollAmplitude: 5
+  heightOffset: 1.5
 --- !u!850595691 &957752462
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -186,37 +307,6 @@ LightingSettings:
   m_PVRTiledBaking: 0
   m_NumRaysToShootPerTexel: -1
   m_RespectSceneVisibilityWhenBakingGI: 0
---- !u!1 &1901288283
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1901288284}
-  m_Layer: 0
-  m_Name: Gondolier Event
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1901288284
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1901288283}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 2083740895}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2013410473
 GameObject:
   m_ObjectHideFlags: 1
@@ -345,7 +435,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8453030284479625540, guid: 33889eed3e6449f4eb05eb7238fd56f6,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1901288284}
+      addedObject: {fileID: 689085798}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 877261593650640380, guid: 33889eed3e6449f4eb05eb7238fd56f6,
         type: 3}
@@ -376,6 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181a3d7cbd87650488dfc95afc84dc48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gondolierEventCompleted: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
