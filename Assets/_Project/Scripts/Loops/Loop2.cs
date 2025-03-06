@@ -7,6 +7,8 @@ public class Loop2 : MonoBehaviour, ILoop
 
     public bool catEventCompleted = false;
 
+    public int GetLoopNumber() => 2;
+    
     public bool IsComplete()
     {
         Debug.Log($"Loop2 is completed? {catEventCompleted}");

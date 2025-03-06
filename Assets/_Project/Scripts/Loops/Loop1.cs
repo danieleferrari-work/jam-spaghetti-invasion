@@ -13,6 +13,8 @@ public class Loop1 : MonoBehaviour, ILoop
 
     public string catMeowClipName;
 
+    public int GetLoopNumber() => 1;
+
     public bool IsComplete()
     {
         Debug.Log("loop1 completed");

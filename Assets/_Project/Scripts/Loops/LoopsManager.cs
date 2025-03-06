@@ -21,9 +21,17 @@ public class LoopsManager : Singleton<LoopsManager>
 
     void Start()
     {
+#if UNITY_EDITOR
+        var loop = FindObjectsOfType<MonoBehaviour>().OfType<ILoop>().First();
+        if (loop != null)
+        {
+            currentLoop = loop;
+            currentLoopIndex = loop.GetLoopNumber() - 1;
+        }
+#else
         currentLoopIndex = 0;
-
         LoadLoop(currentLoopIndex);
+#endif
     }
 
     public void OnLoopExit()
