@@ -3,7 +3,12 @@ guid: 791366b9322adf54ca07a9073ef9eea7
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gondola
+    second: {fileID: 2100000, guid: afb13cd504c38a8479950be38446fb70, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
