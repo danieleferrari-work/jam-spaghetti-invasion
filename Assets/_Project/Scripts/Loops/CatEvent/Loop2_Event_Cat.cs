@@ -3,66 +3,26 @@ using UnityEngine;
 
 public class Loop2_Event_Cat : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] GondolaAutoPilotArea autoPilotArea;
-    [SerializeField] WatchEvent watchEvent;
-    [SerializeField] Animator catAnimator;
-    [SerializeField] CatJumpStateMachine catJumpStateMachine;
-
-    // References
     Loop2 loop;
-
-    // Local Variables
-    Coroutine jumpCatCoroutine;
-    bool isLastJump;
 
     void Awake()
     {
         loop = GetComponentInParent<Loop2>();
+    }
 
-        if (loop.catEventCompleted)
+    void Start()
+    {
+        StartCoroutine(PlayCatSound());
+    }
+    
+    private IEnumerator PlayCatSound()
+    {
+        yield return new WaitForSeconds(loop.catMeowStartDelay);
+
+        for (int i = 0; i < loop.catMeowsCount; i++)
         {
-            Destroy(gameObject);
-        }
-
-        watchEvent.OnEventStarted += StartJumping;
-        autoPilotArea.OnStartMoving += OnStartAutoPilotMoving;
-        autoPilotArea.OnEndMoving += OnEndAutoPilotMoving;
-    }
-
-    void StartJumping()
-    {
-        jumpCatCoroutine = StartCoroutine(PlayCatAnimation());
-    }
-
-    void OnEndAutoPilotMoving()
-    {
-        catAnimator.SetTrigger("DoJump");
-        isLastJump = true;
-    }
-
-    void OnStartAutoPilotMoving()
-    {
-        if (jumpCatCoroutine != null)
-            StopCoroutine(jumpCatCoroutine);
-    }
-
-    public void CatJumpFinished()
-    {
-        if (isLastJump)
-        {
-            loop.catEventCompleted = true;
-            Destroy(gameObject);
-        }
-    }
-
-    IEnumerator PlayCatAnimation()
-    {
-        for (int i = 0; i < loop.catJumpRepetitions; i++)
-        {
-            yield return new WaitForSeconds(loop.catJumpPause);
-
-            catAnimator.SetTrigger("DoJump");
+            AudioManager.instance.Play(loop.catMeowClipName);
+            yield return new WaitForSeconds(loop.catMeowDelay);
         }
     }
 }

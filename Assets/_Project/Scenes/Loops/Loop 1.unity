@@ -562,10 +562,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8453030284479625540, guid: 33889eed3e6449f4eb05eb7238fd56f6,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2058751759}
-    - targetCorrespondingSourceObject: {fileID: 8453030284479625540, guid: 33889eed3e6449f4eb05eb7238fd56f6,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 505407617}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 877261593650640380, guid: 33889eed3e6449f4eb05eb7238fd56f6,
@@ -597,10 +593,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76874e0b7b3f01e4c903caeca7877a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catMeowStartDelay: 10
-  catMeowDelay: 20
-  catMeowsCount: 3
-  catMeowClipName: cat-meow
+  gondolierSingStartDelay: 0
+  gondolierSingDelay: 0
+  gondolierSingCount: 0
+  gondolierSingClipName: 
+  facelessEventCompleted: 0
 --- !u!1 &2013410473
 GameObject:
   m_ObjectHideFlags: 1
@@ -649,54 +646,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2058751758
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2058751759}
-  - component: {fileID: 2058751760}
-  m_Layer: 0
-  m_Name: Cat
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2058751759
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058751758}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.609, y: 1.865, z: 110}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 1758323944}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2058751760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058751758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4a03e800fb8e8445b37444016280a87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  autoPilotArea: {fileID: 0}
-  watchEvent: {fileID: 0}
-  catAnimator: {fileID: 0}
-  catJumpStateMachine: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

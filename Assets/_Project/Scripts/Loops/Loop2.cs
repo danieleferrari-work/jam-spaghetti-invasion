@@ -2,16 +2,26 @@ using UnityEngine;
 
 public class Loop2 : MonoBehaviour, ILoop
 {
-    [SerializeField] public float catJumpPause = 2;
-    [SerializeField] public float catJumpRepetitions = 3;
+    [Header("Cat Event")]
 
-    public bool catEventCompleted = false;
+    [Tooltip("How many seconds need to pass from the start before the cat starts to meows")]
+    public float catMeowStartDelay;
+
+    [Tooltip("Delay between meows")]
+    public float catMeowDelay;
+
+    [Tooltip("How many times the cat meows")]
+    public float catMeowsCount;
+
+    public string catMeowClipName;
+
+
+    public bool gondolierEventCompleted = false; // TODO settare true quando evento gondoliere è completato
 
     public int GetLoopNumber() => 2;
-    
+
     public bool IsComplete()
     {
-        Debug.Log($"Loop2 is completed? {catEventCompleted}");
-        return catEventCompleted;
+        return gondolierEventCompleted;
     }
 }

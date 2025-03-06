@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Loop6 : MonoBehaviour, ILoop
 {
-    public bool catEventCompleted;
+    public bool catEventCompleted = false;
 
     public int GetLoopNumber() => 6;
 
