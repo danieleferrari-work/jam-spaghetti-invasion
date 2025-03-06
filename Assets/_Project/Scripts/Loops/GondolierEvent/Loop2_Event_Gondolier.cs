@@ -1,19 +1,63 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Loop2_Event_Gondolier : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("References")]
+    [SerializeField] WatchEvent watchEvent;
+  //  [SerializeField] Animator gondolierAnimator;
+   // [SerializeField] CatJumpStateMachine gondolierJumpStateMachine;
+
+    // References
+    Loop2 loop;
+
+    // Local Variables
+    Coroutine singingGondolierCoroutine;
+    bool isLastJump;
+
+    void Awake()
     {
-     //   if (GameObject.FindGameObjectWithTag("Gondolier"))
-      //      Destroy(GameObject.FindGameObjectWithTag("Gondolier"));
+        loop = GetComponentInParent<Loop2>();
+
+        if (loop.gondolierEventCompleted)
+        {
+            Destroy(gameObject);
+        }
+
+        watchEvent.OnEventStarted += StartSinging;
+        watchEvent.OnEventSuccessed += StopSinging;
     }
 
-    // Update is called once per frame
-    void Update()
+    void StartSinging()
     {
+        //  singingGondolierCoroutine = StartCoroutine(PlayGondolierAnimation());
         
     }
+
+   void StopSinging()
+    {
+        loop.gondolierEventCompleted = true;
+        Destroy(gameObject);
+    }
+
+   /*
+    public void CatJumpFinished()
+    {
+        if (isLastJump)
+        {
+            loop.gondolierEventCompleted = true;
+            Destroy(gameObject);
+        }
+    }
+
+     IEnumerator PlayGondolierAnimation()
+    {
+        for (int i = 0; i < loop.catJumpRepetitions; i++)
+        {
+            yield return new WaitForSeconds(loop.catJumpPause);
+
+            catAnimator.SetTrigger("DoJump");
+        }
+    }
+  */
 }
