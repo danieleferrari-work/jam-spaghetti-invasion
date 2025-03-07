@@ -27,6 +27,10 @@ public class Loop2_Event_Gondolier : MonoBehaviour
         watchEvent.OnEventStarted += StartSinging;
         watchEvent.OnEventSuccessed += StopSinging;
     }
+    private void Start()
+    {
+        AudioManager.instance.Play(loop.gondolierSingClipName);
+    }
 
     void StartSinging()
     {
@@ -36,6 +40,7 @@ public class Loop2_Event_Gondolier : MonoBehaviour
 
    void StopSinging()
     {
+        AudioManager.instance.StopPlaying(loop.gondolierSingClipName);
         loop.gondolierEventCompleted = true;
         Destroy(gameObject);
     }

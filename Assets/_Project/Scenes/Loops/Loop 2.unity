@@ -403,6 +403,7 @@ MonoBehaviour:
   catMeowDelay: 10
   catMeowsCount: 6
   catMeowClipName: cat-meow
+  gondolierSingClipName: Gondoliere Giamba Singing
   gondolierEventCompleted: 0
 --- !u!1001 &7551281685074229149
 PrefabInstance:

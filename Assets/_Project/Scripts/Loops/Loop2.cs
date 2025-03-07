@@ -15,6 +15,8 @@ public class Loop2 : MonoBehaviour, ILoop
 
     public string catMeowClipName;
 
+    public string gondolierSingClipName;
+
 
     public bool gondolierEventCompleted = false; // TODO settare true quando evento gondoliere è completato
 
