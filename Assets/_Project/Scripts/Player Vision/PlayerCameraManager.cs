@@ -7,25 +7,23 @@ public class PlayerCameraManager : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera lookAtVirtualCamera;
 
 
-    CinemachinePOV pov;
     CinemachineInputProvider inputProvider;
 
 
     void Awake()
     {
-        pov = povVirtualCamera.GetCinemachineComponent<CinemachinePOV>();
         inputProvider = povVirtualCamera.GetComponent<CinemachineInputProvider>();
 
         GondolaAutoPilotArea.OnEnableAutoPilot += OnEnableAutoPilot;
         GondolaAutoPilotArea.OnDisableAutoPilot += OnDisableAutoPilot;
     }
 
-    private void OnEnableAutoPilot(GondolaAutoPilotArea area)
+    void OnEnableAutoPilot(GondolaAutoPilotArea area)
     {
         LockCameraLooking(area.LookTarget);
     }
 
-    private void OnDisableAutoPilot()
+    void OnDisableAutoPilot()
     {
         UnlockCamera();
     }

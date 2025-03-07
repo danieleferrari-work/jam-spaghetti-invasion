@@ -12,7 +12,6 @@ public class GondolaMovementManager : MonoBehaviour
 
 
     Rigidbody rb;
-    PlayerInputActions inputActions;
 
     float lastPushTime;
     bool autoPilotEnabled;
@@ -27,8 +26,6 @@ public class GondolaMovementManager : MonoBehaviour
     {
         rb = GetComponentInParent<Rigidbody>();
 
-        inputActions = new PlayerInputActions();
-
         lastPushTime = Time.time + pushDelay * 2;
     }
 
@@ -38,22 +35,12 @@ public class GondolaMovementManager : MonoBehaviour
         GondolaAutoPilotArea.OnDisableAutoPilot += OnDisableAutoPilot;
     }
 
-    void OnEnable()
-    {
-        inputActions.Player.Move.Enable();
-    }
-
-    void OnDisable()
-    {
-        inputActions.Player.Move.Disable();
-    }
-
     void FixedUpdate()
     {
         if (autoPilotEnabled)
             return;
 
-        var inputValue = inputActions.Player.Move.ReadValue<Vector2>();
+        var inputValue = InputManager.instance.GetMoveInput;
 
         if (inputValue.magnitude > 0)
         {
@@ -71,20 +58,16 @@ public class GondolaMovementManager : MonoBehaviour
             }
             ApplyRotation(inputValue.x);
         }
-
     }
 
     void OnEnableAutoPilot(GondolaAutoPilotArea trigger)
     {
-        Debug.Log("Enable autopiloting");
         rb.isKinematic = true;
         autoPilotEnabled = true;
     }
 
     void OnDisableAutoPilot()
     {
-        Debug.Log("Disable autopiloting");
-
         rb.isKinematic = false;
         rb.MovePosition(transform.position);
         rb.MoveRotation(transform.rotation);
@@ -93,18 +76,18 @@ public class GondolaMovementManager : MonoBehaviour
         autoPilotEnabled = false;
     }
 
-    private void ApplyRotation(float rotation)
+    void ApplyRotation(float rotation)
     {
         var targetRotation = rb.rotation.eulerAngles + Vector3.up * rotation * rotationSpeed;
         rb.MoveRotation(Quaternion.Euler(targetRotation));
     }
 
-    private void AddDefaultAcceleration(float value)
+    void AddDefaultAcceleration(float value)
     {
         rb.AddForce(rb.transform.forward * value * defaultAcceleration, ForceMode.Acceleration);
     }
 
-    private void Push(float value)
+    void Push(float value)
     {
         rb.AddForce(rb.transform.forward * value * pushForce, ForceMode.Force);
     }
