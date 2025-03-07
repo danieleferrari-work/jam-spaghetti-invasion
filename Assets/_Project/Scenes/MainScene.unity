@@ -96,8 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000002, guid: d0841a2b353efb34ab9e41910515f91a,
-    type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 957752462}
 --- !u!196 &4
 NavMeshSettings:
@@ -653,7 +652,7 @@ LightingSettings:
   m_BounceScale: 1
   m_AlbedoBoost: 1
   m_IndirectOutputScale: 1
-  m_UsingShadowmask: 0
+  m_UsingShadowmask: 1
   m_BakeBackend: 1
   m_LightmapMaxSize: 1024
   m_BakeResolution: 40
@@ -664,7 +663,7 @@ LightingSettings:
   m_CompAOExponent: 1
   m_CompAOExponentDirect: 0
   m_ExtractAO: 0
-  m_MixedBakeMode: 0
+  m_MixedBakeMode: 2
   m_LightmapsBakeMode: 1
   m_FilterMode: 1
   m_LightmapParameters: {fileID: 15204, guid: 0000000000000000f000000000000000, type: 0}
@@ -1772,43 +1771,43 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4731355654172765400, guid: 22a908373fc2604419770b4b6da82ae8,
         type: 3}
-      insertIndex: -1
+      insertIndex: 12
       addedObject: {fileID: 1135936468}
     - targetCorrespondingSourceObject: {fileID: 4731355654172765400, guid: 22a908373fc2604419770b4b6da82ae8,
         type: 3}
-      insertIndex: -1
+      insertIndex: 13
       addedObject: {fileID: 1813462244}
     - targetCorrespondingSourceObject: {fileID: 4731355654172765400, guid: 22a908373fc2604419770b4b6da82ae8,
         type: 3}
-      insertIndex: -1
+      insertIndex: 14
       addedObject: {fileID: 373078639}
     - targetCorrespondingSourceObject: {fileID: 4731355654172765400, guid: 22a908373fc2604419770b4b6da82ae8,
         type: 3}
-      insertIndex: -1
+      insertIndex: 15
       addedObject: {fileID: 1064942600}
     - targetCorrespondingSourceObject: {fileID: 4731355654172765400, guid: 22a908373fc2604419770b4b6da82ae8,
         type: 3}
-      insertIndex: -1
+      insertIndex: 16
       addedObject: {fileID: 210015948}
     - targetCorrespondingSourceObject: {fileID: 4731355654172765400, guid: 22a908373fc2604419770b4b6da82ae8,
         type: 3}
-      insertIndex: -1
+      insertIndex: 17
       addedObject: {fileID: 831851287}
     - targetCorrespondingSourceObject: {fileID: 4731355654172765400, guid: 22a908373fc2604419770b4b6da82ae8,
         type: 3}
-      insertIndex: -1
+      insertIndex: 18
       addedObject: {fileID: 1144336036}
     - targetCorrespondingSourceObject: {fileID: 4731355654172765400, guid: 22a908373fc2604419770b4b6da82ae8,
         type: 3}
-      insertIndex: -1
+      insertIndex: 19
       addedObject: {fileID: 1427916839}
     - targetCorrespondingSourceObject: {fileID: 4731355654172765400, guid: 22a908373fc2604419770b4b6da82ae8,
         type: 3}
-      insertIndex: -1
+      insertIndex: 20
       addedObject: {fileID: 319732969}
     - targetCorrespondingSourceObject: {fileID: 4731355654172765400, guid: 22a908373fc2604419770b4b6da82ae8,
         type: 3}
-      insertIndex: -1
+      insertIndex: 21
       addedObject: {fileID: 368395692}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22a908373fc2604419770b4b6da82ae8, type: 3}
