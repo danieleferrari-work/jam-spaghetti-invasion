@@ -1223,6 +1223,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   povVirtualCamera: {fileID: 1283507865034202461}
   lookAtVirtualCamera: {fileID: 5601625179768232742}
+  minFov: 50
+  zoomSpeed: 50
 --- !u!1 &9141830753958100882
 GameObject:
   m_ObjectHideFlags: 0

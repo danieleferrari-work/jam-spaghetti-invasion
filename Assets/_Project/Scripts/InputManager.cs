@@ -1,3 +1,4 @@
+using System;
 using BaseTemplate;
 using UnityEngine;
 
@@ -8,21 +9,25 @@ public class InputManager : Singleton<InputManager>
 
     PlayerInputActions inputActions;
 
-    public Vector2 GetMoveInput => inputActions.Player.Move.ReadValue<Vector2>();
+    public Vector2 Move => inputActions.Player.Move.ReadValue<Vector2>();
+    public float Fire => inputActions.Player.Fire.ReadValue<float>();
 
 
-    void Awake()
+    protected override void InitializeInstance()
     {
+        base.InitializeInstance();
         inputActions = new PlayerInputActions();
     }
 
     void OnEnable()
     {
         inputActions.Player.Move.Enable();
+        inputActions.Player.Fire.Enable();
     }
 
     void OnDisable()
     {
         inputActions.Player.Move.Disable();
+        inputActions.Player.Fire.Disable();
     }
 }
