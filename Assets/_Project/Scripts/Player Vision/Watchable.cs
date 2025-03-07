@@ -5,6 +5,7 @@ public class Watchable : MonoBehaviour
 {
     [Tooltip("How far the player needs to be to start watching")]
     [SerializeField] float minDistance = float.MaxValue;
+    [SerializeField] bool watchOnlyWhileZooming = true;
 
     [Header("Debug")]
     [SerializeField] TMPro.TMP_Text textCurrentWatchtime;
@@ -29,47 +30,54 @@ public class Watchable : MonoBehaviour
         textCurrentWatchtime.gameObject.SetActive(false);
         textOverallWatchtime.gameObject.SetActive(false);
         Destroy(GetComponent<AlwaysLookAtCamera>());
-#endif
         ChangeTextsColor(defaultColor);
+#endif
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<PlayerVisionManager>())
+        if (!other.GetComponent<PlayerVisionManager>())
+            return;
+
+        if (watchOnlyWhileZooming && !PlayerCameraManager.instance.Zooming)
+            return;
+
+        if (Vector3.Distance(other.transform.position, transform.position) < minDistance)
         {
-            if (Vector3.Distance(other.transform.position, transform.position) < minDistance)
-            {
-                BeginWatch();
-            }
-            else
-            {
-                ChangeTextsColor(tooFarColor);
-            }
+            BeginWatch();
+        }
+        else
+        {
+            ChangeTextsColor(tooFarColor);
         }
     }
 
     void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent<PlayerVisionManager>())
-        {
-            if (Vector3.Distance(other.transform.position, transform.position) < minDistance)
-            {
-                if (!alreadyBegin)
-                    BeginWatch();
+        if (!other.GetComponent<PlayerVisionManager>())
+            return;
 
-                currentWatchtime += Time.deltaTime;
-                overallWatchtime += Time.deltaTime;
-            }
-        }
+        if (watchOnlyWhileZooming && !PlayerCameraManager.instance.Zooming)
+            return;
+
+        if (Vector3.Distance(other.transform.position, transform.position) > minDistance)
+            return;
+        
+        if (!alreadyBegin)
+            BeginWatch();
+
+        currentWatchtime += Time.deltaTime;
+        overallWatchtime += Time.deltaTime;
+
+        ChangeTextsColor(watchingColor);
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<PlayerVisionManager>())
-        {
-            currentWatchtime = 0;
-            ChangeTextsColor(defaultColor);
-        }
+        if (!other.GetComponent<PlayerVisionManager>())
+            return;
+
+        StopWatch();
     }
 
     void BeginWatch()
@@ -79,12 +87,21 @@ public class Watchable : MonoBehaviour
         OnBeginWatch?.Invoke();
     }
 
+    void StopWatch()
+    {
+        currentWatchtime = 0;
+        ChangeTextsColor(defaultColor);
+    }
+
     void Update()
     {
 #if UNITY_EDITOR
         textCurrentWatchtime.text = currentWatchtime.ToString("0.00");
         textOverallWatchtime.text = overallWatchtime.ToString("0.00");
 #endif
+
+        if (watchOnlyWhileZooming && !PlayerCameraManager.instance.Zooming)
+            StopWatch();
     }
 
     void ChangeTextsColor(Color color)

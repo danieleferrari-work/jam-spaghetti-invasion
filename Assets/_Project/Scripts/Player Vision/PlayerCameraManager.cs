@@ -1,7 +1,8 @@
+using BaseTemplate;
 using Cinemachine;
 using UnityEngine;
 
-public class PlayerCameraManager : MonoBehaviour
+public class PlayerCameraManager : Singleton<PlayerCameraManager>
 {
     [SerializeField] CinemachineVirtualCamera povVirtualCamera;
     [SerializeField] CinemachineVirtualCamera lookAtVirtualCamera;
@@ -9,6 +10,11 @@ public class PlayerCameraManager : MonoBehaviour
     CinemachineInputProvider inputProvider;
 
     float defaultFov;
+    bool zooming;
+
+    public bool Zooming => zooming;
+
+    protected override bool isDontDestroyOnLoad => true;
 
 
     void Awake()
@@ -43,12 +49,14 @@ public class PlayerCameraManager : MonoBehaviour
 
     void ZoomIn(float value)
     {
+        zooming = true;
         if (povVirtualCamera.m_Lens.FieldOfView > Params.instance.minFov)
             povVirtualCamera.m_Lens.FieldOfView -= value * Time.deltaTime *  Params.instance.zoomInSpeed;
     }
 
     void ZoomOut()
     {
+        zooming = false;
         if (povVirtualCamera.m_Lens.FieldOfView < defaultFov)
             povVirtualCamera.m_Lens.FieldOfView += Time.deltaTime *  Params.instance.zoomOutSpeed;
     }
