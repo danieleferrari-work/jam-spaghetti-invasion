@@ -2,12 +2,6 @@ using UnityEngine;
 
 public class GondolaMovementManager : MonoBehaviour
 {
-    [SerializeField] float maxSpeed = 100;
-    [SerializeField] float rotationSpeed;
-    [SerializeField] float defaultAcceleration = 10;
-    [SerializeField] float pushForce = 10;
-    [SerializeField] float pushDelay = 6f;
-    [SerializeField] float pushDuration = 3f;
     [SerializeField] GameObject model;
 
 
@@ -16,8 +10,8 @@ public class GondolaMovementManager : MonoBehaviour
     float lastPushTime;
     bool autoPilotEnabled;
 
-    bool IsTimerElapsed => Time.time - lastPushTime > pushDelay;
-    bool IsPushComplete => Time.time - lastPushTime > pushDelay + pushDuration;
+    bool IsTimerElapsed => Time.time - lastPushTime > Params.instance.rowPushDelay;
+    bool IsPushComplete => Time.time - lastPushTime > Params.instance.rowPushDelay + Params.instance.rowPushDuration;
 
     public Vector3 Velocity => rb.velocity;
 
@@ -26,7 +20,7 @@ public class GondolaMovementManager : MonoBehaviour
     {
         rb = GetComponentInParent<Rigidbody>();
 
-        lastPushTime = Time.time + pushDelay * 2;
+        lastPushTime = Time.time + Params.instance.rowPushDelay * 2;
     }
 
     void Start()
@@ -44,7 +38,7 @@ public class GondolaMovementManager : MonoBehaviour
 
         if (inputValue.magnitude > 0)
         {
-            if (rb.velocity.magnitude < maxSpeed)
+            if (rb.velocity.magnitude < Params.instance.gondolaMaxSpeed)
             {
                 AddDefaultAcceleration(inputValue.y);
 
@@ -78,17 +72,17 @@ public class GondolaMovementManager : MonoBehaviour
 
     void ApplyRotation(float rotation)
     {
-        var targetRotation = rb.rotation.eulerAngles + Vector3.up * rotation * rotationSpeed;
+        var targetRotation = rb.rotation.eulerAngles + Vector3.up * rotation * Params.instance.gondolaRotationSpeed;
         rb.MoveRotation(Quaternion.Euler(targetRotation));
     }
 
     void AddDefaultAcceleration(float value)
     {
-        rb.AddForce(rb.transform.forward * value * defaultAcceleration, ForceMode.Acceleration);
+        rb.AddForce(rb.transform.forward * value * Params.instance.gondolaDefaultAcceleration, ForceMode.Acceleration);
     }
 
     void Push(float value)
     {
-        rb.AddForce(rb.transform.forward * value * pushForce, ForceMode.Force);
+        rb.AddForce(rb.transform.forward * value * Params.instance.rowPushForce, ForceMode.Force);
     }
 }
