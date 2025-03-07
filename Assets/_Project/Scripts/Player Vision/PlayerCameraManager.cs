@@ -6,12 +6,13 @@ public class PlayerCameraManager : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera povVirtualCamera;
     [SerializeField] CinemachineVirtualCamera lookAtVirtualCamera;
     [SerializeField] float minFov;
-    [SerializeField] float zoomSpeed;
+    [SerializeField] float zoomInSpeed;
+    [SerializeField] float zoomOutSpeed;
 
     CinemachineInputProvider inputProvider;
 
     float defaultFov;
-    float maxZoom;
+
 
     void Awake()
     {
@@ -21,7 +22,6 @@ public class PlayerCameraManager : MonoBehaviour
         GondolaAutoPilotArea.OnDisableAutoPilot += OnDisableAutoPilot;
 
         defaultFov = povVirtualCamera.m_Lens.FieldOfView;
-        maxZoom = defaultFov - minFov;
     }
 
     void OnEnableAutoPilot(GondolaAutoPilotArea area)
@@ -37,14 +37,23 @@ public class PlayerCameraManager : MonoBehaviour
     void Update()
     {
         var zoomValue = InputManager.instance.Fire;
-        if (zoomValue > 0 && povVirtualCamera.m_Lens.FieldOfView > minFov)
-        {
-            povVirtualCamera.m_Lens.FieldOfView -= zoomValue * Time.deltaTime * zoomSpeed;
-        }
-        else if (zoomValue == 0 && povVirtualCamera.m_Lens.FieldOfView < defaultFov)
-        {
-            povVirtualCamera.m_Lens.FieldOfView += Time.deltaTime * zoomSpeed;
-        }
+
+        if (zoomValue > 0)
+            ZoomIn(zoomValue);
+        else
+            ZoomOut();
+    }
+
+    void ZoomIn(float value)
+    {
+        if (povVirtualCamera.m_Lens.FieldOfView > minFov)
+            povVirtualCamera.m_Lens.FieldOfView -= value * Time.deltaTime * zoomInSpeed;
+    }
+
+    void ZoomOut()
+    {
+        if (povVirtualCamera.m_Lens.FieldOfView < defaultFov)
+            povVirtualCamera.m_Lens.FieldOfView += Time.deltaTime * zoomOutSpeed;
     }
 
     void LockCameraLooking(Transform targetTrasform)
