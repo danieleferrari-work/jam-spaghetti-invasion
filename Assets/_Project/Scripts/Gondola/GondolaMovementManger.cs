@@ -40,7 +40,7 @@ public class GondolaMovementManager : MonoBehaviour
         if (autoPilotEnabled)
             return;
 
-        var inputValue = InputManager.instance.GetMoveInput;
+        var inputValue = InputManager.instance.Move;
 
         if (inputValue.magnitude > 0)
         {
