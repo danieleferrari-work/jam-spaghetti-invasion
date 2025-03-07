@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7239647920135112395}
   m_Layer: 0
   m_Name: GondolaEyes
-  m_TagString: Untagged
+  m_TagString: PlayerGondolaMirroredEyes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,6 +171,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GondolaMirrored
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 791366b9322adf54ca07a9073ef9eea7,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerGondolaMirrored
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
