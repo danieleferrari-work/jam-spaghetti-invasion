@@ -13,7 +13,6 @@ public class GondolaMovementManager : MonoBehaviour
 
     Rigidbody rb;
     PlayerInputActions inputActions;
-    GondolaAutoPilot autoPilot;
 
     float lastPushTime;
     bool autoPilotEnabled;
@@ -27,7 +26,6 @@ public class GondolaMovementManager : MonoBehaviour
     void Awake()
     {
         rb = GetComponentInParent<Rigidbody>();
-        autoPilot = rb.GetComponentInChildren<GondolaAutoPilot>();
 
         inputActions = new PlayerInputActions();
 
@@ -36,7 +34,8 @@ public class GondolaMovementManager : MonoBehaviour
 
     void Start()
     {
-        GondolaAutoPilotArea.OnActivateAutoPilot += EnableAutoPilot;
+        GondolaAutoPilotArea.OnEnableAutoPilot += OnEnableAutoPilot;
+        GondolaAutoPilotArea.OnDisableAutoPilot += OnDisableAutoPilot;
     }
 
     void OnEnable()
@@ -75,15 +74,14 @@ public class GondolaMovementManager : MonoBehaviour
 
     }
 
-    public void EnableAutoPilot(GondolaAutoPilotArea trigger)
+    void OnEnableAutoPilot(GondolaAutoPilotArea trigger)
     {
         Debug.Log("Enable autopiloting");
         rb.isKinematic = true;
         autoPilotEnabled = true;
-        autoPilot.GoTo(trigger);
     }
 
-    public void DisableAutoPilot()
+    void OnDisableAutoPilot()
     {
         Debug.Log("Disable autopiloting");
 

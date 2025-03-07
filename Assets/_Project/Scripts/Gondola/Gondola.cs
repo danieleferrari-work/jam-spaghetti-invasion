@@ -42,6 +42,7 @@ public class Gondola : MonoBehaviour
 
     private void ResetCamera()
     {
+        // TODO farlo fare al PlayerCameraManager
         CinemachinePOV pov = playerVirtualCamera.GetCinemachineComponent<CinemachinePOV>();
         pov.m_HorizontalAxis.Value = 0.0f;
         pov.m_VerticalAxis.Value = 0.0f;
