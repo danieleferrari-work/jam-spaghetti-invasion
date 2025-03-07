@@ -54,7 +54,7 @@ PrefabInstance:
     - target: {fileID: 1161043690333919677, guid: 50611c472cfe3e04da05b0d28fad0766,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.799999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1161043690333919677, guid: 50611c472cfe3e04da05b0d28fad0766,
         type: 3}
@@ -95,6 +95,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gondola
+      objectReference: {fileID: 0}
+    - target: {fileID: 7083817034149266908, guid: 50611c472cfe3e04da05b0d28fad0766,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7083817034149266908, guid: 50611c472cfe3e04da05b0d28fad0766,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7083817034149266908, guid: 50611c472cfe3e04da05b0d28fad0766,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 8238197339299487720, guid: 50611c472cfe3e04da05b0d28fad0766,
         type: 3}
@@ -145,7 +160,7 @@ PrefabInstance:
     - target: {fileID: 547180067975871031, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.5289993
+      value: -2.2710004
       objectReference: {fileID: 0}
     - target: {fileID: 547180067975871031, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
         type: 3}
@@ -221,6 +236,11 @@ PrefabInstance:
         type: 3}
       propertyPath: field of view
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809180205937663745, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.2710004
       objectReference: {fileID: 0}
     - target: {fileID: 8083951443555558205, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
         type: 3}

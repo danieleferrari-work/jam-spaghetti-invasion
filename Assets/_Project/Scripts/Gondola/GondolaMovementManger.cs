@@ -34,6 +34,11 @@ public class GondolaMovementManager : MonoBehaviour
         lastPushTime = Time.time + pushDelay * 2;
     }
 
+    void Start()
+    {
+        GondolaAutoPilotArea.OnActivateAutoPilot += EnableAutoPilot;
+    }
+
     void OnEnable()
     {
         inputActions.Player.Move.Enable();
