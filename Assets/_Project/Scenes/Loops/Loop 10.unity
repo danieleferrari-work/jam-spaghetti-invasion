@@ -133,17 +133,17 @@ PrefabInstance:
     - target: {fileID: 291802498873810777, guid: cfde175573fd3bf47aa6581e0d6efafd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.12
+      value: -7.51
       objectReference: {fileID: 0}
     - target: {fileID: 291802498873810777, guid: cfde175573fd3bf47aa6581e0d6efafd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.75
+      value: -1.14
       objectReference: {fileID: 0}
     - target: {fileID: 291802498873810777, guid: cfde175573fd3bf47aa6581e0d6efafd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 83
+      value: 53.23
       objectReference: {fileID: 0}
     - target: {fileID: 291802498873810777, guid: cfde175573fd3bf47aa6581e0d6efafd,
         type: 3}
@@ -233,7 +233,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8665119435992740923, guid: cfde175573fd3bf47aa6581e0d6efafd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 140644935}
   m_SourcePrefab: {fileID: 100100000, guid: cfde175573fd3bf47aa6581e0d6efafd, type: 3}
 --- !u!4 &140644933 stripped
 Transform:
@@ -241,6 +245,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 140644932}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &140644934 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8665119435992740923, guid: cfde175573fd3bf47aa6581e0d6efafd,
+    type: 3}
+  m_PrefabInstance: {fileID: 140644932}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &140644935
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140644934}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.6237402, y: 1, z: 7.7772064}
+  m_Center: {x: -0.24222898, y: -1.5, z: 0.17835236}
 --- !u!850595691 &957752462
 LightingSettings:
   m_ObjectHideFlags: 0

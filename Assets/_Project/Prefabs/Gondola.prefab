@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 7767203375676294936}
   m_Layer: 0
   m_Name: Gondola
-  m_TagString: Untagged
+  m_TagString: PlayerGondola
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,8 +235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5516ad2d1a784334291908324b799591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerVirtualCamera: {fileID: 0}
   catOnBoat: {fileID: 7097762287180347494}
+  playerVirtualCamera: {fileID: 0}
 --- !u!65 &7767203375676294936
 BoxCollider:
   m_ObjectHideFlags: 0

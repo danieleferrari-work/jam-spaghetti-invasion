@@ -2390,7 +2390,7 @@ PrefabInstance:
     - target: {fileID: 4665352815005168997, guid: 4045fcf7550cd22439ecb8b2e4d32f73,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1406
+      value: 1409
       objectReference: {fileID: 0}
     - target: {fileID: 4826928436981186887, guid: 4045fcf7550cd22439ecb8b2e4d32f73,
         type: 3}
@@ -2482,6 +2482,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1474289228}
+    - target: {fileID: 7103563601843303198, guid: 4045fcf7550cd22439ecb8b2e4d32f73,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerGondola
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
