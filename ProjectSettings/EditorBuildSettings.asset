@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Project/Scenes/MainMenu.unity
     guid: 50370b6c28ecf264ea817fe1d1c2c955
   - enabled: 1
     path: Assets/_Project/Scenes/MainScene.unity
     guid: 436989c96202b8445a5541d4be327807
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Project/Scenes/Loops/Loop 1.unity
     guid: 99865b95ab25dca4da004b8df45cddfa
   - enabled: 0
@@ -38,7 +38,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Project/Scenes/Loops/Loop 9.unity
     guid: 89efac64bb3e5434aa3521156ad9634c
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Project/Scenes/Loops/Loop 10.unity
     guid: 6762bc6a412af194f9d89fb74c28bc41
   m_configObjects:

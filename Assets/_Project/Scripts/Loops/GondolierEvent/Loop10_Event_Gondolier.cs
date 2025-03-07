@@ -7,6 +7,7 @@ public class Loop10_Event_Gondolier : MonoBehaviour
 {
     private CinemachineVirtualCamera cvcPlayer;
     [SerializeField] private GameObject mirroredGondola;
+    [SerializeField] private GameObject mirroredGondolaLocal;
     private Transform modelPlayerGondola;
     private Transform followCamObj;
 
@@ -14,8 +15,8 @@ public class Loop10_Event_Gondolier : MonoBehaviour
     Loop10 loop;
     private void Start()
     {
-        cvcPlayer = FindFirstObjectByType<CinemachineVirtualCamera>();
-       // mirroredGondola = GameObject.FindGameObjectWithTag("PlayerGondolaMirrored");
+        
+       //mirroredGondola = GameObject.FindGameObjectWithTag("PlayerGondolaMirrored");
        // followCamObj = GameObject.FindGameObjectWithTag("PlayerGondolaMirroredEyes").transform;
         modelPlayerGondola = GameObject.FindGameObjectWithTag("PlayerGondolaModel").transform;
 
@@ -25,14 +26,15 @@ public class Loop10_Event_Gondolier : MonoBehaviour
     {
         if(other.CompareTag("PlayerGondola"))
         {
-            Instantiate(mirroredGondola, modelPlayerGondola);
+            mirroredGondolaLocal = Instantiate(mirroredGondola, modelPlayerGondola);
             followCamObj = GameObject.FindGameObjectWithTag("PlayerGondolaMirroredEyes").transform;
-            
+            cvcPlayer = mirroredGondolaLocal.GetComponentInChildren<CinemachineVirtualCamera>();
             cvcPlayer.m_Follow = followCamObj;
-
+            cvcPlayer.m_Priority = 15;
             ActivatedEvent = true;
 
            // loop.gondolierEventCompleted = true;
         }
     }
+
 }
