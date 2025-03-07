@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6944177950027753578}
   m_Layer: 0
-  m_Name: EnvironmentMirrored
+  m_Name: OLD_EnvironmentMirrored
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
