@@ -5,9 +5,6 @@ public class PlayerCameraManager : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera povVirtualCamera;
     [SerializeField] CinemachineVirtualCamera lookAtVirtualCamera;
-    [SerializeField] float minFov;
-    [SerializeField] float zoomInSpeed;
-    [SerializeField] float zoomOutSpeed;
 
     CinemachineInputProvider inputProvider;
 
@@ -46,14 +43,14 @@ public class PlayerCameraManager : MonoBehaviour
 
     void ZoomIn(float value)
     {
-        if (povVirtualCamera.m_Lens.FieldOfView > minFov)
-            povVirtualCamera.m_Lens.FieldOfView -= value * Time.deltaTime * zoomInSpeed;
+        if (povVirtualCamera.m_Lens.FieldOfView > Params.instance.minFov)
+            povVirtualCamera.m_Lens.FieldOfView -= value * Time.deltaTime *  Params.instance.zoomInSpeed;
     }
 
     void ZoomOut()
     {
         if (povVirtualCamera.m_Lens.FieldOfView < defaultFov)
-            povVirtualCamera.m_Lens.FieldOfView += Time.deltaTime * zoomOutSpeed;
+            povVirtualCamera.m_Lens.FieldOfView += Time.deltaTime *  Params.instance.zoomOutSpeed;
     }
 
     void LockCameraLooking(Transform targetTrasform)
