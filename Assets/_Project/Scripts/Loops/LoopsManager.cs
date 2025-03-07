@@ -22,7 +22,7 @@ public class LoopsManager : Singleton<LoopsManager>
     void Start()
     {
 #if UNITY_EDITOR
-        var loop = FindObjectsOfType<MonoBehaviour>().OfType<ILoop>().First();
+        var loop = FindObjectsOfType<MonoBehaviour>().OfType<ILoop>().FirstOrDefault();
         if (loop != null)
         {
             currentLoop = loop;
