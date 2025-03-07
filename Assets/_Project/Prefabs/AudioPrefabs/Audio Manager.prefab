@@ -46,7 +46,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: cat-meow
-    clip: {fileID: 8300000, guid: e1fd56d9b117e0e408accb40d0992d1d, type: 3}
+    clips:
+    - {fileID: 8300000, guid: e1fd56d9b117e0e408accb40d0992d1d, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: -6589904579366246563, guid: e00214ac03fc6dd4e8debc27bcac3cd4,
+      type: 2}
+    source: {fileID: 0}
+    playOnAwake: 0
+  - name: Gondolier-Sing
+    clips:
+    - {fileID: 8300000, guid: 32e32bfdcd922d34c8b1c81548fdcab6, type: 3}
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 0.8
+    pitchVariance: 0.05
+    loop: 1
+    mixerGroup: {fileID: -6589904579366246563, guid: e00214ac03fc6dd4e8debc27bcac3cd4,
+      type: 2}
+    source: {fileID: 0}
+    playOnAwake: 0
+  - name: testClips
+    clips:
+    - {fileID: 8300000, guid: e1fd56d9b117e0e408accb40d0992d1d, type: 3}
+    - {fileID: 8300000, guid: 32e32bfdcd922d34c8b1c81548fdcab6, type: 3}
+    - {fileID: 8300000, guid: c643e21514ef3b644bb8ac088c39bfce, type: 3}
     volume: 1
     volumeVariance: 0
     pitch: 1

@@ -7,10 +7,10 @@ public class Sound
 
     public string name;
 
-    public AudioClip clip;
+    public AudioClip[] clips;
 
     [Range(0f, 1f)]
-    public float volume = .75f;
+    public float volume = 1f;
     [Range(0f, 1f)]
     public float volumeVariance = .1f;
 

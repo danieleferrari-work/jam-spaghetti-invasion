@@ -19,10 +19,13 @@ public class AudioManager : Singleton<AudioManager>
 			s.source = gameObject.AddComponent<AudioSource>();
 			s.source.pitch = s.pitch;
 			s.source.volume = s.volume;
-			s.source.clip = s.clip;
 			s.source.loop = s.loop;
 			s.source.playOnAwake = s.playOnAwake;
 			s.source.outputAudioMixerGroup = s.mixerGroup;
+			if (s.clips.Length > 0)
+			{
+				s.source.clip = s.clips[0];  // First clip default
+			}
 		}
 	}
 
@@ -39,19 +42,22 @@ public class AudioManager : Singleton<AudioManager>
 	}
 
 	public void Play(string sound)
-	{
-		Sound s = GetSoundByName(sound);
-		if (s == null)
-		{
-			Debug.LogWarning("Sound: " + name + " not found!");
-			return;
-		}
+    {
+        Sound s = GetSoundByName(sound);
+        if (s == null || s.clips.Length == 0)
+        {
+            Debug.LogWarning("Sound: " + sound + " not found or has no clips!");
+            return;
+        }
 
-		s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
-		s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
+        int randomIndex = UnityEngine.Random.Range(0, s.clips.Length); // Scegli una clip casuale
+        s.source.clip = s.clips[randomIndex]; // Assegna la clip all'AudioSource
 
-		s.source.Play();	
-	}
+        s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+        s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
+
+        s.source.Play();
+    }
 
 	public void StopPlaying(string sound)
 	{
@@ -176,9 +182,19 @@ public class AudioManager : Singleton<AudioManager>
 		}
 	}
 
-	private Sound GetSoundByName(string sound)
+	public Sound GetSoundByName(string sound)
 	{
 		Sound s = Array.Find(sounds, item => item.name == sound);
+
+		if (s != null && s.clips.Length > 0)
+		{
+			int randomIndex = UnityEngine.Random.Range(0, s.clips.Length);
+			s.source.clip = s.clips[randomIndex]; 
+		
+			s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+        	s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
+		}
+
 		return s;
 	}
 }
