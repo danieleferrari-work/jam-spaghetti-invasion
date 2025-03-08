@@ -22,6 +22,8 @@ public class WatchEvent : MonoBehaviour
     public UnityAction OnEventStarted;
     public UnityAction OnEventSuccessed;
     public UnityAction OnEventFailed;
+    public UnityAction OnStartWatching;
+    public UnityAction OnStopWatching;
 
 
     Coroutine timer;
@@ -34,13 +36,16 @@ public class WatchEvent : MonoBehaviour
 
     void Start()
     {
+        watchable.OnStartWatching += () => { OnStartWatching?.Invoke(); };
+        watchable.OnStopWatching += () => { OnStopWatching?.Invoke(); };
+
         switch (startType)
         {
             case EventStartTypes.Immediate:
                 StartEvent();
                 break;
             case EventStartTypes.FirstWatch:
-                watchable.OnBeginWatch += StartEvent;
+                watchable.OnStartWatching += StartEvent;
                 break;
             case EventStartTypes.Delayed:
                 StartCoroutine(StartEventDelayed());
@@ -59,7 +64,7 @@ public class WatchEvent : MonoBehaviour
         Debug.Log($"Event {gameObject.name} STARTED", gameObject);
 
         if (startType == EventStartTypes.FirstWatch)
-            watchable.OnBeginWatch -= StartEvent;
+            watchable.OnStartWatching -= StartEvent;
 
         timer = StartCoroutine(TimerCoroutine());
         OnEventStarted?.Invoke();

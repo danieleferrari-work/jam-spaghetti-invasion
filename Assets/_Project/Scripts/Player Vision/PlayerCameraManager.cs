@@ -13,12 +13,14 @@ public class PlayerCameraManager : Singleton<PlayerCameraManager>
     bool zooming;
 
     public bool Zooming => zooming;
+    public CinemachineVirtualCamera PlayerPovVirtualCamera => povVirtualCamera;
 
     protected override bool isDontDestroyOnLoad => true;
 
-
-    void Awake()
+    protected override void InitializeInstance()
     {
+        base.InitializeInstance();
+
         inputProvider = povVirtualCamera.GetComponent<CinemachineInputProvider>();
 
         GondolaAutoPilotArea.OnEnableAutoPilot += OnEnableAutoPilot;

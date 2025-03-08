@@ -1,75 +1,79 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
 public class ChangePovEffect : MonoBehaviour
 {
-    [SerializeField] private CinemachineVirtualCamera cam,mainCam;
-    [SerializeField] private Camera camC, mainCamC;
+    public bool hasSeenPlayer;
+    [SerializeField] private CinemachineVirtualCamera destinationCamera;
     [SerializeField] private Animator anim;
-    [SerializeField] private float fovForAnim,maxFov,MaxAnimationFov,animSpeed,fovSpeed,animationTime;
+    [SerializeField] private float maxFov;
+    [SerializeField] private float maxAnimationFov;
+    [SerializeField] private float animSpeed;
+    [SerializeField] private float fovSpeed;
+    [SerializeField] private float cameraSwitchTransitionDuration;
+    
     private float fov, fov2;
-    [SerializeField] private bool hasSeenPlayer = false;
-    private bool hasAnimStarted = true;
+    private CinemachineVirtualCamera playerCamera;
+
+
+    public void ChangeCamera()
+    {
+        StartCoroutine(SwitchCameraCoroutine());
+    }
+
+    void Awake()
+    {
+        playerCamera = PlayerCameraManager.instance.PlayerPovVirtualCamera;
+    }
+
     private void Start()
     {
-        camC.gameObject.SetActive(false);
-        mainCamC.gameObject.SetActive(true);
-        fov = cam.m_Lens.FieldOfView;
+        destinationCamera.gameObject.SetActive(false);
+        fov = playerCamera.m_Lens.FieldOfView;
         fov2 = maxFov;
     }
+
     private void Update()
     {
         if (hasSeenPlayer)
-        {
-            if (fov > maxFov)
-                StarFovEffect();
-            else
-            {
-                if (fov2 > MaxAnimationFov)
-                    FinishFovEffect();
-                else
-                    StartCoroutine(ChangeCam());
-            }
-        }
-        else 
-        {
-            RestetFov();
-        }
+            ApplyEffect();
+        else
+            RevertEffect();
     }
-    private void StarFovEffect()
-    {
-        fov -= Time.deltaTime * animSpeed;
-        cam.m_Lens.FieldOfView = fov;
-    }
-    private void FinishFovEffect()
-    {
-        fov2 -= Time.deltaTime * fovSpeed;
-        cam.m_Lens.FieldOfView = fov2;
-    }
-    private void RestetFov()
-    {
 
-        fov += Time.deltaTime * animSpeed*10;
-        cam.m_Lens.FieldOfView = fov;
-        if (fov >= 70) 
+    private void ApplyEffect()
+    {
+        if (fov > maxFov)
         {
-            cam.m_Lens.FieldOfView = 70;
+            fov -= Time.deltaTime * animSpeed;
+            playerCamera.m_Lens.FieldOfView = fov;
+        }
+        else if (fov2 > maxAnimationFov)
+        {
+            fov2 -= Time.deltaTime * fovSpeed;
+            playerCamera.m_Lens.FieldOfView = fov2;
+        }
+    }
+
+    private void RevertEffect()
+    {
+        fov += Time.deltaTime * animSpeed * 10;
+        playerCamera.m_Lens.FieldOfView = fov;
+        if (fov >= 70)
+        {
+            playerCamera.m_Lens.FieldOfView = 70;
             fov = 70;
         }
     }
-    private IEnumerator ChangeCam()
-    {
-        if (hasAnimStarted)
-        {
-            anim.SetTrigger("ChangeCam");
-            yield return new WaitForSeconds(animationTime);
-            camC.gameObject.SetActive(true);
-            mainCamC.gameObject.SetActive(false);
-            hasAnimStarted = false;
-        }else
-            yield return null;
 
+    private IEnumerator SwitchCameraCoroutine()
+    {
+        anim.SetTrigger("ChangeCam");
+        yield return new WaitForSeconds(cameraSwitchTransitionDuration);
+
+        destinationCamera.gameObject.SetActive(true);
+
+        Destroy(gameObject);
     }
 }

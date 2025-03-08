@@ -21,7 +21,9 @@ public class Watchable : MonoBehaviour
 
     public float CurrentWatchtime => currentWatchtime;
     public float OverallWatchtime => overallWatchtime;
-    public UnityAction OnBeginWatch;
+
+    public UnityAction OnStartWatching;
+    public UnityAction OnStopWatching;
 
 
     void Awake()
@@ -62,7 +64,7 @@ public class Watchable : MonoBehaviour
 
         if (Vector3.Distance(other.transform.position, transform.position) > minDistance)
             return;
-        
+
         if (!alreadyBegin)
             BeginWatch();
 
@@ -83,13 +85,16 @@ public class Watchable : MonoBehaviour
     void BeginWatch()
     {
         alreadyBegin = true;
+        OnStartWatching?.Invoke();
+
         ChangeTextsColor(watchingColor);
-        OnBeginWatch?.Invoke();
     }
 
     void StopWatch()
     {
         currentWatchtime = 0;
+        OnStopWatching?.Invoke();
+
         ChangeTextsColor(defaultColor);
     }
 
