@@ -53,8 +53,8 @@ MonoBehaviour:
     volumeMask: {fileID: 11700000, guid: bc05f2e39084d7849a52034d2d41f1ef, type: 3}
     textureScrollingSpeed: {x: 1, y: 1, z: 1}
     textureTiling: {x: 2, y: 1, z: 2}
-    positiveFade: {x: 0.002, y: 0.001, z: 0.001}
-    negativeFade: {x: 0.002, y: 0.001, z: 0.001}
+    positiveFade: {x: 0.125, y: 0.25, z: 0.125}
+    negativeFade: {x: 0.125, y: 0.25, z: 0.125}
     m_EditorUniformFade: 0.5
     m_EditorPositiveFade: {x: 0.25, y: 0.25, z: 0.25}
     m_EditorNegativeFade: {x: 0.25, y: 0, z: 0.25}

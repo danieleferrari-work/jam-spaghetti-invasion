@@ -107,10 +107,10 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0.09545741, g: 0.37530118, b: 0.4113207, a: 1}
+    - _BaseColor: {r: 0.022320976, g: 0.7035283, b: 0.78867924, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _MainTextureSpeed: {r: 0.5, g: 0.7, b: 0, a: 0}
+    - _MainTextureSpeed: {r: 1, g: 0.7, b: 0, a: 0}
     - _MainTextureTiling: {r: 1, g: 0.5, b: 0, a: 0}
-    - _SecondColor: {r: 0.13810602, g: 0.40001798, b: 0.4490565, a: 1}
+    - _SecondColor: {r: 0.033186153, g: 0.2550625, b: 0.2981131, a: 1}
   m_BuildTextureStacks: []
