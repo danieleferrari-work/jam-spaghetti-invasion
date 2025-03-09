@@ -92,6 +92,7 @@ public class Watchable : MonoBehaviour
 
     void StopWatch()
     {
+        alreadyBegin = false;
         currentWatchtime = 0;
         OnStopWatching?.Invoke();
 
