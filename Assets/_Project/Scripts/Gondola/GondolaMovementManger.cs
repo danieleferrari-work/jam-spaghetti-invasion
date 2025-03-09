@@ -63,7 +63,6 @@ public class GondolaMovementManager : MonoBehaviour
         {
             isMoving = false;
             OnStopMoving?.Invoke();
-            //    PlayerCameraManager.instance.SetPovRecentering(false);
         }
     }
 
