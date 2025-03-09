@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using Cinemachine;
 
-public class ShakingEffect : MonoBehaviour
+public class ChangePovEffect : MonoBehaviour
 {
     [Header("Camera References")]
     [SerializeField] private CinemachineVirtualCamera destinationCamera;

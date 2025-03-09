@@ -7,8 +7,8 @@ public class Loop1_Event_Faceless : MonoBehaviour
     [SerializeField] GameObject firstFaceless;
     [SerializeField] GameObject secondFaceless;
 
-    private ShakingEffect firstFacelessShakingEffect;
-    private ShakingEffect secondFacelessShakingEffect;
+    private ChangePovEffect firstFacelessChangePovEffect;
+    private ChangePovEffect secondFacelessChangePovEffect;
 
     private WatchEvent firstFacelessWatchEvent;
     private WatchEvent secondFacelessWatchEvent;
@@ -17,45 +17,45 @@ public class Loop1_Event_Faceless : MonoBehaviour
 
     void Start()
     {
-        firstFacelessShakingEffect = firstFaceless.GetComponentInChildren<ShakingEffect>();
-        secondFacelessShakingEffect = secondFaceless.GetComponentInChildren<ShakingEffect>();
+        firstFacelessChangePovEffect = firstFaceless.GetComponentInChildren<ChangePovEffect>();
+        secondFacelessChangePovEffect = secondFaceless.GetComponentInChildren<ChangePovEffect>();
 
         firstFacelessWatchEvent = firstFaceless.GetComponentInChildren<WatchEvent>();
         secondFacelessWatchEvent = secondFaceless.GetComponentInChildren<WatchEvent>();
 
-        firstFacelessWatchEvent.OnEventSuccessed += () => OnFacelessEventSuccess(firstFacelessShakingEffect, false);
-        secondFacelessWatchEvent.OnEventSuccessed += () => OnFacelessEventSuccess(secondFacelessShakingEffect, true);
+        firstFacelessWatchEvent.OnEventSuccessed += () => OnFacelessEventSuccess(firstFacelessChangePovEffect, false);
+        secondFacelessWatchEvent.OnEventSuccessed += () => OnFacelessEventSuccess(secondFacelessChangePovEffect, true);
 
-        firstFacelessWatchEvent.OnStartWatching += () => OnStartWatchingFaceless(firstFacelessShakingEffect);
-        secondFacelessWatchEvent.OnStartWatching += () => OnStartWatchingFaceless(secondFacelessShakingEffect);
+        firstFacelessWatchEvent.OnStartWatching += () => OnStartWatchingFaceless(firstFacelessChangePovEffect);
+        secondFacelessWatchEvent.OnStartWatching += () => OnStartWatchingFaceless(secondFacelessChangePovEffect);
 
-        firstFacelessWatchEvent.OnStopWatching += () => OnStopWatchingFaceless(firstFacelessShakingEffect);
-        secondFacelessWatchEvent.OnStopWatching += () => OnStopWatchingFaceless(secondFacelessShakingEffect);
+        firstFacelessWatchEvent.OnStopWatching += () => OnStopWatchingFaceless(firstFacelessChangePovEffect);
+        secondFacelessWatchEvent.OnStopWatching += () => OnStopWatchingFaceless(secondFacelessChangePovEffect);
     }
 
 
 
-    private void OnFacelessEventSuccess(ShakingEffect shakingEffect, bool isLastFaceless)
+    private void OnFacelessEventSuccess(ChangePovEffect changePovEffect, bool isLastFaceless)
     {
         if (isLastFaceless)
         {
-            shakingEffect.ResetCamera();
+            changePovEffect.ResetCamera();
         }
         else
         {
-            shakingEffect.ChangeCamera();
+            changePovEffect.ChangeCamera();
         }
 
-        shakingEffect.StopShaking();
+        changePovEffect.StopShaking();
     }
 
-    private void OnStartWatchingFaceless(ShakingEffect ShakingEffect)
+    private void OnStartWatchingFaceless(ChangePovEffect changePovEffect)
     {
-        ShakingEffect.StartShaking();
+        changePovEffect.StartShaking();
     }
 
-    private void OnStopWatchingFaceless(ShakingEffect ShakingEffect)
+    private void OnStopWatchingFaceless(ChangePovEffect changePovEffect)
     {
-        ShakingEffect.StopShaking();
+        changePovEffect.StopShaking();
     }
 }
