@@ -13,8 +13,8 @@ public class PlayerCameraManager : Singleton<PlayerCameraManager>
 
     float defaultFov;
     bool zooming;
-    CinemachineVirtualCamera currentVirtualCamera;
 
+    public CinemachineVirtualCamera currentVirtualCamera;
     public bool Zooming => zooming;
     public CinemachineVirtualCamera PlayerPovVirtualCamera => povVirtualCamera;
 
