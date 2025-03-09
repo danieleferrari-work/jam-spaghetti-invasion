@@ -62,10 +62,6 @@ public class ChangePovEffect : MonoBehaviour
         {
             UpdateShakeIntensity();
         }
-        else
-        {
-            SmoothlyStopShaking();
-        }
     }
 
     private void UpdateShakeIntensity()
@@ -82,11 +78,6 @@ public class ChangePovEffect : MonoBehaviour
 
         cameraNoise.m_AmplitudeGain = currentAmplitude;
         cameraNoise.m_FrequencyGain = currentFrequency;
-    }
-
-    private void SmoothlyStopShaking()
-    {
-
     }
 
     /// <summary>
