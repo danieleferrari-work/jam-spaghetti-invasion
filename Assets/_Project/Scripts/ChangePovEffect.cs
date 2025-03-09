@@ -12,19 +12,24 @@ public class ChangePovEffect : MonoBehaviour
     [SerializeField] private float animSpeed;
     [SerializeField] private float fovSpeed;
     [SerializeField] private float cameraSwitchTransitionDuration;
-    
+
     private float fov, fov2;
     private CinemachineVirtualCamera playerCamera;
 
 
-    public void ChangeCamera()
-    {
-        StartCoroutine(SwitchCameraCoroutine());
-    }
-
     void Awake()
     {
         playerCamera = PlayerCameraManager.instance.PlayerPovVirtualCamera;
+    }
+
+    public void ResetCamera()
+    {
+        StartCoroutine(SwitchCameraCoroutine(playerCamera));
+    }
+
+    public void ChangeCamera()
+    {
+        StartCoroutine(SwitchCameraCoroutine(destinationCamera));
     }
 
     private void Start()
@@ -67,12 +72,12 @@ public class ChangePovEffect : MonoBehaviour
         }
     }
 
-    private IEnumerator SwitchCameraCoroutine()
+    private IEnumerator SwitchCameraCoroutine(CinemachineVirtualCamera destinationCamera)
     {
         anim.SetTrigger("ChangeCam");
         yield return new WaitForSeconds(cameraSwitchTransitionDuration);
 
-        destinationCamera.gameObject.SetActive(true);
+        PlayerCameraManager.instance.ChangeCamera(destinationCamera);
 
         Destroy(gameObject);
     }

@@ -9,6 +9,8 @@ public class PlayerCameraManager : Singleton<PlayerCameraManager>
 
     CinemachineInputProvider inputProvider;
 
+    CinemachineVirtualCamera currentVirtualCamera;
+
     float defaultFov;
     bool zooming;
 
@@ -22,6 +24,7 @@ public class PlayerCameraManager : Singleton<PlayerCameraManager>
         base.InitializeInstance();
 
         inputProvider = povVirtualCamera.GetComponent<CinemachineInputProvider>();
+        currentVirtualCamera = povVirtualCamera;
 
         GondolaAutoPilotArea.OnEnableAutoPilot += OnEnableAutoPilot;
         GondolaAutoPilotArea.OnDisableAutoPilot += OnDisableAutoPilot;
@@ -53,14 +56,14 @@ public class PlayerCameraManager : Singleton<PlayerCameraManager>
     {
         zooming = true;
         if (povVirtualCamera.m_Lens.FieldOfView > Params.instance.minFov)
-            povVirtualCamera.m_Lens.FieldOfView -= value * Time.deltaTime *  Params.instance.zoomInSpeed;
+            povVirtualCamera.m_Lens.FieldOfView -= value * Time.deltaTime * Params.instance.zoomInSpeed;
     }
 
     void ZoomOut()
     {
         zooming = false;
         if (povVirtualCamera.m_Lens.FieldOfView < defaultFov)
-            povVirtualCamera.m_Lens.FieldOfView += Time.deltaTime *  Params.instance.zoomOutSpeed;
+            povVirtualCamera.m_Lens.FieldOfView += Time.deltaTime * Params.instance.zoomOutSpeed;
     }
 
     void LockCameraLooking(Transform targetTrasform)
@@ -72,15 +75,20 @@ public class PlayerCameraManager : Singleton<PlayerCameraManager>
 
         lookAtVirtualCamera.LookAt = targetTrasform.transform;
 
-        lookAtVirtualCamera.enabled = true;
-        povVirtualCamera.enabled = false;
+        ChangeCamera(lookAtVirtualCamera);
     }
 
     void UnlockCamera()
     {
-        lookAtVirtualCamera.enabled = false;
-        povVirtualCamera.enabled = true;
-
+        ChangeCamera(povVirtualCamera);
         inputProvider.enabled = true;
+    }
+
+    public void ChangeCamera(CinemachineVirtualCamera camera)
+    {
+        currentVirtualCamera.gameObject.SetActive(false);
+        camera.gameObject.SetActive(true);
+
+        currentVirtualCamera = camera;
     }
 }
