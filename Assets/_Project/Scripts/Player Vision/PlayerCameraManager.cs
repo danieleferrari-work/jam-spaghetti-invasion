@@ -4,32 +4,61 @@ using UnityEngine;
 
 public class PlayerCameraManager : Singleton<PlayerCameraManager>
 {
+    [SerializeField] float sensibility;
     [SerializeField] CinemachineVirtualCamera povVirtualCamera;
     [SerializeField] CinemachineVirtualCamera lookAtVirtualCamera;
 
     CinemachineInputProvider inputProvider;
-
-    CinemachineVirtualCamera currentVirtualCamera;
+    CinemachinePOV povComponent;
 
     float defaultFov;
     bool zooming;
+    CinemachineVirtualCamera currentVirtualCamera;
 
     public bool Zooming => zooming;
     public CinemachineVirtualCamera PlayerPovVirtualCamera => povVirtualCamera;
 
     protected override bool isDontDestroyOnLoad => true;
 
-    protected override void InitializeInstance()
+    public void ChangeCamera(CinemachineVirtualCamera camera)
+    {
+        currentVirtualCamera.gameObject.SetActive(false);
+        camera.gameObject.SetActive(true);
+
+        currentVirtualCamera = camera;
+    }
+
+    public void SetPovRecentering(bool value)
+    {
+        povComponent.m_VerticalRecentering.m_enabled = value;
+        povComponent.m_HorizontalRecentering.m_enabled = value;
+    }
+
+    protected override void InitializeInstance() // == Awake
     {
         base.InitializeInstance();
 
         inputProvider = povVirtualCamera.GetComponent<CinemachineInputProvider>();
-        currentVirtualCamera = povVirtualCamera;
+        povComponent = povVirtualCamera.GetCinemachineComponent<CinemachinePOV>();
 
         GondolaAutoPilotArea.OnEnableAutoPilot += OnEnableAutoPilot;
         GondolaAutoPilotArea.OnDisableAutoPilot += OnDisableAutoPilot;
 
+        GondolaMovementManager.OnStartMoving += OnGondolaStartMoving;
+        GondolaMovementManager.OnStopMoving += OnGondolaStopMoving;
+
         defaultFov = povVirtualCamera.m_Lens.FieldOfView;
+        currentVirtualCamera = povVirtualCamera;
+    }
+
+    void Update()
+    {
+        var zoomValue = InputManager.instance.Fire;
+
+        if (zoomValue > 0)
+            ZoomIn(zoomValue);
+        else
+            ZoomOut();
     }
 
     void OnEnableAutoPilot(GondolaAutoPilotArea area)
@@ -42,14 +71,14 @@ public class PlayerCameraManager : Singleton<PlayerCameraManager>
         UnlockCamera();
     }
 
-    void Update()
+    void OnGondolaStartMoving()
     {
-        var zoomValue = InputManager.instance.Fire;
+        SetPovRecentering(true);
+    }
 
-        if (zoomValue > 0)
-            ZoomIn(zoomValue);
-        else
-            ZoomOut();
+    void OnGondolaStopMoving()
+    {
+        SetPovRecentering(false);
     }
 
     void ZoomIn(float value)
@@ -82,13 +111,5 @@ public class PlayerCameraManager : Singleton<PlayerCameraManager>
     {
         ChangeCamera(povVirtualCamera);
         inputProvider.enabled = true;
-    }
-
-    public void ChangeCamera(CinemachineVirtualCamera camera)
-    {
-        currentVirtualCamera.gameObject.SetActive(false);
-        camera.gameObject.SetActive(true);
-
-        currentVirtualCamera = camera;
     }
 }

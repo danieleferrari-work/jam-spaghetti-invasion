@@ -1,20 +1,21 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GondolaMovementManager : MonoBehaviour
 {
     [SerializeField] GameObject model;
 
-
     Rigidbody rb;
 
     float lastPushTime;
     bool autoPilotEnabled;
+    bool isMoving;
 
     bool IsTimerElapsed => Time.time - lastPushTime > Params.instance.rowPushDelay;
     bool IsPushComplete => Time.time - lastPushTime > Params.instance.rowPushDelay + Params.instance.rowPushDuration;
 
-    public Vector3 Velocity => rb.velocity;
-
+    public static UnityAction OnStartMoving;
+    public static UnityAction OnStopMoving;
 
     void Awake()
     {
@@ -38,6 +39,12 @@ public class GondolaMovementManager : MonoBehaviour
 
         if (inputValue.magnitude > 0)
         {
+            if (!isMoving)
+            {
+                isMoving = true;
+                OnStartMoving?.Invoke();
+            }
+
             if (rb.velocity.magnitude < Params.instance.gondolaMaxSpeed)
             {
                 AddDefaultAcceleration(inputValue.y);
@@ -51,6 +58,12 @@ public class GondolaMovementManager : MonoBehaviour
                 }
             }
             ApplyRotation(inputValue.x);
+        }
+        else if (isMoving)
+        {
+            isMoving = false;
+            OnStopMoving?.Invoke();
+            //    PlayerCameraManager.instance.SetPovRecentering(false);
         }
     }
 
