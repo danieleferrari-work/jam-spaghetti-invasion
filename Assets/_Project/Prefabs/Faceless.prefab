@@ -45,14 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3ec947f4b4c8b439087248ddfff8fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasSeenPlayer: 0
   destinationCamera: {fileID: 5235142674463468078}
   anim: {fileID: 6125988416591981145}
-  maxFov: 60
-  maxAnimationFov: 35
-  animSpeed: 1.5
-  fovSpeed: 30
   cameraSwitchTransitionDuration: 1
+  initialAmplitude: 0.5
+  maxAmplitude: 2
+  initialFrequency: 1
+  maxFrequency: 3
+  intensificationDuration: 5
+  noiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
 --- !u!1 &1217830442234839987
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +351,7 @@ MonoBehaviour:
   m_VerticalAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 300
+    m_MaxSpeed: 60
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
@@ -374,7 +375,7 @@ MonoBehaviour:
   m_HorizontalAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 300
+    m_MaxSpeed: 60
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCameraManager : Singleton<PlayerCameraManager>
 {
-    [SerializeField] float sensibility;
+    [Header("References")]
     [SerializeField] CinemachineVirtualCamera povVirtualCamera;
     [SerializeField] CinemachineVirtualCamera lookAtVirtualCamera;
 
@@ -13,8 +13,8 @@ public class PlayerCameraManager : Singleton<PlayerCameraManager>
 
     float defaultFov;
     bool zooming;
+    private CinemachineVirtualCamera currentVirtualCamera;
 
-    public CinemachineVirtualCamera currentVirtualCamera;
     public bool Zooming => zooming;
     public CinemachineVirtualCamera PlayerPovVirtualCamera => povVirtualCamera;
 

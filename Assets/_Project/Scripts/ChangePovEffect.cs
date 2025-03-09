@@ -26,7 +26,7 @@ public class ChangePovEffect : MonoBehaviour
 
     void Awake()
     {
-        playerCamera = PlayerCameraManager.instance.currentVirtualCamera;
+        playerCamera = PlayerCameraManager.instance.PlayerPovVirtualCamera;
 
         // Get or add noise component
         cameraNoise = playerCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
