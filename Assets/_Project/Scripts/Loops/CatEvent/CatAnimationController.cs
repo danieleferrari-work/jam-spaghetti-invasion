@@ -16,9 +16,11 @@ public class CatAnimationController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void DoJumpOnBoat()
+    public void DoJumpOnBoat(GameObject pointOnBoat)
     {
-        animator.SetTrigger("DoJumpOnBoat");
+        catRealRoot.transform.SetParent(pointOnBoat.transform, true);
+        animator.SetBool("IsJumpingOnBoat", true);
+        animator.SetTrigger("DoJump");
     }
 
     public void DoJump()
@@ -26,14 +28,24 @@ public class CatAnimationController : MonoBehaviour
         animator.SetTrigger("DoJump");
     }
 
-    public void OnJumpOnBoatEnd()
+    public void OnJumpEnd()
     {
-        OnJumpOnBoatFinished?.Invoke();
-        
-        Debug.Log("jump end");
-        animator.applyRootMotion = false;
-        Vector3 catTargetPosition = catMovingRoot.transform.position;
-        catMovingRoot.transform.localPosition = Vector3.zero;
-        catRealRoot.transform.position = catTargetPosition;
+        if (animator.GetBool("IsJumpingOnBoat"))
+        {
+            Debug.Log("jump on boat");
+            OnJumpOnBoatFinished?.Invoke();
+            animator.applyRootMotion = false;
+            Vector3 catTargetPosition = catMovingRoot.transform.position;
+            catMovingRoot.transform.localPosition = Vector3.zero;
+            catRealRoot.transform.position = catTargetPosition;
+        }
+    }
+
+    public void OnCatIdleStart()
+    {
+        // animator.applyRootMotion = false;
+        // Vector3 catTargetPosition = catMovingRoot.transform.position;
+        // catMovingRoot.transform.localPosition = Vector3.zero;
+        // catRealRoot.transform.position = catTargetPosition;
     }
 }

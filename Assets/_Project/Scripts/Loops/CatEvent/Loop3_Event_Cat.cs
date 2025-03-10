@@ -37,7 +37,7 @@ public class Loop3_Event_Cat : MonoBehaviour
 
     void OnEndAutoPilotMoving()
     {
-        catAnimatorController.DoJumpOnBoat();
+        catAnimatorController.DoJumpOnBoat(FindObjectOfType<Gondola>().catOnBoat);
     }
 
     void OnStartAutoPilotMoving()
@@ -51,7 +51,7 @@ public class Loop3_Event_Cat : MonoBehaviour
     {
         loop.catEventCompleted = true;
         FindObjectOfType<GondolaFloatingManager>().StartFloating();
-        Destroy(gameObject);
+        // Destroy(gameObject);
     }
 
     IEnumerator PlayCatAnimation()

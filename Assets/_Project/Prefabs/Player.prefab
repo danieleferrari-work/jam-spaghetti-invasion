@@ -131,6 +131,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 7097762287180347494, guid: 50611c472cfe3e04da05b0d28fad0766,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7955717564899692516, guid: 50611c472cfe3e04da05b0d28fad0766,
         type: 3}
       propertyPath: heightOffset
@@ -149,6 +154,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 552966487695318628, guid: 50611c472cfe3e04da05b0d28fad0766, type: 3}
+    - {fileID: 5247988687113218281, guid: 50611c472cfe3e04da05b0d28fad0766, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50611c472cfe3e04da05b0d28fad0766, type: 3}
