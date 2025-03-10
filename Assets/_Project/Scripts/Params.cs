@@ -22,10 +22,12 @@ public class Params : Singleton<Params>
     public float rowPushDuration;
 
     [Header("Gondola Bobbing Settings")]
+    public float bobbingSpeed;
     public float gondolaBobbingFrequency;
     public float gondolaBobbingAltitude;
 
     [Header("Gondola Rolling Settings")]
+    public float rollingSpeed;
     public float gondolaRollingFrequency;
     public float gondolaRollingAmplitude;
 }

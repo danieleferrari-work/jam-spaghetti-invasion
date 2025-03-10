@@ -4,11 +4,18 @@ public class GondolaFloatingManager : MonoBehaviour
 {
     [SerializeField] GameObject model;
 
-    [Tooltip("Distance from the water")]
-    [SerializeField] float heightOffset = 2f;
-
-
     float timeOffset;
+    bool floatingEnabled = true;
+
+    public void StopFloating()
+    {
+        floatingEnabled = false;
+    }
+
+    public void StartFloating()
+    {
+        floatingEnabled = true;
+    }
 
     private void Start()
     {
@@ -17,23 +24,43 @@ public class GondolaFloatingManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        ApplyOscillationBobbing();
-        ApplyOscillationRoll();
+        if (floatingEnabled)
+        {
+            ApplyBobbing();
+            ApplyRoll();
+        }
+        else
+        {
+            StopRolling();
+            StopBobbing();
+        }
     }
 
-    private void ApplyOscillationRoll()
+    void StopRolling()
+    {
+        model.transform.localRotation = Quaternion.Lerp(model.transform.localRotation, Quaternion.identity, Time.deltaTime);
+    }
+
+    void StopBobbing()
+    {
+        model.transform.localPosition = Vector3.Lerp(model.transform.localPosition, Vector3.zero, Time.deltaTime);
+    }
+
+    void ApplyRoll()
     {
         float time = Time.time + timeOffset;
-        var roll = Mathf.Sin(time * Params.instance.gondolaRollingFrequency) * Params.instance.gondolaRollingAmplitude; ;
-        model.transform.rotation = Quaternion.Euler(new Vector3(model.transform.rotation.eulerAngles.x, model.transform.rotation.eulerAngles.y, roll));
+        var roll = Mathf.Sin(time * Params.instance.gondolaRollingFrequency) * Params.instance.gondolaRollingAmplitude;
+        var targetRotation = Quaternion.Euler(new Vector3(model.transform.localRotation.eulerAngles.x, model.transform.localRotation.eulerAngles.y, roll));
+
+        model.transform.localRotation = Quaternion.Lerp(model.transform.localRotation, targetRotation, Time.deltaTime * Params.instance.rollingSpeed);
     }
 
-    private void ApplyOscillationBobbing()
+    void ApplyBobbing()
     {
         float time = Time.time + timeOffset;
         float bobHeight = Mathf.Sin(time * Params.instance.gondolaBobbingFrequency) * Params.instance.gondolaBobbingAltitude;
-        var bobbing = heightOffset + bobHeight; ;
-        model.transform.position = new Vector3(model.transform.position.x, bobbing, model.transform.position.z);
-    }
+        var targetTransform = new Vector3(model.transform.localPosition.x, bobHeight, model.transform.localPosition.z);
 
+        model.transform.localPosition = Vector3.Lerp(model.transform.localPosition, targetTransform, Time.deltaTime * Params.instance.bobbingSpeed);
+    }
 }

@@ -6,8 +6,7 @@ public class Loop3_Event_Cat : MonoBehaviour
     [Header("References")]
     [SerializeField] GondolaAutoPilotArea autoPilotArea;
     [SerializeField] WatchEvent watchEvent;
-    [SerializeField] Animator catAnimator;
-    [SerializeField] CatJumpStateMachine catJumpStateMachine;
+    [SerializeField] CatAnimationController catAnimatorController;
 
     // References
     Loop3 loop;
@@ -28,6 +27,7 @@ public class Loop3_Event_Cat : MonoBehaviour
         watchEvent.OnEventStarted += StartJumping;
         autoPilotArea.OnStartMoving += OnStartAutoPilotMoving;
         autoPilotArea.OnEndMoving += OnEndAutoPilotMoving;
+        catAnimatorController.OnJumpOnBoatFinished += CatJumpOnBoatFinished;
     }
 
     void StartJumping()
@@ -37,23 +37,21 @@ public class Loop3_Event_Cat : MonoBehaviour
 
     void OnEndAutoPilotMoving()
     {
-        catAnimator.SetTrigger("DoJumpOnBoat");
-        isLastJump = true;
+        catAnimatorController.DoJumpOnBoat();
     }
 
     void OnStartAutoPilotMoving()
     {
         if (jumpCatCoroutine != null)
             StopCoroutine(jumpCatCoroutine);
+        FindObjectOfType<GondolaFloatingManager>().StopFloating();
     }
 
-    public void CatJumpFinished()
+    public void CatJumpOnBoatFinished()
     {
-        if (isLastJump)
-        {
-            loop.catEventCompleted = true;
-            Destroy(gameObject);
-        }
+        loop.catEventCompleted = true;
+        FindObjectOfType<GondolaFloatingManager>().StartFloating();
+        Destroy(gameObject);
     }
 
     IEnumerator PlayCatAnimation()
@@ -62,7 +60,7 @@ public class Loop3_Event_Cat : MonoBehaviour
         {
             yield return new WaitForSeconds(loop.catJumpPause);
 
-            catAnimator.SetTrigger("DoJump");
+            catAnimatorController.DoJump();
         }
     }
 }
