@@ -51,7 +51,6 @@ public class Loop3_Event_Cat : MonoBehaviour
     {
         loop.catEventCompleted = true;
         FindObjectOfType<GondolaFloatingManager>().StartFloating();
-        // Destroy(gameObject);
     }
 
     IEnumerator PlayCatAnimation()
