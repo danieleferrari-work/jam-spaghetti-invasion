@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9a59f079d3d05c74a877beccbe73d4b8
+guid: a521c1591fe6f834cad53952b0c16781
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -37,7 +37,7 @@ ModelImporter:
       takeName: Gondoliere rema
       internalID: -1175368448832520791
       firstFrame: 0
-      lastFrame: 220
+      lastFrame: 150
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
