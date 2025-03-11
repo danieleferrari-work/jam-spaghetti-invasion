@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class Event_Hands : MonoBehaviour
 {
-    [SerializeField] float zoneRadius; // TODO mettere in Params
-    [SerializeField] float minHeight; // TODO mettere in Params
-    [SerializeField] float maxHeight; // TODO mettere in Params
-    [SerializeField] int spawnCount; // TODO mettere in params
-    [SerializeField] int spawnDelay; // TODO mettere in params
-
     [SerializeField] Transform followPlayer;
     [SerializeField] GameObject handsPrefab;
+
+    private float zoneRadius;
+    private float minHeight;
+    private float maxHeight;
+    private int spawnCount;
+    private int spawnDelay;
 
     Vector3 minSpawnPosition;
     Vector3 maxSpawnPosition;
@@ -20,6 +20,12 @@ public class Event_Hands : MonoBehaviour
 
     void Awake()
     {
+        zoneRadius = Params.instance.handsEventRadius;
+        minHeight = Params.instance.handsEventMinHeight;
+        maxHeight = Params.instance.handsEventMaxHeight;
+        spawnCount = Params.instance.handsEventSpawnCount;
+        spawnDelay = Params.instance.handsEventSpawnDelay;
+
         minSpawnPosition = new Vector3(-zoneRadius, minHeight, -zoneRadius);
         maxSpawnPosition = new Vector3(zoneRadius, maxHeight, zoneRadius);
 

@@ -59,6 +59,11 @@ MonoBehaviour:
   rollingSpeed: 3
   gondolaRollingFrequency: 0.5
   gondolaRollingAmplitude: 5
+  handsEventRadius: 10
+  handsEventMinHeight: -0.5
+  handsEventMaxHeight: 0.5
+  handsEventSpawnCount: 5
+  handsEventSpawnDelay: 2
 --- !u!1 &1321636126826659940
 GameObject:
   m_ObjectHideFlags: 0

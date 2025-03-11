@@ -9,7 +9,7 @@ public class Params : Singleton<Params>
     public float minFov;
     public float zoomInSpeed;
     public float zoomOutSpeed;
-    
+
     [Space(10)]
     [Header("Gondola Movement Settings")]
     public float gondolaMaxSpeed;
@@ -30,4 +30,21 @@ public class Params : Singleton<Params>
     public float rollingSpeed;
     public float gondolaRollingFrequency;
     public float gondolaRollingAmplitude;
+
+    [Header("Event Hands Settings")]
+
+    [Tooltip("Hand spawn radius around boat")]
+    public float handsEventRadius;
+
+    [Tooltip("Hand spawn min height (0 is on the water level)")]
+    public float handsEventMinHeight;
+
+    [Tooltip("Hand spawn max height (0 is on the water level)")]
+    public float handsEventMaxHeight;
+
+    [Tooltip("Number of hands to spawn every spawnDelay")]
+    public int handsEventSpawnCount;
+
+    [Tooltip("Number of seconds between hands spawns")]
+    public int handsEventSpawnDelay;
 }
