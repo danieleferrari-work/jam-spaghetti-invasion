@@ -1,49 +1,57 @@
+using System.Collections;
 using UnityEngine;
 
 public class Event_Hands : MonoBehaviour
 {
-    [SerializeField] float zoneRadius;
-    [SerializeField] float minHeight;
-    [SerializeField] float maxHeight;
-    [SerializeField] int spawnCount;
+    [SerializeField] float zoneRadius; // TODO mettere in Params
+    [SerializeField] float minHeight; // TODO mettere in Params
+    [SerializeField] float maxHeight; // TODO mettere in Params
+    [SerializeField] int spawnCount; // TODO mettere in params
+    [SerializeField] int spawnDelay; // TODO mettere in params
 
-    [SerializeField] Transform handsContainer;
+    [SerializeField] Transform followPlayer;
     [SerializeField] GameObject handsPrefab;
-    [SerializeField] WatchEvent watchEvent;
 
     Vector3 minSpawnPosition;
     Vector3 maxSpawnPosition;
     Vector3 minSpawnRotation;
     Vector3 maxSpawnRotation;
-    float zoneDiameter;
 
 
     void Awake()
     {
-        zoneDiameter = zoneRadius * 2;
-
         minSpawnPosition = new Vector3(-zoneRadius, minHeight, -zoneRadius);
         maxSpawnPosition = new Vector3(zoneRadius, maxHeight, zoneRadius);
 
         minSpawnRotation = Vector3.zero;
         maxSpawnRotation = new Vector3(0, 360, 0);
 
-        watchEvent.transform.localScale = new Vector3(zoneDiameter, 1, zoneDiameter);
-        watchEvent.OnEventFailed += OnWatchEventFailed;
+        StartCoroutine(SpawnHands());
     }
 
-    void SpawnHands()
+    IEnumerator SpawnHands()
     {
-        for (int i = 0; i < spawnCount; i++)
+        yield return new WaitForSeconds(spawnDelay);
+
+        var handsToSpawn = spawnCount;
+        while (handsToSpawn > 0)
         {
-            var handsPosition = RandomUtils.Vector3(minSpawnPosition, maxSpawnPosition);
-            var hansRotation = Quaternion.Euler(RandomUtils.Vector3(minSpawnRotation, maxSpawnRotation));
-            Instantiate(handsPrefab, handsPosition, hansRotation, handsContainer);
+            var handsPosition = RandomUtils.Vector3(followPlayer.position + minSpawnPosition, followPlayer.position + maxSpawnPosition);
+
+            if (!IsValidPosition(handsPosition))
+                continue;
+
+            var handsRotation = Quaternion.Euler(RandomUtils.Vector3(minSpawnRotation, maxSpawnRotation));
+            Instantiate(handsPrefab, handsPosition, handsRotation);
+
+            handsToSpawn--;
         }
     }
 
-    void OnWatchEventFailed()
+    bool IsValidPosition(Vector3 position)
     {
-        SpawnHands();
+        var raycastStartPoint = position + Vector3.up * 100;
+        LayerMask mask = LayerMask.GetMask("Water");
+        return Physics.Raycast(raycastStartPoint, Vector3.down, 200, mask);
     }
 }
