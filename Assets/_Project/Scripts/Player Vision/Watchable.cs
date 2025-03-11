@@ -7,13 +7,6 @@ public class Watchable : MonoBehaviour
     [SerializeField] float minDistance = float.MaxValue;
     [SerializeField] bool watchOnlyWhileZooming = true;
 
-    [Header("Debug")]
-    [SerializeField] TMPro.TMP_Text textCurrentWatchtime;
-    [SerializeField] TMPro.TMP_Text textOverallWatchtime;
-    [SerializeField] Color defaultColor;
-    [SerializeField] Color tooFarColor;
-    [SerializeField] Color watchingColor;
-
 
     float currentWatchtime = 0;
     float overallWatchtime = 0;
@@ -26,14 +19,14 @@ public class Watchable : MonoBehaviour
     public UnityAction OnStopWatching;
 
 
-    void Awake()
+    public void Reset()
     {
-#if !UNITY_EDITOR
-        textCurrentWatchtime.gameObject.SetActive(false);
-        textOverallWatchtime.gameObject.SetActive(false);
-        Destroy(GetComponent<AlwaysLookAtCamera>());
-        ChangeTextsColor(defaultColor);
-#endif
+        currentWatchtime = 0;
+        overallWatchtime = 0;
+        alreadyBegin = false;
+
+        OnStartWatching = null;
+        OnStopWatching = null;
     }
 
     void OnTriggerEnter(Collider other)
@@ -47,10 +40,6 @@ public class Watchable : MonoBehaviour
         if (Vector3.Distance(other.transform.position, transform.position) < minDistance)
         {
             BeginWatch();
-        }
-        else
-        {
-            ChangeTextsColor(tooFarColor);
         }
     }
 
@@ -70,8 +59,6 @@ public class Watchable : MonoBehaviour
 
         currentWatchtime += Time.deltaTime;
         overallWatchtime += Time.deltaTime;
-
-        ChangeTextsColor(watchingColor);
     }
 
     void OnTriggerExit(Collider other)
@@ -86,8 +73,6 @@ public class Watchable : MonoBehaviour
     {
         alreadyBegin = true;
         OnStartWatching?.Invoke();
-
-        ChangeTextsColor(watchingColor);
     }
 
     void StopWatch()
@@ -95,26 +80,11 @@ public class Watchable : MonoBehaviour
         alreadyBegin = false;
         currentWatchtime = 0;
         OnStopWatching?.Invoke();
-
-        ChangeTextsColor(defaultColor);
     }
 
     void Update()
     {
-#if UNITY_EDITOR
-        textCurrentWatchtime.text = currentWatchtime.ToString("0.00");
-        textOverallWatchtime.text = overallWatchtime.ToString("0.00");
-#endif
-
         if (watchOnlyWhileZooming && !PlayerCameraManager.instance.Zooming)
             StopWatch();
-    }
-
-    void ChangeTextsColor(Color color)
-    {
-#if UNITY_EDITOR
-        textCurrentWatchtime.color = color;
-        textOverallWatchtime.color = color;
-#endif
     }
 }

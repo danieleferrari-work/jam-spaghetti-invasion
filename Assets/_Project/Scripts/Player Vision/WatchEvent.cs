@@ -5,6 +5,8 @@ using UnityEngine.Events;
 public class WatchEvent : MonoBehaviour
 {
     [SerializeField] EventStartTypes startType;
+    [Tooltip("Set false if you want to restart event on end")]
+    [SerializeField] bool oneTimeEvent = true;
 
     [Tooltip("Seconds needed to complete the event")]
     [SerializeField] float timeToWatch = 10;
@@ -36,8 +38,18 @@ public class WatchEvent : MonoBehaviour
 
     void Start()
     {
+        ResetEvent();
+
         watchable.OnStartWatching += () => { OnStartWatching?.Invoke(); };
         watchable.OnStopWatching += () => { OnStopWatching?.Invoke(); };
+    }
+
+    public void ResetEvent()
+    {
+        if (timer != null)
+            StopCoroutine(timer);
+
+        watchable.Reset();
 
         switch (startType)
         {
@@ -94,7 +106,10 @@ public class WatchEvent : MonoBehaviour
         if (destroyGameObjectOnSuccess)
             Destroy(gameObject);
 
-        this.enabled = false;
+        if (oneTimeEvent)
+            this.enabled = false;
+        else
+            ResetEvent();
     }
 
     private void CompleteEventWithFailure()
@@ -106,7 +121,10 @@ public class WatchEvent : MonoBehaviour
         if (destroyGameObjectOnFailure)
             Destroy(gameObject);
 
-        this.enabled = false;
+        if (oneTimeEvent)
+            this.enabled = false;
+        else
+            ResetEvent();
     }
 
     public enum EventStartTypes
