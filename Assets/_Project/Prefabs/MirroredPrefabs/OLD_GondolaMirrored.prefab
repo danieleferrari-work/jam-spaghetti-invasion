@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1169645846331742259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6499488248191933209}
+  m_Layer: 0
+  m_Name: MirroredPlayerGondola
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6499488248191933209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169645846331742259}
+  serializedVersion: 2
+  m_LocalRotation: {x: -1, y: 0, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 1.3779998, z: 2.7469995}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3145018754303917811}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3445862820241843039
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,12 +55,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3445862820241843039}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: 1.578, z: 0.233}
+  m_LocalRotation: {x: -0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 1.3779998, z: 2.7469995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 34456587993202792}
+  m_Father: {fileID: 3145018754303917811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &572189600353396611
 PrefabInstance:
@@ -96,11 +127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5ed5c9dca9668844fb5350cca84ca223,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7239647920135112395}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ed5c9dca9668844fb5350cca84ca223, type: 3}
 --- !u!4 &34456587993202792 stripped
@@ -262,6 +289,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6836521609454057881}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 791366b9322adf54ca07a9073ef9eea7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7239647920135112395}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 791366b9322adf54ca07a9073ef9eea7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6499488248191933209}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 791366b9322adf54ca07a9073ef9eea7, type: 3}
 --- !u!4 &3145018754303917811 stripped

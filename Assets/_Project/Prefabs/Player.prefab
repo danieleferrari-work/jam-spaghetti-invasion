@@ -297,6 +297,16 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 3905727574477722297}
+    - target: {fileID: 1283507865034202461, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
+        type: 3}
+      propertyPath: m_Transitions.m_BlendHint
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1283507865034202461, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
+        type: 3}
+      propertyPath: m_Transitions.m_InheritPosition
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1866164862109735122, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -361,6 +371,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601625179768232742, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
+        type: 3}
+      propertyPath: m_Transitions.m_BlendHint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5809180205937663745, guid: a0630b9a6abf95b4f9e89ab3acc9cb1a,
         type: 3}

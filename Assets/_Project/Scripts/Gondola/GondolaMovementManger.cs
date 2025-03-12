@@ -12,8 +12,11 @@ public class GondolaMovementManager : MonoBehaviour
     bool autoPilotEnabled;
     bool isMoving;
 
+    bool isFlipped;
     bool IsTimerElapsed => Time.time - lastPushTime > Params.instance.rowPushDelay;
     bool IsPushComplete => Time.time - lastPushTime > Params.instance.rowPushDelay + Params.instance.rowPushDuration;
+
+    public bool IsFlipped { get => isFlipped; set => isFlipped = value; }
 
     public static UnityAction OnStartMoving;
     public static UnityAction OnStopMoving;
@@ -57,7 +60,14 @@ public class GondolaMovementManager : MonoBehaviour
                         lastPushTime = Time.time;
                 }
             }
-            ApplyRotation(inputValue.x);
+            if (!isFlipped)
+            {
+                ApplyRotation(inputValue.x);
+            }
+            else
+            {
+                ApplyRotation(- inputValue.x);
+            }
         }
         else if (isMoving)
         {
