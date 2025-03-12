@@ -696,6 +696,11 @@ PrefabInstance:
       propertyPath: underWater
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3325747390688625921, guid: 22a908373fc2604419770b4b6da82ae8,
+        type: 3}
+      propertyPath: flickerProbability
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 3785983239610546928, guid: 22a908373fc2604419770b4b6da82ae8,
         type: 3}
       propertyPath: m_Name
