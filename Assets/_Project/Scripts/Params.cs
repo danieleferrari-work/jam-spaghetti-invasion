@@ -53,5 +53,4 @@ public class Params : Singleton<Params>
     [Header("Event - Cat - Loop1")]
     public float loop1_catMeowingMinDelay;
     public float loop1_catMeowingMaxDelay;
-
 }

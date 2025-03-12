@@ -8,7 +8,6 @@ public class Loop3_Event_Cat : MonoBehaviour
     [SerializeField] WatchEvent watchEvent;
     [SerializeField] CatAnimationController catAnimatorController;
     [SerializeField] GameObject cat;
-
     // References
     Loop3 loop;
 

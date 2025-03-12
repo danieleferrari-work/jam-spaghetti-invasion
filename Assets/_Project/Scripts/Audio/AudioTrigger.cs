@@ -3,7 +3,13 @@ using UnityEngine;
 public class AudioTrigger : MonoBehaviour
 {
     [SerializeField] string clipName;
-    private AudioSource audioSource;
+    AudioSource audioSource;
+
+    void Start()
+    {
+        // Ottieni l'AudioSource presente sull'oggetto
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -11,12 +17,6 @@ public class AudioTrigger : MonoBehaviour
         {
             Play();
         }
-    }
-
-    void Start()
-    {
-        // Ottieni l'AudioSource presente sull'oggetto
-        audioSource = GetComponent<AudioSource>();
     }
 
     public void Play()

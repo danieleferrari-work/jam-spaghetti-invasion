@@ -3,10 +3,14 @@ using UnityEngine.Events;
 
 public class CatAnimationController : MonoBehaviour
 {
+    [SerializeField] AudioTrigger catAudioSplash;
+    [SerializeField] AudioTrigger catAudioMeowing;
+    
     Animator animator;
 
     public UnityAction OnJumpOnBoatFinished;
     public UnityAction OnExitFinished;
+
 
 
     void Awake()
@@ -29,6 +33,10 @@ public class CatAnimationController : MonoBehaviour
         animator.SetTrigger("DoExit");
     }
 
+    public void JumpOnBoatStarted()
+    {
+        catAudioMeowing.Play();
+    }
 
     public void JumpOnBoatFinished()
     {
@@ -38,5 +46,10 @@ public class CatAnimationController : MonoBehaviour
     public void ExitFinished()
     {
         OnJumpOnBoatFinished?.Invoke();
+    }
+
+    public void JumpFinished()
+    {
+        catAudioSplash.Play();
     }
 }
