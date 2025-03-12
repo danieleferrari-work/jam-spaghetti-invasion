@@ -279,6 +279,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Faceless (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1217830442234839987, guid: d8dad0e115d707f458df5976372ed094,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2429788942253801081, guid: d8dad0e115d707f458df5976372ed094,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -329,18 +334,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4449145123660346798, guid: d8dad0e115d707f458df5976372ed094,
+        type: 3}
+      propertyPath: startType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3371358768236999696, guid: d8dad0e115d707f458df5976372ed094,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 9074677585447061821, guid: d8dad0e115d707f458df5976372ed094,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8dad0e115d707f458df5976372ed094, type: 3}
 --- !u!850595691 &957752462
 LightingSettings:

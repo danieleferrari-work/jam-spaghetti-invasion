@@ -44,6 +44,7 @@ public class Loop1_Event_Faceless : MonoBehaviour
         else
         {
             changePovEffect.ChangeCamera();
+            secondFaceless.SetActive(true);
         }
 
         changePovEffect.StopShaking();
