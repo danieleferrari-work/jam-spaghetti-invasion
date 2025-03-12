@@ -1,5 +1,4 @@
-using System.Collections;
-using DG.Tweening;
+using System;
 using UnityEngine;
 
 public class Loop6_Event_Cat : MonoBehaviour
@@ -16,35 +15,33 @@ public class Loop6_Event_Cat : MonoBehaviour
     // References
     Loop6 loop;
     GameObject catOnBoat;
+    CatAnimationController animationController;
 
 
     void Awake()
     {
         loop = GetComponentInParent<Loop6>();
         catOnBoat = FindObjectOfType<Gondola>().catOnBoat;
+        autoPilotArea.OnStartMoving += OnStartAutoPilotMoving;
+        autoPilotArea.OnEndMoving += OnEndAutoPilotMoving;
+        animationController = catOnBoat.GetComponentInChildren<CatAnimationController>();
     }
 
-    void Start()
+    private void OnEndAutoPilotMoving()
     {
-        autoPilotArea.OnEndMoving += OnAutoPilotFinish;
+        animationController.gameObject.transform.SetParent(catOnBoat.transform, worldPositionStays: true);
+        animationController.DoExit();
+        animationController.OnExitFinished += OnExitFinished;
     }
 
-    private void OnAutoPilotFinish()
+    private void OnStartAutoPilotMoving()
     {
-        StartCoroutine(PlayCatAnimation());
+        FindObjectOfType<GondolaFloatingManager>().StopFloating(); // TO forse mettere direttamtne nell'autopilot
     }
 
-    IEnumerator PlayCatAnimation()
+    private void OnExitFinished()
     {
-        yield return new WaitForSeconds(2);
-
         catShadowOnGround.gameObject.SetActive(false);
-        catOnBoat.transform.DOJump(catOnGround.transform.position, jumpForce, 1, jumpDuration);
-
-        yield return new WaitForSeconds(jumpDuration);
-
-        Destroy(catOnBoat.gameObject);
-        catOnGround.gameObject.SetActive(true);
         loop.catEventCompleted = true;
     }
 }

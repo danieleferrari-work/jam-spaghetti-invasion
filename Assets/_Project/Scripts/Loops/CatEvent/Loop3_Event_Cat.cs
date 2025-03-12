@@ -7,13 +7,13 @@ public class Loop3_Event_Cat : MonoBehaviour
     [SerializeField] GondolaAutoPilotArea autoPilotArea;
     [SerializeField] WatchEvent watchEvent;
     [SerializeField] CatAnimationController catAnimatorController;
+    [SerializeField] GameObject cat;
 
     // References
     Loop3 loop;
 
     // Local Variables
     Coroutine jumpCatCoroutine;
-    bool isLastJump;
 
     void Awake()
     {
@@ -32,12 +32,13 @@ public class Loop3_Event_Cat : MonoBehaviour
 
     void StartJumping()
     {
-        jumpCatCoroutine = StartCoroutine(PlayCatAnimation());
+        jumpCatCoroutine = StartCoroutine(PlayCatJumpAnimation());
     }
 
     void OnEndAutoPilotMoving()
     {
-        catAnimatorController.DoJumpOnBoat(FindObjectOfType<Gondola>().catOnBoat);
+        cat.transform.SetParent(FindObjectOfType<Gondola>().catOnBoat.transform, worldPositionStays: true);
+        catAnimatorController.DoJumpOnBoat();
     }
 
     void OnStartAutoPilotMoving()
@@ -53,7 +54,7 @@ public class Loop3_Event_Cat : MonoBehaviour
         FindObjectOfType<GondolaFloatingManager>().StartFloating();
     }
 
-    IEnumerator PlayCatAnimation()
+    IEnumerator PlayCatJumpAnimation()
     {
         for (int i = 0; i < loop.catJumpRepetitions; i++)
         {
