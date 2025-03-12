@@ -31,6 +31,7 @@ public class Params : Singleton<Params>
     public float gondolaRollingFrequency;
     public float gondolaRollingAmplitude;
 
+    [Space(20)]
     [Header("Event Hands Settings")]
 
     [Tooltip("Hand spawn radius around boat")]
@@ -47,4 +48,10 @@ public class Params : Singleton<Params>
 
     [Tooltip("Number of seconds between hands spawns")]
     public int handsEventSpawnDelay;
+
+    [Space(10)]
+    [Header("Event - Cat - Loop1")]
+    public float loop1_catMeowingMinDelay;
+    public float loop1_catMeowingMaxDelay;
+
 }

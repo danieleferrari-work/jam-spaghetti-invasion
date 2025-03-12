@@ -266,6 +266,112 @@ Transform:
   - {fileID: 637635947}
   m_Father: {fileID: 505407617}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &824610171
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1533123783}
+    m_Modifications:
+    - target: {fileID: 1774329328844318286, guid: f40e8d6d0622d71409e002425d12674c,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774329328844318286, guid: f40e8d6d0622d71409e002425d12674c,
+        type: 3}
+      propertyPath: MinDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4186339858014366185, guid: f40e8d6d0622d71409e002425d12674c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5597282461753804589, guid: f40e8d6d0622d71409e002425d12674c,
+        type: 3}
+      propertyPath: m_Name
+      value: Audio - Cat Meow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6270083673421673369, guid: f40e8d6d0622d71409e002425d12674c,
+        type: 3}
+      propertyPath: clipName
+      value: cat-meow
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758643887568464627, guid: f40e8d6d0622d71409e002425d12674c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758643887568464627, guid: f40e8d6d0622d71409e002425d12674c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758643887568464627, guid: f40e8d6d0622d71409e002425d12674c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 87.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758643887568464627, guid: f40e8d6d0622d71409e002425d12674c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758643887568464627, guid: f40e8d6d0622d71409e002425d12674c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758643887568464627, guid: f40e8d6d0622d71409e002425d12674c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758643887568464627, guid: f40e8d6d0622d71409e002425d12674c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758643887568464627, guid: f40e8d6d0622d71409e002425d12674c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758643887568464627, guid: f40e8d6d0622d71409e002425d12674c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758643887568464627, guid: f40e8d6d0622d71409e002425d12674c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f40e8d6d0622d71409e002425d12674c, type: 3}
+--- !u!4 &824610172 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7758643887568464627, guid: f40e8d6d0622d71409e002425d12674c,
+    type: 3}
+  m_PrefabInstance: {fileID: 824610171}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &824610173 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6270083673421673369, guid: f40e8d6d0622d71409e002425d12674c,
+    type: 3}
+  m_PrefabInstance: {fileID: 824610171}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e553f7bdbfea20846b4f20da213892b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &864985182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -537,6 +643,54 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 864985182}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1533123782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1533123783}
+  - component: {fileID: 1533123784}
+  m_Layer: 0
+  m_Name: Cat Event
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1533123783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533123782}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 824610172}
+  m_Father: {fileID: 1758323944}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1533123784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533123782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61494f4547c46f742a9435171d68d9b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catMeowingMinDelay: 3
+  catMeowingMaxDelay: 8
+  audioTrigger: {fileID: 824610173}
 --- !u!1001 &1758323943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -717,6 +871,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 183108843}
+    - targetCorrespondingSourceObject: {fileID: 8453030284479625540, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1533123783}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 877261593650640380, guid: 33889eed3e6449f4eb05eb7238fd56f6,
         type: 3}
