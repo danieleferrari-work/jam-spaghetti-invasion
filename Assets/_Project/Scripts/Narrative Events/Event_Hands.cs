@@ -58,6 +58,6 @@ public class Event_Hands : MonoBehaviour
     {
         var raycastStartPoint = position + Vector3.up * 100;
         LayerMask mask = LayerMask.GetMask("Water");
-        return Physics.Raycast(raycastStartPoint, Vector3.down, 200, mask);
+        return Physics.Raycast(raycastStartPoint, Vector3.down, 500, mask);
     }
 }
