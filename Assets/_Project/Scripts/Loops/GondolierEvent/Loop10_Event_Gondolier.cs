@@ -38,20 +38,25 @@ public class Loop10_Event_Gondolier : MonoBehaviour
             GetComponentInChildren<MeshRenderer>().enabled = false;
 
             // Avvia la coroutine per aspettare la fine della transizione
-            StartCoroutine(WaitForCameraTransition());
+            //  StartCoroutine(WaitForCameraTransition());
+            StartCoroutine(ReactivateInputAfterDelayOrTransition(4f));
         }
     }
 
-    private IEnumerator WaitForCameraTransition()
+    private IEnumerator ReactivateInputAfterDelayOrTransition(float delay)
     {
         CinemachineBrain brain = Camera.main.GetComponent<CinemachineBrain>();
 
-        // Aspetta finché c'è una transizione attiva
-        yield return new WaitForSeconds(3f);
-      
+        float timer = 0f;
+        while ((brain.ActiveBlend != null || timer < delay))
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
         if (cvcPlayer != null)
         {
-            cvcPlayer.GetComponent<CinemachineInputProvider>().enabled = true; // Riattiva input
+            cvcPlayer.GetComponent<CinemachineInputProvider>().enabled = true;
         }
     }
 
