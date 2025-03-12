@@ -20,7 +20,7 @@ public class ChangePovEffect : MonoBehaviour
     private CinemachineVirtualCamera playerCamera;
     private CinemachineBasicMultiChannelPerlin cameraNoise;
     private float shakeTimer = 0f;
-    private bool isShaking = false;
+    public bool isShaking = false;
     private float currentAmplitude = 0f;
     private float currentFrequency = 0f;
 
