@@ -250,7 +250,7 @@ PrefabInstance:
     - target: {fileID: 4378916358046635869, guid: 33889eed3e6449f4eb05eb7238fd56f6,
         type: 3}
       propertyPath: m_text
-      value: LOOP 7
+      value: LOOP 8
       objectReference: {fileID: 0}
     - target: {fileID: 4538988181675934623, guid: 33889eed3e6449f4eb05eb7238fd56f6,
         type: 3}
