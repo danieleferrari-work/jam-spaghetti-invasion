@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Loop1_Event_Cat : MonoBehaviour
 {
-    [SerializeField] AudioTrigger audioTrigger;
+    [SerializeField] AudioSource3D audioTrigger;
 
     void Start()
     {

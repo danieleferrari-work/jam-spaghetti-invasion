@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AudioTrigger : MonoBehaviour
+public class AudioSource3D : MonoBehaviour
 {
     [SerializeField] string clipName;
     AudioSource audioSource;

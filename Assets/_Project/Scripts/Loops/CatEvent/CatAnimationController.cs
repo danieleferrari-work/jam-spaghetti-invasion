@@ -3,8 +3,8 @@ using UnityEngine.Events;
 
 public class CatAnimationController : MonoBehaviour
 {
-    [SerializeField] AudioTrigger catAudioSplash;
-    [SerializeField] AudioTrigger catAudioMeowing;
+    [SerializeField] AudioSource3D catAudioSplash;
+    [SerializeField] AudioSource3D catAudioMeowing;
     
     Animator animator;
 
