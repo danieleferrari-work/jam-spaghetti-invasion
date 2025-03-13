@@ -1,5 +1,3 @@
-using System;
-using Cinemachine;
 using UnityEngine;
 
 public class Loop1_Event_Faceless : MonoBehaviour
@@ -12,19 +10,21 @@ public class Loop1_Event_Faceless : MonoBehaviour
 
     private WatchEvent firstFacelessWatchEvent;
     private WatchEvent secondFacelessWatchEvent;
-
+    private Loop1 loop;
 
 
     void Start()
     {
+        loop = GetComponentInParent<Loop1>();
+
         firstFacelessChangePovEffect = firstFaceless.GetComponentInChildren<ChangePovEffect>();
         secondFacelessChangePovEffect = secondFaceless.GetComponentInChildren<ChangePovEffect>();
 
         firstFacelessWatchEvent = firstFaceless.GetComponentInChildren<WatchEvent>();
         secondFacelessWatchEvent = secondFaceless.GetComponentInChildren<WatchEvent>();
 
-        firstFacelessWatchEvent.OnEventSuccessed += () => OnFacelessEventSuccess(firstFacelessChangePovEffect, false);
-        secondFacelessWatchEvent.OnEventSuccessed += () => OnFacelessEventSuccess(secondFacelessChangePovEffect, true);
+        firstFacelessWatchEvent.OnEventSuccessed += () => OnFirstFacelessEventSuccess(firstFacelessChangePovEffect);
+        secondFacelessWatchEvent.OnEventSuccessed += () => OnSecondFacelessEventSuccess(secondFacelessChangePovEffect);
 
         firstFacelessWatchEvent.OnStartWatching += () => OnStartWatchingFaceless(firstFacelessChangePovEffect);
         secondFacelessWatchEvent.OnStartWatching += () => OnStartWatchingFaceless(secondFacelessChangePovEffect);
@@ -35,19 +35,19 @@ public class Loop1_Event_Faceless : MonoBehaviour
 
 
 
-    private void OnFacelessEventSuccess(ChangePovEffect changePovEffect, bool isLastFaceless)
+    private void OnFirstFacelessEventSuccess(ChangePovEffect changePovEffect)
     {
-        if (isLastFaceless)
-        {
-            changePovEffect.ResetCamera();
-        }
-        else
-        {
-            changePovEffect.ChangeCamera();
-            secondFaceless.SetActive(true);
-        }
-
+        changePovEffect.ChangeCamera();
+        secondFaceless.SetActive(true);
         changePovEffect.StopShaking();
+    }
+
+    private void OnSecondFacelessEventSuccess(ChangePovEffect changePovEffect)
+    {
+        changePovEffect.ResetCamera();
+        changePovEffect.StopShaking();
+
+        loop.facelessEventCompleted = true;
     }
 
     private void OnStartWatchingFaceless(ChangePovEffect changePovEffect)
