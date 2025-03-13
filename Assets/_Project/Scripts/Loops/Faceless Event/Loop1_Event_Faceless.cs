@@ -17,6 +17,8 @@ public class Loop1_Event_Faceless : MonoBehaviour
     {
         loop = GetComponentInParent<Loop1>();
 
+        secondFaceless.gameObject.SetActive(false);
+
         firstFacelessChangePovEffect = firstFaceless.GetComponentInChildren<ChangePovEffect>();
         secondFacelessChangePovEffect = secondFaceless.GetComponentInChildren<ChangePovEffect>();
 
