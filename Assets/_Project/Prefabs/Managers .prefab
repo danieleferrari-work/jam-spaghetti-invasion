@@ -62,8 +62,8 @@ MonoBehaviour:
   handsEventRadius: 10
   handsEventMinHeight: -0.5
   handsEventMaxHeight: 0.5
-  handsEventSpawnCount: 5
-  handsEventSpawnDelay: 2
+  handsEventSpawnCount: 3
+  handsEventSpawnDelay: 10
   loop1_catMeowingMinDelay: 3
   loop1_catMeowingMaxDelay: 8
 --- !u!1 &1321636126826659940

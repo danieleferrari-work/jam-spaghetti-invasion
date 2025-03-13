@@ -37,20 +37,23 @@ public class Event_Hands : MonoBehaviour
 
     IEnumerator SpawnHands()
     {
-        yield return new WaitForSeconds(spawnDelay);
-
-        var handsToSpawn = spawnCount;
-        while (handsToSpawn > 0)
+        while (true)
         {
-            var handsPosition = RandomUtils.Vector3(followPlayer.position + minSpawnPosition, followPlayer.position + maxSpawnPosition);
+            yield return new WaitForSeconds(spawnDelay);
 
-            if (!IsValidPosition(handsPosition))
-                continue;
+            var handsToSpawn = spawnCount;
+            while (handsToSpawn > 0)
+            {
+                var handsPosition = RandomUtils.Vector3(followPlayer.position + minSpawnPosition, followPlayer.position + maxSpawnPosition);
 
-            var handsRotation = Quaternion.Euler(RandomUtils.Vector3(minSpawnRotation, maxSpawnRotation));
-            Instantiate(handsPrefab, handsPosition, handsRotation);
+                if (!IsValidPosition(handsPosition))
+                    continue;
 
-            handsToSpawn--;
+                var handsRotation = Quaternion.Euler(RandomUtils.Vector3(minSpawnRotation, maxSpawnRotation));
+                Instantiate(handsPrefab, handsPosition, handsRotation);
+
+                handsToSpawn--;
+            }
         }
     }
 
