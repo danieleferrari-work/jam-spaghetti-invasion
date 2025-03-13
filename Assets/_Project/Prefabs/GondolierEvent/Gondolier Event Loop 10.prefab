@@ -124,6 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4635881541880046547}
+  - component: {fileID: 6985080553283540657}
   m_Layer: 0
   m_Name: Gondolier Event Loop 10
   m_TagString: Gondolier
@@ -148,6 +149,21 @@ Transform:
   - {fileID: 1579989124343578001}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6985080553283540657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8333031577024752414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648a36c2dd4e2464da9983bbd2f7231f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mirroredGondola: {fileID: 2581159788708852534, guid: ee2168613ca332f458e5bc9dad310cf0,
+    type: 3}
+  mainSceneEnv: {fileID: 0}
 --- !u!1 &8665119435992740923
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mirroredGondola: {fileID: 2581159788708852534, guid: ee2168613ca332f458e5bc9dad310cf0,
     type: 3}
+  mainSceneEnv: {fileID: 0}
 --- !u!1001 &4393324389124280936
 PrefabInstance:
   m_ObjectHideFlags: 0

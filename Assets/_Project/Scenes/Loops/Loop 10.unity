@@ -122,6 +122,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &203968988 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8665119435992740923, guid: cfde175573fd3bf47aa6581e0d6efafd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1407887861}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &587094853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8333031577024752414, guid: cfde175573fd3bf47aa6581e0d6efafd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1407887861}
+  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &957752462
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -202,7 +214,7 @@ PrefabInstance:
     - target: {fileID: 1953097468887441245, guid: cfde175573fd3bf47aa6581e0d6efafd,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3294251329211717520, guid: cfde175573fd3bf47aa6581e0d6efafd,
         type: 3}
@@ -274,27 +286,75 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8310379025549594505, guid: cfde175573fd3bf47aa6581e0d6efafd,
+    - target: {fileID: 6985080553283540657, guid: cfde175573fd3bf47aa6581e0d6efafd,
         type: 3}
-      propertyPath: sharedProfile
+      propertyPath: mirroredEnvironment
       value: 
-      objectReference: {fileID: 11400000, guid: 1afca7101885f944f82fa1527d48fb3b,
-        type: 2}
+      objectReference: {fileID: 1660904113}
+    - target: {fileID: 6985080553283540657, guid: cfde175573fd3bf47aa6581e0d6efafd,
+        type: 3}
+      propertyPath: mirroredEmptyGondola
+      value: 
+      objectReference: {fileID: 203968988}
+    - target: {fileID: 6985080553283540657, guid: cfde175573fd3bf47aa6581e0d6efafd,
+        type: 3}
+      propertyPath: mirroredPlayerGondola
+      value: 
+      objectReference: {fileID: 2581159788708852534, guid: ee2168613ca332f458e5bc9dad310cf0,
+        type: 3}
+    - target: {fileID: 7343219248806972932, guid: cfde175573fd3bf47aa6581e0d6efafd,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4eca1656b38f45b4d824bc0dba7232a1, type: 2}
     - target: {fileID: 8333031577024752414, guid: cfde175573fd3bf47aa6581e0d6efafd,
         type: 3}
       propertyPath: m_Name
       value: Gondolier Event Loop 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7641781094166697355, guid: cfde175573fd3bf47aa6581e0d6efafd, type: 3}
+    - {fileID: 3314265082250446766, guid: cfde175573fd3bf47aa6581e0d6efafd, type: 3}
     m_RemovedGameObjects:
     - {fileID: 3338064845746123029, guid: cfde175573fd3bf47aa6581e0d6efafd, type: 3}
     - {fileID: 1998446353462339554, guid: cfde175573fd3bf47aa6581e0d6efafd, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8333031577024752414, guid: cfde175573fd3bf47aa6581e0d6efafd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1407887863}
   m_SourcePrefab: {fileID: 100100000, guid: cfde175573fd3bf47aa6581e0d6efafd, type: 3}
 --- !u!4 &1407887862 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4635881541880046547, guid: cfde175573fd3bf47aa6581e0d6efafd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1407887861}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1407887863
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587094853}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.27, y: 1, z: 8.66}
+  m_Center: {x: 0, y: 0.1, z: 41.08}
+--- !u!1 &1660904113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1953097468887441245, guid: cfde175573fd3bf47aa6581e0d6efafd,
     type: 3}
   m_PrefabInstance: {fileID: 1407887861}
   m_PrefabAsset: {fileID: 0}
