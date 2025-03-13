@@ -186,6 +186,12 @@ LightingSettings:
   m_PVRTiledBaking: 0
   m_NumRaysToShootPerTexel: -1
   m_RespectSceneVisibilityWhenBakingGI: 0
+--- !u!1 &1056174548 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8665119435992740923, guid: cfde175573fd3bf47aa6581e0d6efafd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1407887861}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1407887861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -254,6 +260,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6094596227981599496, guid: cfde175573fd3bf47aa6581e0d6efafd,
+        type: 3}
+      propertyPath: mirroredEmptyGondola
+      value: 
+      objectReference: {fileID: 1056174548}
     - target: {fileID: 7343219248806972932, guid: cfde175573fd3bf47aa6581e0d6efafd,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -267,6 +278,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7641781094166697355, guid: cfde175573fd3bf47aa6581e0d6efafd, type: 3}
     - {fileID: 3314265082250446766, guid: cfde175573fd3bf47aa6581e0d6efafd, type: 3}
+    - {fileID: 6985080553283540657, guid: cfde175573fd3bf47aa6581e0d6efafd, type: 3}
     m_RemovedGameObjects:
     - {fileID: 3338064845746123029, guid: cfde175573fd3bf47aa6581e0d6efafd, type: 3}
     - {fileID: 1998446353462339554, guid: cfde175573fd3bf47aa6581e0d6efafd, type: 3}
