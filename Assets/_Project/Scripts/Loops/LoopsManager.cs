@@ -34,6 +34,12 @@ public class LoopsManager : Singleton<LoopsManager>
 #endif
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+            RestartLoop();
+    }
+
     public void OnLoopExit()
     {
         if (!currentLoop.IsComplete())
