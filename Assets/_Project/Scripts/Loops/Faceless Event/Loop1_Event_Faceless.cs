@@ -35,8 +35,6 @@ public class Loop1_Event_Faceless : MonoBehaviour
         secondFacelessWatchEvent.OnStopWatching += () => OnStopWatchingFaceless(secondFacelessChangePovEffect);
     }
 
-
-
     private void OnFirstFacelessEventSuccess(ChangePovEffect changePovEffect)
     {
         changePovEffect.ChangeCamera();
