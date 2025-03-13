@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
-using UnityEngine.Rendering; // Necessario per il componente Volume
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.HighDefinition; // Necessario per il componente Volume
 
 public class Loop10_Event_Gondolier : MonoBehaviour
 {
@@ -56,6 +57,16 @@ public class Loop10_Event_Gondolier : MonoBehaviour
                 }
                 // Imposta la rotazione/direzione desiderata usando la forward dell'oggetto che contiene questo script
                 highestCam.transform.rotation = Quaternion.LookRotation(modelPlayerGondola.forward);
+            }
+
+            Light directionalLight = mainSceneEnv.GetComponentInChildren<Light>(true);
+            if (directionalLight != null && directionalLight.type == UnityEngine.LightType.Directional)
+            {
+                HDAdditionalLightData hdLightData = directionalLight.GetComponent<HDAdditionalLightData>();
+                if (hdLightData != null)
+                {
+                    hdLightData.angularDiameter = 0f;
+                }
             }
 
             // Attiva l'environment speculare
