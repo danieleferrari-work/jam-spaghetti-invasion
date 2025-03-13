@@ -8,6 +8,7 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
     [SerializeField] private GameObject mirroredEnvironment;
     [SerializeField] private GameObject virtualCameraPrefab;
     [SerializeField] private GameObject mirroredEmptyGondola;
+    [SerializeField] private float rotationTime;
     [SerializeField] private float delayBeforeNewCamera = 1f; // Tempo prima di instanziare la nuova Virtual Camera
     private GameObject mainSceneEnv;
     private Transform modelPlayerGondola;
@@ -35,7 +36,6 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
             mirroredEnvironment.SetActive(true);
             FindObjectOfType<FollowCameraRotation>().enabled = false;
 
-            DisableEnvironmentChildrenExceptLight();
             CinemachineVirtualCamera highestCam = GetHighestPriorityCamera();
 
             if (highestCam != null)
@@ -91,7 +91,6 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
 
     private IEnumerator RotatePlayerAndResetCamera(CinemachineVirtualCamera highestCam)
     {
-        float rotationTime = 1f;
         float elapsedTime = 0f;
         Quaternion startRotation = playerParent.rotation;
         Quaternion targetRotation = startRotation * Quaternion.Euler(0, 0, 180f);
@@ -110,6 +109,7 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
 
         playerParent.rotation = targetRotation;
         playerParent.position = targetPosition;
+        DisableEnvironmentChildrenExceptLight();
 
         highestCam.m_Lens.Dutch = highestCam.m_Lens.Dutch == 0 ? 180 : 0;
 
@@ -126,7 +126,7 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
         if (virtualCameraPrefab != null)
         {
             GameObject newVirtualCam = Instantiate(virtualCameraPrefab, playerParent);
-            newVirtualCam.GetComponent<CinemachineVirtualCamera>().Priority = newPriority; // Assegna la nuova priorità
+            newVirtualCam.GetComponent<CinemachineVirtualCamera>().Priority = newPriority; // Assegna la nuova prioritï¿½
         }
     }
 }
