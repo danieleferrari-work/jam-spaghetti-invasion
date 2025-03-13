@@ -47,11 +47,11 @@ MonoBehaviour:
   minFov: 50
   zoomInSpeed: 50
   zoomOutSpeed: 30
-  gondolaMaxSpeed: 100
-  gondolaRotationSpeed: 1
+  gondolaMaxSpeed: 50
+  gondolaRotationSpeed: 0.8
   gondolaDefaultAcceleration: 0
-  rowPushForce: 10
-  rowPushDelay: 1
+  rowPushForce: 6
+  rowPushDelay: 0.8
   rowPushDuration: 2
   bobbingSpeed: 3
   gondolaBobbingFrequency: 2
