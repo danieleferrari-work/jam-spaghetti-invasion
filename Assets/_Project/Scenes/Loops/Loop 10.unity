@@ -186,12 +186,6 @@ LightingSettings:
   m_PVRTiledBaking: 0
   m_NumRaysToShootPerTexel: -1
   m_RespectSceneVisibilityWhenBakingGI: 0
---- !u!1 &1056174548 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8665119435992740923, guid: cfde175573fd3bf47aa6581e0d6efafd,
-    type: 3}
-  m_PrefabInstance: {fileID: 1407887861}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1407887861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -200,15 +194,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2083740895}
     m_Modifications:
-    - target: {fileID: 1953097468887441245, guid: cfde175573fd3bf47aa6581e0d6efafd,
+    - target: {fileID: 4635881541880046547, guid: cfde175573fd3bf47aa6581e0d6efafd,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_LocalPosition.x
+      value: -4.51
       objectReference: {fileID: 0}
-    - target: {fileID: 3294251329211717520, guid: cfde175573fd3bf47aa6581e0d6efafd,
+    - target: {fileID: 4635881541880046547, guid: cfde175573fd3bf47aa6581e0d6efafd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.34
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635881541880046547, guid: cfde175573fd3bf47aa6581e0d6efafd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 30.78
       objectReference: {fileID: 0}
     - target: {fileID: 4635881541880046547, guid: cfde175573fd3bf47aa6581e0d6efafd,
         type: 3}
@@ -245,53 +244,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5262837386242974933, guid: cfde175573fd3bf47aa6581e0d6efafd,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5262837386242974933, guid: cfde175573fd3bf47aa6581e0d6efafd,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5262837386242974933, guid: cfde175573fd3bf47aa6581e0d6efafd,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6094596227981599496, guid: cfde175573fd3bf47aa6581e0d6efafd,
-        type: 3}
-      propertyPath: rotationTime
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 6094596227981599496, guid: cfde175573fd3bf47aa6581e0d6efafd,
         type: 3}
       propertyPath: delayBeforeNewCamera
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6094596227981599496, guid: cfde175573fd3bf47aa6581e0d6efafd,
-        type: 3}
-      propertyPath: mirroredEmptyGondola
-      value: 
-      objectReference: {fileID: 1056174548}
-    - target: {fileID: 7343219248806972932, guid: cfde175573fd3bf47aa6581e0d6efafd,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4eca1656b38f45b4d824bc0dba7232a1, type: 2}
     - target: {fileID: 8333031577024752414, guid: cfde175573fd3bf47aa6581e0d6efafd,
         type: 3}
       propertyPath: m_Name
       value: Gondolier Event Loop 10
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7641781094166697355, guid: cfde175573fd3bf47aa6581e0d6efafd, type: 3}
-    - {fileID: 3314265082250446766, guid: cfde175573fd3bf47aa6581e0d6efafd, type: 3}
-    - {fileID: 6985080553283540657, guid: cfde175573fd3bf47aa6581e0d6efafd, type: 3}
-    m_RemovedGameObjects:
-    - {fileID: 3338064845746123029, guid: cfde175573fd3bf47aa6581e0d6efafd, type: 3}
-    - {fileID: 1998446353462339554, guid: cfde175573fd3bf47aa6581e0d6efafd, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfde175573fd3bf47aa6581e0d6efafd, type: 3}

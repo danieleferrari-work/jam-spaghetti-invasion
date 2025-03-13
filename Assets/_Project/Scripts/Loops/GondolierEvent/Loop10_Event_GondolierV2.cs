@@ -34,6 +34,7 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
                 triggerCollider.enabled = false; // Disattiva subito il collider per evitare riattivazioni multiple
             mirroredEmptyGondola.SetActive(false);
             mirroredEnvironment.SetActive(true);
+
             FindObjectOfType<FollowCameraRotation>().enabled = false;
 
             CinemachineVirtualCamera highestCam = GetHighestPriorityCamera();
@@ -46,7 +47,6 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
                     followCamObj.gameObject.SetActive(false);
                 }
                 StartCoroutine(RotatePlayerAndResetCamera(highestCam));
-                StartCoroutine(DelayedCameraSpawn(highestCam.Priority + 1)); // Attende prima di creare la Virtual Camera
                 movementManager.IsFlipped = true;
             }
         }
@@ -117,6 +117,8 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
         {
             followCamObj.gameObject.SetActive(true);
         }
+
+        StartCoroutine(DelayedCameraSpawn(highestCam.Priority + 1)); // Attende prima di creare la Virtual Camera
     }
 
     private IEnumerator DelayedCameraSpawn(int newPriority)
