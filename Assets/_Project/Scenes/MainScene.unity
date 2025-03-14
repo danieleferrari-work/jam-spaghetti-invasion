@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 1136757641}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &1055117149
 Transform:
   m_ObjectHideFlags: 19
@@ -629,6 +630,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -2.7579994
       objectReference: {fileID: 0}
+    - target: {fileID: 4136844734759343366, guid: 4045fcf7550cd22439ecb8b2e4d32f73,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerEyes
+      objectReference: {fileID: 0}
     - target: {fileID: 4196612306982795707, guid: 4045fcf7550cd22439ecb8b2e4d32f73,
         type: 3}
       propertyPath: m_Name
@@ -642,7 +648,7 @@ PrefabInstance:
     - target: {fileID: 4665352815005168997, guid: 4045fcf7550cd22439ecb8b2e4d32f73,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1475
+      value: 1490
       objectReference: {fileID: 0}
     - target: {fileID: 6744735846921107857, guid: 4045fcf7550cd22439ecb8b2e4d32f73,
         type: 3}
@@ -722,6 +728,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1009102797191708477, guid: 22a908373fc2604419770b4b6da82ae8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541957436486677427, guid: 22a908373fc2604419770b4b6da82ae8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2213933008713170159, guid: 22a908373fc2604419770b4b6da82ae8,
         type: 3}
       propertyPath: volumeBounds
@@ -741,6 +757,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785983239610546928, guid: 22a908373fc2604419770b4b6da82ae8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4146923183411124734, guid: 22a908373fc2604419770b4b6da82ae8,
         type: 3}

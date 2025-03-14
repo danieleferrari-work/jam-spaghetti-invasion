@@ -34,6 +34,7 @@ public class Loop10_Event_Gondolier : MonoBehaviour
     {
         if (other.CompareTag("PlayerGondola"))
         {
+            movementManager.PauseMovement = true;
             // Cerca la virtual camera con la priorità più alta nella scena
             CinemachineVirtualCamera[] allCams = FindObjectsOfType<CinemachineVirtualCamera>();
             CinemachineVirtualCamera highestCam = null;

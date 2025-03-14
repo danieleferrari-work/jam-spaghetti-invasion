@@ -13,13 +13,17 @@ public class GondolaMovementManager : MonoBehaviour
     bool isMoving;
 
     bool isFlipped;
+    bool pauseMovement = false;
     bool IsTimerElapsed => Time.time - lastPushTime > Params.instance.rowPushDelay;
     bool IsPushComplete => Time.time - lastPushTime > Params.instance.rowPushDelay + Params.instance.rowPushDuration;
 
     public bool IsFlipped { get => isFlipped; set => isFlipped = value; }
+    public bool PauseMovement { get => pauseMovement; set => pauseMovement = value; }
 
     public static UnityAction OnStartMoving;
     public static UnityAction OnStopMoving;
+
+   
 
     void Awake()
     {
@@ -36,7 +40,7 @@ public class GondolaMovementManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (autoPilotEnabled)
+        if (autoPilotEnabled || PauseMovement)
             return;
 
         var inputValue = InputManager.instance.Move;

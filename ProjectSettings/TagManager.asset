@@ -6,8 +6,9 @@ TagManager:
   tags:
   - PlayerGondola
   - PlayerGondolaMirrored
-  - PlayerGondolaMirroredEyes
   - PlayerGondolaModel
+  - Gondolier
+  - PlayerEyes
   layers:
   - Default
   - TransparentFX
