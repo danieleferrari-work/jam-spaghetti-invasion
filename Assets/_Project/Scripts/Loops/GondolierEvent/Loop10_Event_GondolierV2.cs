@@ -17,8 +17,6 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
     private FollowCameraRotation followCamObj;
     private Collider triggerCollider;
     private GondolaMovementManager movementManager;
-    private Volume fogVolume;
-    private Fog fogComponent;
     private void Start()
     {
         modelPlayerGondola = GameObject.FindGameObjectWithTag("PlayerGondolaModel").transform;
@@ -26,11 +24,6 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
         mainSceneEnv = GameObject.Find("Environment");
         triggerCollider = GetComponent<Collider>();
         movementManager = FindObjectOfType<GondolaMovementManager>();   
-        fogVolume = GetComponentInChildren<Volume>();
-        if (fogVolume != null)
-        {
-            fogVolume.profile.TryGet(out fogComponent);
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -120,30 +113,9 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
         {
             followCamObj.gameObject.SetActive(true);
         }
-        // Effetto graduale sulla nebbia prima della Virtual Camera
-        if (fogComponent != null)
-        {
-            yield return StartCoroutine(FadeFogDistance(fogComponent, 50f, 2f)); // 2 secondi di fade
-        }
 
         StartCoroutine(DelayedCameraSpawn(highestCam.Priority + 1)); // Attende prima di creare la Virtual Camera
     }
-    private IEnumerator FadeFogDistance(Fog fog, float targetValue, float duration)
-{
-    float elapsedTime = 0f;
-    float startValue = fog.meanFreePath.value; // Valore attuale della nebbia
-
-    while (elapsedTime < duration)
-    {
-        float t = elapsedTime / duration;
-        fog.meanFreePath.value = Mathf.Lerp(startValue, targetValue, t);
-        elapsedTime += Time.deltaTime;
-        yield return null;
-    }
-
-    fog.meanFreePath.value = targetValue; // Assicura che arrivi al valore finale
-}
-
 
     private IEnumerator DelayedCameraSpawn(int newPriority)
     {
