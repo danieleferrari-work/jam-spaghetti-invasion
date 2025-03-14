@@ -1,6 +1,7 @@
 using BaseTemplate;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerCameraManager : Singleton<PlayerCameraManager>
 {
@@ -19,6 +20,14 @@ public class PlayerCameraManager : Singleton<PlayerCameraManager>
     public CinemachineVirtualCamera PlayerPovVirtualCamera => povVirtualCamera;
 
     protected override bool isDontDestroyOnLoad => true;
+
+    //input type
+    private enum InputMethod { Mouse, Gamepad }
+    private InputMethod currentInput = InputMethod.Mouse;
+    private float mouseDeadZone = 2f;
+    [SerializeField]private float gamepadSensMultiplier = 2f;
+    [SerializeField]private float mouseSensMultiplier = 2f;
+    [SerializeField]private MainMenuManager settingsSens;
 
     public void ChangeCamera(CinemachineVirtualCamera camera)
     {
@@ -59,6 +68,40 @@ public class PlayerCameraManager : Singleton<PlayerCameraManager>
             ZoomIn(zoomValue);
         else
             ZoomOut();
+
+
+        // gamepad input, CHANGE TO GAMEPAD
+        if (Gamepad.current != null && Gamepad.current.wasUpdatedThisFrame)
+        {
+            if (currentInput != InputMethod.Gamepad)
+            {
+                currentInput = InputMethod.Gamepad;
+                Debug.Log("GAMEPAD");
+
+                povComponent.m_HorizontalAxis.m_MaxSpeed = settingsSens.hor_sensibility + gamepadSensMultiplier * 100;
+                povComponent.m_VerticalAxis.m_MaxSpeed = settingsSens.ver_sensibility + gamepadSensMultiplier * 100;
+            }
+        }
+        // mouse/keyboard input, CHANGE TO MOUSE/KEYBOARD
+        else if (Mouse.current != null || Keyboard.current != null)
+        {
+            Vector2 mouseDelta = Mouse.current.delta.ReadValue(); 
+
+            bool isMouseMoved = mouseDelta.magnitude > mouseDeadZone;
+            bool isKeyPressed = Keyboard.current.anyKey.wasPressedThisFrame;
+
+            if (isMouseMoved || isKeyPressed)
+            {
+                if (currentInput != InputMethod.Mouse)
+                {
+                    currentInput = InputMethod.Mouse;
+                    Debug.Log("MOUSE/TASTIERA");
+
+                    povComponent.m_HorizontalAxis.m_MaxSpeed = settingsSens.hor_sensibility + mouseSensMultiplier * 100;
+                    povComponent.m_VerticalAxis.m_MaxSpeed = settingsSens.ver_sensibility + mouseSensMultiplier * 100;
+                }
+            }
+        }
     }
 
     void OnEnableAutoPilot(GondolaAutoPilotArea area)
