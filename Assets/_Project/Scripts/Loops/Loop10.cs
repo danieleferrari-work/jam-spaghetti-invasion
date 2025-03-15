@@ -9,4 +9,11 @@ public class Loop10 : MonoBehaviour, ILoop
     {
         return gondolierEventCompleted;
     }
+
+    void Start()
+    {
+        FindObjectOfType<LoopExit>().gameObject.SetActive(false);
+        FindObjectOfType<LoopFinalExit>(true).gameObject.SetActive(true);
+        FindObjectOfType<Loop10_Event_GondolierV2>().CheckEnding();
+    }
 }

@@ -224,7 +224,7 @@ PrefabInstance:
     - target: {fileID: 1953097468887441245, guid: cfde175573fd3bf47aa6581e0d6efafd,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4635881541880046547, guid: cfde175573fd3bf47aa6581e0d6efafd,
         type: 3}
@@ -393,6 +393,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: LOOP 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863143954516689674, guid: 33889eed3e6449f4eb05eb7238fd56f6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8831283550937765354, guid: 33889eed3e6449f4eb05eb7238fd56f6,
         type: 3}
