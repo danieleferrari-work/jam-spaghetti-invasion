@@ -597,69 +597,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Managers '
       objectReference: {fileID: 0}
-    - target: {fileID: 4395749676954667294, guid: cef3e7a5463e37b4881c60d1a8d4260f,
-        type: 3}
-      propertyPath: mouseSensMultiplier
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4395749676954667294, guid: cef3e7a5463e37b4881c60d1a8d4260f,
-        type: 3}
-      propertyPath: gamepadSensMultiplier
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4782699157964381472, guid: cef3e7a5463e37b4881c60d1a8d4260f,
-        type: 3}
-      propertyPath: loops.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4782699157964381472, guid: cef3e7a5463e37b4881c60d1a8d4260f,
-        type: 3}
-      propertyPath: badEndingScene.m_IsDirty
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4782699157964381472, guid: cef3e7a5463e37b4881c60d1a8d4260f,
-        type: 3}
-      propertyPath: goodEndingScene.m_IsDirty
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4782699157964381472, guid: cef3e7a5463e37b4881c60d1a8d4260f,
-        type: 3}
-      propertyPath: badEndingScene.m_ScenePath
-      value: Assets/_Project/Scenes/Loops/NegativeEndingScene.unity
-      objectReference: {fileID: 0}
-    - target: {fileID: 4782699157964381472, guid: cef3e7a5463e37b4881c60d1a8d4260f,
-        type: 3}
-      propertyPath: badEndingScene.m_SceneAsset
-      value: 
-      objectReference: {fileID: 102900000, guid: 334294792b82a154485f3e30b15f44a0,
-        type: 3}
-    - target: {fileID: 4782699157964381472, guid: cef3e7a5463e37b4881c60d1a8d4260f,
-        type: 3}
-      propertyPath: goodEndingScene.m_ScenePath
-      value: Assets/_Project/Scenes/Loops/NegativeEndingScene.unity
-      objectReference: {fileID: 0}
-    - target: {fileID: 4782699157964381472, guid: cef3e7a5463e37b4881c60d1a8d4260f,
-        type: 3}
-      propertyPath: goodEndingScene.m_SceneAsset
-      value: 
-      objectReference: {fileID: 102900000, guid: 334294792b82a154485f3e30b15f44a0,
-        type: 3}
-    - target: {fileID: 4782699157964381472, guid: cef3e7a5463e37b4881c60d1a8d4260f,
-        type: 3}
-      propertyPath: loops.Array.data[10].m_IsDirty
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4782699157964381472, guid: cef3e7a5463e37b4881c60d1a8d4260f,
-        type: 3}
-      propertyPath: loops.Array.data[10].m_ScenePath
-      value: Assets/_Project/Scenes/Loops/NegativeEndingScene.unity
-      objectReference: {fileID: 0}
-    - target: {fileID: 4782699157964381472, guid: cef3e7a5463e37b4881c60d1a8d4260f,
-        type: 3}
-      propertyPath: loops.Array.data[10].m_SceneAsset
-      value: 
-      objectReference: {fileID: 102900000, guid: 334294792b82a154485f3e30b15f44a0,
-        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -678,26 +615,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1474289228}
-    - target: {fileID: 3965041190491057263, guid: 4045fcf7550cd22439ecb8b2e4d32f73,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.119
-      objectReference: {fileID: 0}
-    - target: {fileID: 3965041190491057263, guid: 4045fcf7550cd22439ecb8b2e4d32f73,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.264
-      objectReference: {fileID: 0}
-    - target: {fileID: 3965041190491057263, guid: 4045fcf7550cd22439ecb8b2e4d32f73,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.7849998
-      objectReference: {fileID: 0}
-    - target: {fileID: 4136844734759343366, guid: 4045fcf7550cd22439ecb8b2e4d32f73,
-        type: 3}
-      propertyPath: m_TagString
-      value: PlayerEyes
-      objectReference: {fileID: 0}
     - target: {fileID: 4196612306982795707, guid: 4045fcf7550cd22439ecb8b2e4d32f73,
         type: 3}
       propertyPath: m_Name
@@ -711,7 +628,7 @@ PrefabInstance:
     - target: {fileID: 4665352815005168997, guid: 4045fcf7550cd22439ecb8b2e4d32f73,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1496
+      value: 1502
       objectReference: {fileID: 0}
     - target: {fileID: 6744735846921107857, guid: 4045fcf7550cd22439ecb8b2e4d32f73,
         type: 3}
@@ -768,11 +685,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1474289228}
-    - target: {fileID: 8269068314264775515, guid: 4045fcf7550cd22439ecb8b2e4d32f73,
-        type: 3}
-      propertyPath: near clip plane
-      value: 0.01
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -786,60 +698,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 127077382748837048, guid: 22a908373fc2604419770b4b6da82ae8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1009102797191708477, guid: 22a908373fc2604419770b4b6da82ae8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1541957436486677427, guid: 22a908373fc2604419770b4b6da82ae8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2213933008713170159, guid: 22a908373fc2604419770b4b6da82ae8,
-        type: 3}
-      propertyPath: volumeBounds
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3121452227239782936, guid: 22a908373fc2604419770b4b6da82ae8,
-        type: 3}
-      propertyPath: underWater
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3121452227239782936, guid: 22a908373fc2604419770b4b6da82ae8,
-        type: 3}
-      propertyPath: customMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: edd62f9db9e839d41a08d9964fb8706e, type: 2}
     - target: {fileID: 3785983239610546928, guid: 22a908373fc2604419770b4b6da82ae8,
         type: 3}
       propertyPath: m_Name
       value: Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 3785983239610546928, guid: 22a908373fc2604419770b4b6da82ae8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4146923183411124734, guid: 22a908373fc2604419770b4b6da82ae8,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4146923183411124734, guid: 22a908373fc2604419770b4b6da82ae8,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 186.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4146923183411124734, guid: 22a908373fc2604419770b4b6da82ae8,
-        type: 3}
-      propertyPath: m_Center.y
-      value: -52
       objectReference: {fileID: 0}
     - target: {fileID: 4214656503797979196, guid: 22a908373fc2604419770b4b6da82ae8,
         type: 3}
@@ -892,8 +754,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3759274375662895695, guid: 22a908373fc2604419770b4b6da82ae8, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22a908373fc2604419770b4b6da82ae8, type: 3}
@@ -914,11 +775,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Loopless Events
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781432844315430270, guid: b914b658a250f82408abb8943a7c080b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6443125307054464666, guid: b914b658a250f82408abb8943a7c080b,
         type: 3}
