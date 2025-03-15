@@ -1006,6 +1006,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   povVirtualCamera: {fileID: 1283507865034202461}
   lookAtVirtualCamera: {fileID: 5601625179768232742}
+  gamepadSensMultiplier: 2
+  mouseSensMultiplier: 2
+  settingsSens: {fileID: 0}
+  initialAmplitude: 0.5
+  maxAmplitude: 2
+  initialFrequency: 1
+  maxFrequency: 3
+  intensificationDuration: 5
+  noiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
 --- !u!1 &9141830753958100882
 GameObject:
   m_ObjectHideFlags: 0
