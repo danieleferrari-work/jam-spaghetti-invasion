@@ -308,6 +308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d6dafa8ff838134393127aa2b95e70a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gamepadSensMultiplier: 0.8
+  mouseSensMultiplier: 0.3
 --- !u!1 &2307877470501520379
 GameObject:
   m_ObjectHideFlags: 0

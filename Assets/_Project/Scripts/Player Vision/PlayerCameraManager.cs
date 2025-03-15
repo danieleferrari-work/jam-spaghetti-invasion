@@ -1,7 +1,6 @@
 using BaseTemplate;
 using Cinemachine;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerCameraManager : Singleton<PlayerCameraManager>
 {
@@ -11,24 +10,15 @@ public class PlayerCameraManager : Singleton<PlayerCameraManager>
 
     CinemachineInputProvider inputProvider;
     CinemachinePOV povComponent;
+    CinemachineVirtualCamera currentVirtualCamera;
 
     float defaultFov;
     bool zooming;
-    private CinemachineVirtualCamera currentVirtualCamera;
 
     public bool Zooming => zooming;
     public CinemachineVirtualCamera PlayerPovVirtualCamera => povVirtualCamera;
 
     protected override bool isDontDestroyOnLoad => true;
-
-    //input type
-    private enum InputMethod { Mouse, Gamepad }
-    private InputMethod currentInput = InputMethod.Mouse;
-    private float mouseDeadZone = 2f;
-    [Header("Sensibility")]
-    [SerializeField] private float gamepadSensMultiplier = 2f;
-    [SerializeField] private float mouseSensMultiplier = 2f;
-    [SerializeField] private MainMenuManager settingsSens;
 
     [Header("Shake Settings")]
     [SerializeField] private float initialAmplitude = 0.5f;
@@ -56,6 +46,12 @@ public class PlayerCameraManager : Singleton<PlayerCameraManager>
     {
         povComponent.m_VerticalRecentering.m_enabled = value;
         povComponent.m_HorizontalRecentering.m_enabled = value;
+    }
+
+    public void SetSensibility(float horizontal, float vertical)
+    {
+        povComponent.m_HorizontalAxis.m_MaxSpeed = horizontal;
+        povComponent.m_VerticalAxis.m_MaxSpeed = vertical;
     }
 
     protected override void InitializeInstance() // == Awake
@@ -91,40 +87,6 @@ public class PlayerCameraManager : Singleton<PlayerCameraManager>
         {
             UpdateShakeIntensity();
         }
-
-
-        // gamepad input, CHANGE TO GAMEPAD
-        if (Gamepad.current != null && Gamepad.current.wasUpdatedThisFrame)
-        {
-            if (currentInput != InputMethod.Gamepad)
-            {
-                currentInput = InputMethod.Gamepad;
-                Debug.Log("GAMEPAD");
-
-                povComponent.m_HorizontalAxis.m_MaxSpeed = settingsSens.hor_sensibility + gamepadSensMultiplier * 100;
-                povComponent.m_VerticalAxis.m_MaxSpeed = settingsSens.ver_sensibility + gamepadSensMultiplier * 100;
-            }
-        }
-        // mouse/keyboard input, CHANGE TO MOUSE/KEYBOARD
-        else if (Mouse.current != null || Keyboard.current != null)
-        {
-            Vector2 mouseDelta = Mouse.current.delta.ReadValue();
-
-            bool isMouseMoved = mouseDelta.magnitude > mouseDeadZone;
-            bool isKeyPressed = Keyboard.current.anyKey.wasPressedThisFrame;
-
-            if (isMouseMoved || isKeyPressed)
-            {
-                if (currentInput != InputMethod.Mouse)
-                {
-                    currentInput = InputMethod.Mouse;
-                    Debug.Log("MOUSE/TASTIERA");
-
-                    povComponent.m_HorizontalAxis.m_MaxSpeed = settingsSens.hor_sensibility + mouseSensMultiplier * 100;
-                    povComponent.m_VerticalAxis.m_MaxSpeed = settingsSens.ver_sensibility + mouseSensMultiplier * 100;
-                }
-            }
-        }
     }
 
     void OnEnableAutoPilot(GondolaAutoPilotArea area)
@@ -146,7 +108,7 @@ public class PlayerCameraManager : Singleton<PlayerCameraManager>
     {
         SetPovRecentering(false);
     }
-
+    
     void ZoomIn(float value)
     {
         zooming = true;
