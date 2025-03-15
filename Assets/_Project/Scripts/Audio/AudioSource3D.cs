@@ -59,7 +59,6 @@ public class AudioSource3D : MonoBehaviour
         StartCoroutine(FadeOut(fadeDuration));
     }
 
-
     IEnumerator FadeOut(float fadeDuration)
     {
         float startVolume = audioSource.volume;
@@ -72,7 +71,6 @@ public class AudioSource3D : MonoBehaviour
         }
         audioSource.Stop();
     }
-
 
     IEnumerator FadeIn(float fadeDuration)
     {
