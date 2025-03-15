@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Loop1_Event_Cat : MonoBehaviour
 {
-    [SerializeField] AudioSource3D audioTrigger;
+    [SerializeField] AudioSource3D audioCatMeowing;
 
     void Start()
     {
@@ -18,7 +18,7 @@ public class Loop1_Event_Cat : MonoBehaviour
             
             yield return new WaitForSeconds(randomDelay);
 
-            audioTrigger.Play();
+            audioCatMeowing.Play();
         }
     }
 }

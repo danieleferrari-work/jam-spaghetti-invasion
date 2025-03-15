@@ -1,43 +1,96 @@
+using System.Collections;
 using UnityEngine;
 
 public class AudioSource3D : MonoBehaviour
 {
-    [SerializeField] string clipName;
+    [SerializeField]
+    AudioClip[] clips;
+
+    [Range(0f, 1f)]
+    [SerializeField]
+    float volumeVariance = .1f;
+
+    [Range(0f, 1f)]
+    [SerializeField]
+    float pitchVariance = .1f;
+
     AudioSource audioSource;
+    float halfVolumeVariance;
+    float halfPitchVariance;
 
     void Start()
     {
-        // Ottieni l'AudioSource presente sull'oggetto
-        audioSource = GetComponent<AudioSource>();
-    }
+        halfVolumeVariance = volumeVariance * .5f;
+        halfPitchVariance = pitchVariance * .5f;
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("PlayerGondola"))
-        {
-            Play();
-        }
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Play()
     {
-        Sound sound = AudioManager.instance.GetSoundByName(clipName);
-
-        if (sound != null && audioSource != null)
+        if (clips.Length == 0)
         {
-            audioSource.clip = sound.source.clip;
-            audioSource.volume = sound.source.volume;
-            audioSource.pitch = sound.source.pitch;
-            audioSource.outputAudioMixerGroup = sound.source.outputAudioMixerGroup;
-
-            //use spatial blend for test how is 2D - 3D the sound
-            // audioSource.spatialBlend = 1f; // 1 for only 3d sound - 0 for 2d sound
-
-            audioSource.Play();
+            Debug.LogWarning("No clips!", gameObject);
+            return;
         }
-        else
+
+        int randomIndex = Random.Range(0, clips.Length);
+        audioSource.clip = clips[randomIndex];
+
+        SetVolumeAndPitch();
+
+        audioSource.Play();
+    }
+
+    public void PlayFadeIn(float fadeDuration)
+    {
+        SetVolumeAndPitch();
+        StartCoroutine(FadeIn(fadeDuration));
+    }
+
+    public void Stop()
+    {
+        audioSource.Stop();
+    }
+
+    public void StopFadeOut(float fadeDuration)
+    {
+        SetVolumeAndPitch();
+        StartCoroutine(FadeOut(fadeDuration));
+    }
+
+
+    IEnumerator FadeOut(float fadeDuration)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0.001)
         {
-            Debug.LogWarning("Sound not found or AudioSource not found.");
+            audioSource.volume -= startVolume * Time.deltaTime / fadeDuration;
+
+            yield return null;
         }
+        audioSource.Stop();
+    }
+
+
+    IEnumerator FadeIn(float fadeDuration)
+    {
+        float targetVolume = audioSource.volume;
+        audioSource.volume = 0f;
+        audioSource.Play();
+
+        while (audioSource.volume < targetVolume)
+        {
+            audioSource.volume += Time.deltaTime * fadeDuration;
+
+            yield return null;
+        }
+    }
+
+    void SetVolumeAndPitch()
+    {
+        audioSource.volume = audioSource.volume * (1f + Random.Range(-halfVolumeVariance, halfVolumeVariance));
+        audioSource.pitch = audioSource.pitch * (1f + Random.Range(-halfPitchVariance, halfPitchVariance));
     }
 }

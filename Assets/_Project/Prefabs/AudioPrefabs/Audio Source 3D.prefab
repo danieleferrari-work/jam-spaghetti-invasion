@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7758643887568464627}
-  - component: {fileID: 1774329328844318286}
   - component: {fileID: 6270083673421673369}
+  - component: {fileID: 1774329328844318286}
   m_Layer: 0
-  m_Name: AudioObjectExample
+  m_Name: Audio Source 3D
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -33,6 +33,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6270083673421673369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5597282461753804589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e553f7bdbfea20846b4f20da213892b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips: []
+  volumeVariance: 0.1
+  pitchVariance: 0.1
 --- !u!82 &1774329328844318286
 AudioSource:
   m_ObjectHideFlags: 0
@@ -129,16 +144,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6270083673421673369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5597282461753804589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e553f7bdbfea20846b4f20da213892b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clipName: 

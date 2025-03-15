@@ -3,10 +3,6 @@ using UnityEngine;
 
 public class Loop6_Event_Cat : MonoBehaviour
 {
-    [Header("Parameters")]
-    [SerializeField] float jumpForce;
-    [SerializeField] float jumpDuration;
-
     [Header("References")]
     [SerializeField] GameObject catOnGround;
     [SerializeField] GameObject catShadowOnGround;
