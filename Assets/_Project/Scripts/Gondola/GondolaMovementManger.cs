@@ -4,7 +4,6 @@ using UnityEngine.Events;
 public class GondolaMovementManager : MonoBehaviour
 {
     [SerializeField] GameObject model;
-    [SerializeField] Animator gondolierArmsAnimator;
 
     Rigidbody rb;
 
@@ -20,6 +19,8 @@ public class GondolaMovementManager : MonoBehaviour
     public bool IsFlipped { get => isFlipped; set => isFlipped = value; }
     public bool PauseMovement { get => pauseMovement; set => pauseMovement = value; }
 
+    public static UnityAction OnStartRowing;
+    public static UnityAction OnStopRowing;
     public static UnityAction OnStartMoving;
     public static UnityAction OnStopMoving;
 
@@ -82,16 +83,15 @@ public class GondolaMovementManager : MonoBehaviour
     private void StartMoving()
     {
         isMoving = true;
-        gondolierArmsAnimator.SetBool("IsRowing", true);
         OnStartMoving?.Invoke();
     }
 
     private void StopMoving()
     {
         isMoving = false;
-        gondolierArmsAnimator.SetBool("IsRowing", false);
         OnStopMoving?.Invoke();
     }
+    
     void OnEnableAutoPilot(GondolaAutoPilotArea trigger)
     {
         rb.isKinematic = true;
