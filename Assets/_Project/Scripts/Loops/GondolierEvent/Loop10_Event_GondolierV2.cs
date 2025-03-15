@@ -23,6 +23,8 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
     private GondolaMovementManager movementManager;
     private bool isFlipped = false;
     private float timePassed;
+    private Vector3 lastPlayerPosition;  // Posizione precedente del player
+    private bool hasMoved = false;  // Flag per sapere se il player si è mosso
 
     // Canvas e Image da usare per il finale positivo
     [SerializeField] private Canvas positiveEndingCanvas;
@@ -44,7 +46,7 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
             movementManager.PauseMovement = true;
             if (triggerCollider != null)
                 triggerCollider.enabled = false; // Disattiva subito il collider per evitare riattivazioni multiple
-            mirroredEmptyGondola.SetActive(false);
+           // mirroredEmptyGondola.SetActive(false);
             mirroredEnvironment.SetActive(true);
 
             modelPlayerGondola.GetComponentInChildren<FollowCameraRotation>().enabled = false;
@@ -116,7 +118,9 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
 
         playerParent.rotation = targetRotation;
         playerParent.position = targetPosition;
-        DisableEnvironmentChildrenExceptLight();
+
+        lastPlayerPosition = targetPosition;
+    //    DisableEnvironmentChildrenExceptLight();
 
         highestCam.m_Lens.Dutch = highestCam.m_Lens.Dutch == 0 ? 180 : 0;
 
@@ -150,22 +154,15 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
 
     public void CheckEnding()
     {
-        if (!isFlipped)
-            //Finale con MORTE
-            Debug.Log("La creatura uccide il player!");
+        if (!isFlipped) 
+        { 
+        //Finale con MORTE
+        Debug.Log("La creatura uccide il player!");
+        }
         else
         {
-            if (timePassed >= TimeUntilWin)
-            {
-                // Finale POSITIVO
-                Debug.Log("Finale Positivo");
-                ShowPositiveEnding(positiveEndingCanvas, positiveEndingImage);
-            }
-            else
-            {
-                // Finale NEGATIVO
-                LoadNegativeEndingScene(negativeEndingScene.SceneName);
-            }
+            // Finale NEGATIVO
+            LoadNegativeEndingScene(negativeEndingScene.SceneName);
         }
     }
 
@@ -225,7 +222,29 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
     {
         if (isFlipped)
         {
-            timePassed += Time.deltaTime;
+            // Verifica se il player si è mosso
+            if (Vector3.Distance(playerParent.position, lastPlayerPosition) > 1f)
+            {
+                hasMoved = true; // Se il player si muove, settiamo il flag
+            }
+            else
+            {
+                hasMoved = false;
+            }
+
+            // Se il player non si è mosso, incrementiamo il timer
+            if (!hasMoved)
+            {
+                timePassed += Time.deltaTime;
+            }
+
+            // Se il timer raggiunge il limite, sblocchiamo il finale positivo
+            if (timePassed >= TimeUntilWin && !hasMoved)
+            {
+                //FLIP Gondola
+                // ShowPositiveEnding(positiveEndingCanvas, positiveEndingImage);
+                Debug.Log("Flip normal");
+            }
         }
     }
 }
