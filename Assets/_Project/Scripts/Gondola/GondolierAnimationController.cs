@@ -41,13 +41,11 @@ public class GondolierAnimationController : MonoBehaviour
 
     void OnStopMoving()
     {
-        Debug.Log("STop ");
         movingSound.Stop();
     }
 
     void OnStartMoving()
     {
-        Debug.Log("start     ");
         movingSound.Play();
     }
 }
