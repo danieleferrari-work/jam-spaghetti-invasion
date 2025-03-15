@@ -597,6 +597,59 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Managers '
       objectReference: {fileID: 0}
+    - target: {fileID: 4782699157964381472, guid: cef3e7a5463e37b4881c60d1a8d4260f,
+        type: 3}
+      propertyPath: loops.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782699157964381472, guid: cef3e7a5463e37b4881c60d1a8d4260f,
+        type: 3}
+      propertyPath: badEndingScene.m_IsDirty
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782699157964381472, guid: cef3e7a5463e37b4881c60d1a8d4260f,
+        type: 3}
+      propertyPath: goodEndingScene.m_IsDirty
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782699157964381472, guid: cef3e7a5463e37b4881c60d1a8d4260f,
+        type: 3}
+      propertyPath: badEndingScene.m_ScenePath
+      value: Assets/_Project/Scenes/Loops/NegativeEndingScene.unity
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782699157964381472, guid: cef3e7a5463e37b4881c60d1a8d4260f,
+        type: 3}
+      propertyPath: badEndingScene.m_SceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 334294792b82a154485f3e30b15f44a0,
+        type: 3}
+    - target: {fileID: 4782699157964381472, guid: cef3e7a5463e37b4881c60d1a8d4260f,
+        type: 3}
+      propertyPath: goodEndingScene.m_ScenePath
+      value: Assets/_Project/Scenes/Loops/NegativeEndingScene.unity
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782699157964381472, guid: cef3e7a5463e37b4881c60d1a8d4260f,
+        type: 3}
+      propertyPath: goodEndingScene.m_SceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 334294792b82a154485f3e30b15f44a0,
+        type: 3}
+    - target: {fileID: 4782699157964381472, guid: cef3e7a5463e37b4881c60d1a8d4260f,
+        type: 3}
+      propertyPath: loops.Array.data[10].m_IsDirty
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782699157964381472, guid: cef3e7a5463e37b4881c60d1a8d4260f,
+        type: 3}
+      propertyPath: loops.Array.data[10].m_ScenePath
+      value: Assets/_Project/Scenes/Loops/NegativeEndingScene.unity
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782699157964381472, guid: cef3e7a5463e37b4881c60d1a8d4260f,
+        type: 3}
+      propertyPath: loops.Array.data[10].m_SceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 334294792b82a154485f3e30b15f44a0,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

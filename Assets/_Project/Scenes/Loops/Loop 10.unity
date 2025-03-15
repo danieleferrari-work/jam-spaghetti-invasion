@@ -283,6 +283,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6094596227981599496, guid: cfde175573fd3bf47aa6581e0d6efafd,
         type: 3}
+      propertyPath: TimeUntilFlip
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094596227981599496, guid: cfde175573fd3bf47aa6581e0d6efafd,
+        type: 3}
       propertyPath: positiveEndingImage
       value: 
       objectReference: {fileID: 947709209}

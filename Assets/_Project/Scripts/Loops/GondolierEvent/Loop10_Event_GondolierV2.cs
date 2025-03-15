@@ -14,21 +14,23 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
     [SerializeField] private float rotationTime;
     [SerializeField] private float delayBeforeNewCamera = 1f; // Tempo prima di instanziare la nuova Virtual Camera
     [SerializeField] private SceneReference negativeEndingScene;
-    [SerializeField] private float TimeUntilWin = 20f;
+    [SerializeField] private float TimeUntilFlip = 20f;
     private GameObject mainSceneEnv;
     private Transform modelPlayerGondola;
     private Transform playerParent;
     private FollowCameraRotation followCamObj;
     private Collider triggerCollider;
     private GondolaMovementManager movementManager;
-    private bool isFlipped = false;
     private float timePassed;
     private Vector3 lastPlayerPosition;  // Posizione precedente del player
     private bool hasMoved = false;  // Flag per sapere se il player si è mosso
-
+    CinemachineVirtualCamera newVirtualCam;
+    private bool positiveEndingUnlocked = false;
     // Canvas e Image da usare per il finale positivo
     [SerializeField] private Canvas positiveEndingCanvas;
     [SerializeField] private Image positiveEndingImage;
+
+    Loop10 loop;
 
     private void Start()
     {
@@ -37,6 +39,7 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
         mainSceneEnv = GameObject.Find("Environment");
         triggerCollider = GetComponent<Collider>();
         movementManager = FindObjectOfType<GondolaMovementManager>();
+        loop = GetComponentInParent<Loop10>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -57,7 +60,7 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
             {
                 StartCoroutine(RotatePlayerAndResetCamera(highestCam));
             }
-            isFlipped = true;
+            movementManager.IsFlipped = true;
         }
     }
 
@@ -138,7 +141,7 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
 
         if (virtualCameraPrefab != null)
         {
-            CinemachineVirtualCamera newVirtualCam = Instantiate(virtualCameraPrefab, playerParent).GetComponent<CinemachineVirtualCamera>();
+            newVirtualCam = Instantiate(virtualCameraPrefab, playerParent).GetComponent<CinemachineVirtualCamera>();
             GameObject.FindGameObjectWithTag("PlayerEyes").transform.parent.localPosition = Vector3.zero;
             GameObject.FindGameObjectWithTag("PlayerEyes").transform.localPosition = new Vector3(-0.2f, -1.8f, 0);
             newVirtualCam.m_Follow = GameObject.FindGameObjectWithTag("PlayerEyes").transform;
@@ -154,15 +157,24 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
 
     public void CheckEnding()
     {
-        if (!isFlipped) 
-        { 
-        //Finale con MORTE
-        Debug.Log("La creatura uccide il player!");
+        if (!movementManager.IsFlipped) 
+        {
+            if (positiveEndingUnlocked)
+            {
+                ShowPositiveEnding(positiveEndingCanvas, positiveEndingImage);
+            }
+            else
+            {
+                //Finale con MORTE
+                Debug.Log("La creatura uccide il player!");
+            }
+
         }
         else
         {
             // Finale NEGATIVO
-            LoadNegativeEndingScene(negativeEndingScene.SceneName);
+            loop.gondolierEventCompleted = true;
+            //LoadNegativeEndingScene(negativeEndingScene.SceneName);
         }
     }
 
@@ -220,7 +232,7 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
 
     private void Update()
     {
-        if (isFlipped)
+        if (movementManager.IsFlipped)
         {
             // Verifica se il player si è mosso
             if (Vector3.Distance(playerParent.position, lastPlayerPosition) > 1f)
@@ -239,11 +251,35 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
             }
 
             // Se il timer raggiunge il limite, sblocchiamo il finale positivo
-            if (timePassed >= TimeUntilWin && !hasMoved)
+            if (timePassed >= TimeUntilFlip && !hasMoved)
             {
                 //FLIP Gondola
-                // ShowPositiveEnding(positiveEndingCanvas, positiveEndingImage);
+                
                 Debug.Log("Flip normal");
+                float elapsedTime = 0f;
+                Quaternion startRotation = playerParent.rotation;
+                Quaternion targetRotation = Quaternion.Euler(0, 0, 0f);
+
+                Vector3 startPosition = playerParent.position;
+                Vector3 targetPosition = new Vector3(startPosition.x, 1f, startPosition.z);
+
+                    float t = elapsedTime / rotationTime;
+                    playerParent.rotation = Quaternion.Slerp(startRotation, targetRotation, t);
+                    playerParent.position = Vector3.Lerp(startPosition, targetPosition, t);
+                    elapsedTime += Time.deltaTime;
+
+                playerParent.rotation = targetRotation;
+                playerParent.position = targetPosition;
+               
+                if (followCamObj != null)
+                {
+                    followCamObj.gameObject.SetActive(true);
+                }
+                GameObject.FindGameObjectWithTag("PlayerEyes").transform.parent.localPosition = Vector3.zero;
+                GameObject.FindGameObjectWithTag("PlayerEyes").transform.localPosition = new Vector3(0f, 1.6f, 0.2f);
+                newVirtualCam.m_Priority = 0;
+                movementManager.IsFlipped = false;
+                positiveEndingUnlocked = true;
             }
         }
     }
