@@ -9,22 +9,22 @@ public class GondolaMovementManager : MonoBehaviour
 
     float lastPushTime;
     bool autoPilotEnabled;
-    bool isMoving;
 
     bool isFlipped;
+    bool isMoving;
     bool pauseMovement = false;
     bool IsTimerElapsed => Time.time - lastPushTime > Params.instance.rowPushDelay;
     bool IsPushComplete => Time.time - lastPushTime > Params.instance.rowPushDelay + Params.instance.rowPushDuration;
+    float minVelocity = 0.5f;
 
     public bool IsFlipped { get => isFlipped; set => isFlipped = value; }
     public bool PauseMovement { get => pauseMovement; set => pauseMovement = value; }
 
-    public static UnityAction OnStartRowing;
-    public static UnityAction OnStopRowing;
+    public static UnityAction OnDoRowing;
     public static UnityAction OnStartMoving;
     public static UnityAction OnStopMoving;
 
-   
+
 
     void Awake()
     {
@@ -48,11 +48,6 @@ public class GondolaMovementManager : MonoBehaviour
 
         if (inputValue.magnitude > 0)
         {
-            if (!isMoving)
-            {
-                StartMoving();
-            }
-
             if (rb.velocity.magnitude < Params.instance.gondolaMaxSpeed)
             {
                 AddDefaultAcceleration(inputValue.y);
@@ -65,33 +60,34 @@ public class GondolaMovementManager : MonoBehaviour
                         lastPushTime = Time.time;
                 }
             }
-            if (!isFlipped)
-            {
-                ApplyRotation(inputValue.x);
-            }
-            else
-            {
-                ApplyRotation(- inputValue.x);
-            }
+
+            ApplyRotation(inputValue.x);
         }
-        else if (isMoving)
-        {
+
+        if (rb.velocity.magnitude <= minVelocity)
             StopMoving();
-        }
+        else if (rb.velocity.magnitude >= minVelocity)
+            StartMoving();
     }
 
     private void StartMoving()
     {
-        isMoving = true;
-        OnStartMoving?.Invoke();
+        if (!isMoving)
+        {
+            isMoving = true;
+            OnStartMoving?.Invoke();
+        }
     }
 
     private void StopMoving()
     {
-        isMoving = false;
-        OnStopMoving?.Invoke();
+        if (isMoving)
+        {
+            isMoving = false;
+            OnStopMoving?.Invoke();
+        }
     }
-    
+
     void OnEnableAutoPilot(GondolaAutoPilotArea trigger)
     {
         rb.isKinematic = true;
@@ -110,6 +106,9 @@ public class GondolaMovementManager : MonoBehaviour
 
     void ApplyRotation(float rotation)
     {
+        if (isFlipped)
+            rotation = -rotation;
+
         var targetRotation = rb.rotation.eulerAngles + Vector3.up * rotation * Params.instance.gondolaRotationSpeed;
         rb.MoveRotation(Quaternion.Euler(targetRotation));
     }
@@ -121,6 +120,7 @@ public class GondolaMovementManager : MonoBehaviour
 
     void Push(float value)
     {
+        OnDoRowing?.Invoke();
         rb.AddForce(rb.transform.forward * value * Params.instance.rowPushForce, ForceMode.Force);
     }
 }

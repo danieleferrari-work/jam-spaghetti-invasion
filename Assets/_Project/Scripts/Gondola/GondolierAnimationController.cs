@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class GondolierAnimationController : MonoBehaviour
 {
+    [SerializeField] float movingFadeOutDuration;
+    [SerializeField] float movingFadeInDuration;
     [SerializeField] AudioSource3D rowingSound;
+    [SerializeField] AudioSource3D movingSound;
 
     Animator animator;
 
@@ -13,8 +16,9 @@ public class GondolierAnimationController : MonoBehaviour
 
     void Start()
     {
-        GondolaMovementManager.OnStartRowing += OnStartRowing;
-        GondolaMovementManager.OnStopRowing += OnStopRowing;
+        GondolaMovementManager.OnDoRowing += OnDoRowing;
+        GondolaMovementManager.OnStartMoving += OnStartMoving;
+        GondolaMovementManager.OnStopMoving += OnStopMoving;
     }
 
     // Used by animation event
@@ -23,14 +27,27 @@ public class GondolierAnimationController : MonoBehaviour
         rowingSound.Play();
     }
 
+    // Used by animation event
+    public void OnRowAnimationEnds()
+    {
+        animator.SetBool("IsRowing", false);
+    }
 
-    private void OnStartRowing()
+
+    void OnDoRowing()
     {
         animator.SetBool("IsRowing", true);
     }
 
-    private void OnStopRowing()
+    void OnStopMoving()
     {
-         animator.SetBool("IsRowing", false);
+        Debug.Log("STop ");
+        movingSound.Stop();
+    }
+
+    void OnStartMoving()
+    {
+        Debug.Log("start     ");
+        movingSound.Play();
     }
 }
