@@ -42,7 +42,13 @@ public class LoopsManager : Singleton<LoopsManager>
 
     public void OnLoopExit()
     {
-        if (!currentLoop.IsComplete())
+        if (currentLoopIndex == loops.Count - 1)
+        {
+            Loop10_Event_GondolierV2 loop10 = FindFirstObjectByType<Loop10_Event_GondolierV2>();
+            loop10.CheckEnding();
+            return;
+        }
+            if (!currentLoop.IsComplete())
             RestartLoop();
         else
             NextLoop();
@@ -56,6 +62,7 @@ public class LoopsManager : Singleton<LoopsManager>
 
     void NextLoop()
     {
+
         UnloadLoop(currentLoopIndex);
         currentLoopIndex++;
 

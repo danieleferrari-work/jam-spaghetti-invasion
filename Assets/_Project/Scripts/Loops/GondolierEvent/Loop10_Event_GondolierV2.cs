@@ -1,8 +1,10 @@
-using System.Collections;
 using Cinemachine;
+using DevLocker.Utils;
+using UnityEngine.Rendering.HighDefinition;
+using UnityEngine.SceneManagement;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.HighDefinition; // Necessario per gestire HDAdditionalLightData
+using UnityEngine.UI;
+using System.Collections; // Necessario per manipolare le immagini del Canvas
 
 public class Loop10_Event_GondolierV2 : MonoBehaviour
 {
@@ -11,19 +13,28 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
     [SerializeField] private GameObject mirroredEmptyGondola;
     [SerializeField] private float rotationTime;
     [SerializeField] private float delayBeforeNewCamera = 1f; // Tempo prima di instanziare la nuova Virtual Camera
+    [SerializeField] private SceneReference negativeEndingScene;
+    [SerializeField] private float TimeUntilWin = 20f;
     private GameObject mainSceneEnv;
     private Transform modelPlayerGondola;
     private Transform playerParent;
     private FollowCameraRotation followCamObj;
     private Collider triggerCollider;
     private GondolaMovementManager movementManager;
+    private bool isFlipped = false;
+    private float timePassed;
+
+    // Canvas e Image da usare per il finale positivo
+    [SerializeField] private Canvas positiveEndingCanvas;
+    [SerializeField] private Image positiveEndingImage;
+
     private void Start()
     {
         modelPlayerGondola = GameObject.FindGameObjectWithTag("PlayerGondolaModel").transform;
         playerParent = modelPlayerGondola.parent;
         mainSceneEnv = GameObject.Find("Environment");
         triggerCollider = GetComponent<Collider>();
-        movementManager = FindObjectOfType<GondolaMovementManager>();   
+        movementManager = FindObjectOfType<GondolaMovementManager>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,8 +54,8 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
             if (highestCam != null)
             {
                 StartCoroutine(RotatePlayerAndResetCamera(highestCam));
-                
             }
+            isFlipped = true;
         }
     }
 
@@ -133,9 +144,88 @@ public class Loop10_Event_GondolierV2 : MonoBehaviour
         }
         movementManager.IsFlipped = true;
         movementManager.PauseMovement = false;
-        
-        modelPlayerGondola.GetComponentInChildren<FollowCameraRotation>().enabled = true;
 
+        modelPlayerGondola.GetComponentInChildren<FollowCameraRotation>().enabled = true;
     }
 
+    public void CheckEnding()
+    {
+        if (!isFlipped)
+            //Finale con MORTE
+            Debug.Log("La creatura uccide il player!");
+        else
+        {
+            if (timePassed >= TimeUntilWin)
+            {
+                // Finale POSITIVO
+                Debug.Log("Finale Positivo");
+                ShowPositiveEnding(positiveEndingCanvas, positiveEndingImage);
+            }
+            else
+            {
+                // Finale NEGATIVO
+                LoadNegativeEndingScene(negativeEndingScene.SceneName);
+            }
+        }
+    }
+
+    private void ShowPositiveEnding(Canvas canvas, Image image)
+    {
+        canvas.gameObject.SetActive(true); // Attiva il Canvas
+
+        // Coroutine per aumentare gradualmente l'alpha dell'immagine
+        StartCoroutine(FadeInImage(image));
+    }
+
+    private IEnumerator FadeInImage(Image image)
+    {
+        float targetAlpha = 1f; // Alpha finale
+        float currentAlpha = 0f; // Alpha iniziale
+        float fadeSpeed = 0.5f; // Velocità di transizione
+
+        Color startColor = image.color;
+        startColor.a = currentAlpha;
+        image.color = startColor;
+
+        while (currentAlpha < targetAlpha)
+        {
+            currentAlpha += Time.deltaTime * fadeSpeed;
+            startColor.a = Mathf.Clamp01(currentAlpha);
+            image.color = startColor;
+            yield return null;
+        }
+    }
+
+    private void LoadNegativeEndingScene(string sceneName)
+    {
+        Debug.Log($"Caricamento scena speciale: {sceneName}");
+        // var load = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        //  load.completed += OnNegativeEndingSceneLoaded;
+    }
+
+    private void OnNegativeEndingSceneLoaded(AsyncOperation operation)
+    {
+        Debug.Log("Scena speciale caricata!");
+
+        // Unload tutte le scene tranne quella appena caricata
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            UnityEngine.SceneManagement.Scene scene = SceneManager.GetSceneAt(i);
+            if (scene.name != negativeEndingScene.SceneName)
+            {
+                Debug.Log($"Scaricamento scena: {scene.name}");
+                SceneManager.UnloadSceneAsync(scene);
+            }
+        }
+
+        LoopsManager.OnStartLoop?.Invoke();
+    }
+
+    private void Update()
+    {
+        if (isFlipped)
+        {
+            timePassed += Time.deltaTime;
+        }
+    }
 }

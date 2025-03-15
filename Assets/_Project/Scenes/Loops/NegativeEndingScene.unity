@@ -139,6 +139,30 @@ MonoScript:
   m_ClassName: SceneObjectIDMapSceneAsset
   m_Namespace: UnityEngine.Rendering.HighDefinition
   m_AssemblyName: Unity.RenderPipelines.HighDefinition.Runtime
+--- !u!1 &1028023278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1541957436486677427, guid: 22a908373fc2604419770b4b6da82ae8,
+    type: 3}
+  m_PrefabInstance: {fileID: 7807976080269794106}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1028023280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028023278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac78ea48514b6bb46b75486f67a3e103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBeforeFade: 10
+  fadeDuration: 10
+  targetLightIntensity: 200
+  sceneLight: {fileID: 1440380296}
+  hdrpLitMaterial: {fileID: 2100000, guid: 7200aad351e61af43acbcd74d85b75d8, type: 2}
+  colorPropertyName: _BaseColor
 --- !u!1 &1055117147
 GameObject:
   m_ObjectHideFlags: 19
@@ -205,6 +229,12 @@ MonoScript:
   m_ClassName: SceneObjectIDMapSceneAsset
   m_Namespace: UnityEngine.Rendering.HighDefinition
   m_AssemblyName: Unity.RenderPipelines.HighDefinition.Runtime
+--- !u!108 &1440380296 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 1319012037030455538, guid: 22a908373fc2604419770b4b6da82ae8,
+    type: 3}
+  m_PrefabInstance: {fileID: 7807976080269794106}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1474289228
 Mesh:
   m_ObjectHideFlags: 0
@@ -733,6 +763,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1319012037030455538, guid: 22a908373fc2604419770b4b6da82ae8,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 1541957436486677427, guid: 22a908373fc2604419770b4b6da82ae8,
         type: 3}
       propertyPath: m_IsActive
@@ -832,7 +867,11 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 3759274375662895695, guid: 22a908373fc2604419770b4b6da82ae8, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1541957436486677427, guid: 22a908373fc2604419770b4b6da82ae8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1028023280}
   m_SourcePrefab: {fileID: 100100000, guid: 22a908373fc2604419770b4b6da82ae8, type: 3}
 --- !u!1001 &8774808223349075820
 PrefabInstance:
